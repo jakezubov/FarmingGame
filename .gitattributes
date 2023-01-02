@@ -1,3 +1,6 @@
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.xcf filter=lfs diff=lfs merge=lfs -text
+File[[:space:]]Library/ArtifactDB filter=lfs diff=lfs merge=lfs -text
 /Assets/Sprites/UI/Map/MapEditFile.xcf filter=lfs diff=lfs merge=lfs -text
 /Assets/Tilemaps/Environment/Grassland[[:space:]]Tileset/Source[[:space:]]Files/Grassland[[:space:]]Tileset.psd filter=lfs diff=lfs merge=lfs -text
 /Assets/Tilemaps/Environment/Town[[:space:]]Tileset/Source[[:space:]]Files/Town[[:space:]]Tileset.psd filter=lfs diff=lfs merge=lfs -text
