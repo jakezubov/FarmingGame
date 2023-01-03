@@ -5,16 +5,16 @@ using UnityEngine.InputSystem;
 public class TooltipSystem : MonoBehaviour
 {
     private static TooltipSystem _current;
-    public Tooltip _tooltip;  
+    public Tooltip _tooltip;
 
     public void Awake()
     {
         _current = this;
     }
 
-    public static void Show(string content, string header = "", string traitChanges = "", string traitLocked = "", Sprite repTierUnlock = null)
+    public static void Show(string description, string header = "", string colouredText = "", string colour = "", Sprite image = null)
     {
-        _current._tooltip.SetText(content, header, traitChanges, traitLocked, repTierUnlock);
+        _current._tooltip.SetText(description, header, colouredText, colour, image);
         _current._tooltip.gameObject.SetActive(true);       
     }
 

@@ -17,15 +17,15 @@ public class ComponentSlot : MonoBehaviour, IDropHandler
 
     private void OnDropBase(InventoryItem newInventoryItem)
     {
-        if (transform.childCount == 0 && newInventoryItem.GetItemType() == ItemType.SpellComponent)
+        if (transform.childCount == 0 && newInventoryItem.GetItem().GetItemType() == ItemType.SpellComponent)
         {
-            newInventoryItem._parentAfterDrag = transform;
+            newInventoryItem.SetParentAfterDrag(transform);
             _currentInventoryItem = newInventoryItem;
         }
         else if (transform.childCount == 1)
         {
-            if (_currentInventoryItem.IsStackable() && _currentInventoryItem._item.name == newInventoryItem._item.name &&
-                (_currentInventoryItem.GetCount() + newInventoryItem.GetCount()) <= _currentInventoryItem.GetMaxStackAmount())
+            if (_currentInventoryItem.GetItem().IsStackable() && _currentInventoryItem.GetItem().name == newInventoryItem.GetItem().name &&
+                (_currentInventoryItem.GetCount() + newInventoryItem.GetCount()) <= _currentInventoryItem.GetItem().GetMaxStackAmount())
             {
                 _currentInventoryItem.AddToCount(newInventoryItem.GetCount());
                 Destroy(newInventoryItem.gameObject);

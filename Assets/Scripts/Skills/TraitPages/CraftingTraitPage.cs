@@ -2,28 +2,27 @@ using UnityEngine;
 
 public class CraftingTraitPage : MonoBehaviour
 {
-    public AllSkills _allSkills;
     public Trait _extraCare, _recycler, _arrowForger, _hammerTime, _masterCraftsman, _hotterFurnace;
 
     private Skill _skill;
-    private int _currentSkillPoints;
     private readonly int _minLevel = 3;
     private readonly int _maxLevel = 10;
 
     private void Start()
     {
-        _skill = _allSkills._crafting;
+        _skill = PlayerManager._instance._crafting;
         _extraCare.SetLevelUpStatus(true);
     }
 
     public void TraitLevelUp(Trait trait)
     {
-        _currentSkillPoints = _skill.GetSkillPoints();
-        if (trait.CheckLevelUpStatus() && _skill.GetSkillPoints() > 0 && trait.GetLevel() < _maxLevel)
+        int currentSkillPoints = _skill.GetSkillPoints();
+
+        if (trait.CheckLevelUpStatus() && currentSkillPoints > 0 && trait.GetLevel() < _maxLevel)
         {
             trait.IncreaseLevel();
-            _currentSkillPoints--;
-            _skill.SetSkillPoints(_currentSkillPoints);
+            currentSkillPoints--;
+            _skill.SetSkillPoints(currentSkillPoints);
 
             PerformTraitChange(trait);
             UnlockTraits();

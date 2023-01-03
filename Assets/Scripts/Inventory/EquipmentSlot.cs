@@ -3,8 +3,6 @@ using UnityEngine.EventSystems;
 
 public class EquipmentSlot : MonoBehaviour, IDropHandler
 {
-    private ItemType _itemType;
-
     public void OnDrop(PointerEventData eventData)
     {
         OnDropBase(eventData.pointerDrag.GetComponent<InventoryItem>());
@@ -17,15 +15,20 @@ public class EquipmentSlot : MonoBehaviour, IDropHandler
 
     private void OnDropBase(InventoryItem inventoryItem)
     {
+        ItemType itemType = ItemType.Default;
+
         if (transform.childCount == 1)
         {
-            if (CompareTag("Belt")) { _itemType = ItemType.Belt; }
-            if (CompareTag("Ring")) { _itemType = ItemType.Ring; }
-            if (CompareTag("ArcaneFocus")) { _itemType = ItemType.ArcaneFocus; }
+            if (CompareTag("Belt")) { itemType = ItemType.Belt; }
+            if (CompareTag("Ring")) { itemType = ItemType.Ring; }
+            if (CompareTag("ArcaneFocus")) { itemType = ItemType.ArcaneFocus; }
+            if (CompareTag("Arrows")) { itemType = ItemType.Arrows; }
+            if (CompareTag("Necklace")) { itemType = ItemType.Necklace; }
 
-            if (inventoryItem.GetItemType() == _itemType)
+
+            if (inventoryItem.GetItem().GetItemType() == itemType)
             {
-                inventoryItem._parentAfterDrag = transform;
+                inventoryItem.SetParentAfterDrag(transform);
             }
         }
     }

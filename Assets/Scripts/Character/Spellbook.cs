@@ -6,10 +6,11 @@ public class Spellbook : MonoBehaviour
 {
     public GameObject _inventoryObject, _skillsObject, _reputationObject;
     public GameObject _inventoryFirstButton, _skillsFirstButton, _reputationFirstButton;
-    public GameObject _skillPages;
 
     private bool _spellbookActive = false;
-    private Sections _currentSection = (Sections)1;
+    private Sections _sections = (Sections)1;
+    private GameObject _currentSection;
+    private GameObject _currentButton;
     private readonly int _maxSectionNumber = Enum.GetNames(typeof(Sections)).Length;
 
     enum Sections
@@ -19,10 +20,15 @@ public class Spellbook : MonoBehaviour
         reputation = 3
     };
 
+    public bool CheckSpellbookActive()
+    {
+        return _spellbookActive;
+    }
+
     public void OpenSpellbook()
     {
         gameObject.SetActive(true);
-        ChangeSpellBookPage();
+        UpdateSpellBookSection();
         _spellbookActive = true;
     }
 
@@ -32,24 +38,27 @@ public class Spellbook : MonoBehaviour
         gameObject.SetActive(false);
         _spellbookActive = false;
     }
-
-    public bool CheckSpellbookActive()
-    {
-        return _spellbookActive;
-    }
-
+   
     public void ChangeSectionLeft()
     {
-        _currentSection--;
-        if ((int)_currentSection == 0) { _currentSection = (Sections)_maxSectionNumber; }
-        ChangeSpellBookPage();
+        _sections--;
+        if ((int)_sections == 0) { _sections = (Sections)_maxSectionNumber; }
+        UpdateSpellBookSection();
     }
 
     public void ChangeSectionRight()
     {
-        _currentSection++;
-        if ((int)_currentSection == _maxSectionNumber + 1) { _currentSection = (Sections)1; }
-        ChangeSpellBookPage();
+        _sections++;
+        if ((int)_sections == _maxSectionNumber + 1) { _sections = (Sections)1; }
+        UpdateSpellBookSection();
+    }
+
+    private void UpdateSpellBookSection()
+    {
+        FindCurrentObjects();
+        HideAllSections();
+        UnhideSection(_currentSection, _currentButton);
+        TooltipSystem.MoveMouse();
     }
 
     public void HideAllSections()
@@ -60,43 +69,21 @@ public class Spellbook : MonoBehaviour
         _reputationObject.SetActive(false);
     }
 
-    public void UnhideSection(GameObject section, GameObject firstButton)
+    private void UnhideSection(GameObject section, GameObject firstButton)
     {
         section.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstButton);
     }
 
-    private GameObject FindCurrentSection()
+    private void FindCurrentObjects()
     {
-        GameObject section;
-        switch(_currentSection)
+        switch(_sections)
         {
-            case Sections.inventory: section = _inventoryObject; break;
-            case Sections.skills: section = _skillsObject; break;
-            case Sections.reputation: section = _reputationObject; break;
-            default: section = _inventoryObject; break;
+            case Sections.inventory: _currentSection = _inventoryObject; _currentButton = _inventoryFirstButton; break;
+            case Sections.skills: _currentSection = _skillsObject; _currentButton = _skillsFirstButton; break;
+            case Sections.reputation: _currentSection = _reputationObject; _currentButton = _reputationFirstButton; break;
+            default: _currentSection = _inventoryObject; _currentButton = _inventoryFirstButton; break;
         }
-        return section;
-    }
-
-    public  GameObject FindFirstButton()
-    {
-        GameObject firstButton;
-        switch (_currentSection)
-        {
-            case Sections.inventory: firstButton = _inventoryFirstButton; break;
-            case Sections.skills: firstButton = _skillsFirstButton; break;
-            case Sections.reputation: firstButton = _reputationFirstButton; break;
-            default: firstButton = _inventoryObject; break;
-        }
-        return firstButton;
-    }
-
-    private void ChangeSpellBookPage()
-    {
-        HideAllSections();   
-        UnhideSection(FindCurrentSection(), FindFirstButton());
-        TooltipSystem.MoveMouse();
     }
 }

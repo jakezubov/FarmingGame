@@ -2,11 +2,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Interact : MonoBehaviour
-{
-    public Stat _stamina;
-    public AllSkills _skills;
-    public Tilemap _foliageTilemap;
-    public Tilemap _treeTopTilemap;
+{   
+    public Tilemap _resourcesTilemap;
+    public Tilemap _objectsNoCollideTilemap;
     public GameObject _lootPrefab;
 
     public RuleTileWithData _woodTile;
@@ -17,130 +15,113 @@ public class Interact : MonoBehaviour
     public RuleTileWithData _oakTile;
     public RuleTileWithData _spruceTile;   
     
+    private Stats _stamina;
     private readonly int _baseExp = 10;
     private readonly int _baseStamina = 1;
 
+    private void Start()
+    {
+        _stamina = PlayerManager._instance._stamina;
+    }
+
     public void TryInteract(Vector3Int currentCell)
     {
-        if (_stamina.GetCurrentStatAmount() > 0)
+        if (_resourcesTilemap.GetTile<RuleTileWithData>(currentCell) != null)
         {
-            _stamina.LowerCurrentStatAmount(_baseStamina);      
+            RuleTileWithData ruleTile = _resourcesTilemap.GetTile<RuleTileWithData>(currentCell);
+            Item item = InventoryManager._instance.GetSelectedToolbarItem(false);
 
-            if (_foliageTilemap.GetTile<RuleTileWithData>(currentCell) != null)
+            if (item.GetItemType() == ItemType.BuildingBlock)
             {
-                RuleTileWithData ruleTile = _foliageTilemap.GetTile<RuleTileWithData>(currentCell);
-                Item item = InventoryManager._instance.GetSelectedToolbarItem(false);
-
-                if (item._itemType == ItemType.BuildingBlock)
-                {
-                    Build(currentCell);
-                }
-                else if (item._itemType == ItemType.Tool)
-                {
-                    if (ruleTile == _woodTile && item._actionType == ActionType.Chop)
-                    {
-                        Destroy(currentCell);
-                        _skills.GainExp(_baseExp, _skills._woodcutting);
-                    }
-                    else if (ruleTile == _logTile && item._actionType == ActionType.Chop)
-                    {
-                        Destroy(currentCell); 
-
-                        currentCell.y += 1;
-                        if (_foliageTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Destroy(currentCell); }
-                        currentCell.y += 1;
-                        if (_foliageTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Destroy(currentCell); }
-                        currentCell.y -= 3;
-                        if (_foliageTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Destroy(currentCell); }
-                        currentCell.y -= 1;
-                        if (_foliageTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Destroy(currentCell); }
-                        currentCell.y += 2;
-
-                        currentCell.x += 1;
-                        if (_foliageTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Destroy(currentCell); }
-                        currentCell.x += 1;
-                        if (_foliageTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Destroy(currentCell); }
-                        currentCell.x -= 3;
-                        if (_foliageTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Destroy(currentCell); }
-                        currentCell.x -= 1;
-                        if (_foliageTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Destroy(currentCell); }
-
-                        _skills.GainExp(_baseExp*3, _skills._woodcutting);                       
-                    }
-                    else if (ruleTile == _stoneTile && item._actionType == ActionType.Mine) 
-                    { 
-                        Destroy(currentCell); 
-                        _skills.GainExp(_baseExp, _skills._mining); 
-                    }                   
-                    else if (ruleTile == _longRockTile && item._actionType == ActionType.Mine)
-                    {
-                        Destroy(currentCell);                       
-                        currentCell.x += 1;
-                        if (_foliageTilemap.GetTile<RuleTileWithData>(currentCell) == _longRockTile) { Destroy(currentCell); }
-                        currentCell.x -= 2;
-                        if (_foliageTilemap.GetTile<RuleTileWithData>(currentCell) == _longRockTile) { Destroy(currentCell); }
-
-                        _skills.GainExp(_baseExp * 2, _skills._mining);
-                    }
-                    else if (ruleTile == _boulderTile && item._actionType == ActionType.Mine)
-                    {
-                        
-                    }
-                }
-            }            
-
-            /*            
-            if (_foliageTilemap.GetTile(currentCell) == _spruceTile || _foliageTilemap.GetTile(currentCell) == _oakTile)
+                Place(currentCell);
+            }
+            else if (_stamina.GetCurrentStatAmount() > 0 && item.GetItemType() == ItemType.Tool)
             {
-                int treeHeight = 5;
-                _foliageTilemap.SetTile(currentCell, null);
-                for (int i = 0; i < treeHeight; i++) { currentCell.y += 1; _treeTopTilemap.SetTile(currentCell, null); }
-                currentCell.x += 1; _treeTopTilemap.SetTile(currentCell, null);
-                for (int i = 0; i < treeHeight; i++) { currentCell.y -= 1; _treeTopTilemap.SetTile(currentCell, null); }
-                currentCell.x -= 2; _treeTopTilemap.SetTile(currentCell, null);
-                for (int i = 0; i < treeHeight; i++) { currentCell.y += 1; _treeTopTilemap.SetTile(currentCell, null); }
+                _stamina.LowerCurrentStatAmount(_baseStamina);
+                                    
+                if (ruleTile == _woodTile && item.GetActionType() == ActionType.Chop)
+                {
+                    Gather(currentCell);
+                    PlayerManager._instance._woodcutting.GainExp(_baseExp);
+                }
+                else if (ruleTile == _logTile && item.GetActionType() == ActionType.Chop)
+                {
+                    Gather(currentCell);
 
-                //for (int i = 0; i < treeHeight; i++) { _inventory.GainWood(); }
-                _skills.GainExp(treeHeight * _baseExp, _skills._woodcutting);
-                _stamina.LowerCurrentStatAmount(treeHeight);
-            } */
+                    // Checks for vertical logs
+                    currentCell.y += 1;
+                    if (_resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Gather(currentCell); }
+                    currentCell.y += 1;
+                    if (_resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Gather(currentCell); }
+                    currentCell.y -= 3;
+                    if (_resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Gather(currentCell); }
+                    currentCell.y -= 1;
+                    if (_resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Gather(currentCell); }
+                    currentCell.y += 2;
+
+                    // Checks for horizontal logs
+                    currentCell.x += 1;
+                    if (_resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Gather(currentCell); }
+                    currentCell.x += 1;
+                    if (_resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Gather(currentCell); }
+                    currentCell.x -= 3;
+                    if (_resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Gather(currentCell); }
+                    currentCell.x -= 1;
+                    if (_resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { Gather(currentCell); }
+
+                    PlayerManager._instance._woodcutting.GainExp(_baseExp * 3);
+                }
+                else if (ruleTile == _stoneTile && item.GetActionType() == ActionType.Mine)
+                {
+                    Gather(currentCell);
+                    PlayerManager._instance._mining.GainExp(_baseExp);
+                }
+                else if (ruleTile == _longRockTile && item.GetActionType() == ActionType.Mine)
+                {
+                    Gather(currentCell);
+                    currentCell.x += 1;
+                    if (_resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _longRockTile) { Gather(currentCell); }
+                    currentCell.x -= 2;
+                    if (_resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _longRockTile) { Gather(currentCell); }
+
+                    PlayerManager._instance._mining.GainExp(_baseExp * 2);
+                }
+                else if (ruleTile == _boulderTile && item.GetActionType() == ActionType.Mine)
+                {
+
+                }  /*     
+                else if (ruleTile == _spruceTile || ruleTile == _oakTile)
+                {
+                    int treeHeight = 5;
+
+                    _resourcesTilemap.SetTile(currentCell, null);
+                    for (int i = 0; i < treeHeight; i++) { currentCell.y += 1; _objectsNoCollideTilemap.SetTile(currentCell, null); }
+                    currentCell.x += 1; _objectsNoCollideTilemap.SetTile(currentCell, null);
+                    for (int i = 0; i < treeHeight; i++) { currentCell.y -= 1; _objectsNoCollideTilemap.SetTile(currentCell, null); }
+                    currentCell.x -= 2; _objectsNoCollideTilemap.SetTile(currentCell, null);
+                    for (int i = 0; i < treeHeight; i++) { currentCell.y += 1; _objectsNoCollideTilemap.SetTile(currentCell, null); }
+
+                    PlayerManager._instance._woodcutting.GainExp(treeHeight * _baseExp);
+                    stamina.LowerCurrentStatAmount(treeHeight);
+                } */
+            }
         }
     }
 
-    private void Build(Vector3Int position)
+    private void Place(Vector3Int position)
     {
-        Item itemToBuild = InventoryManager._instance.GetSelectedToolbarItem(true);
+        Item itemToPlace = InventoryManager._instance.GetSelectedToolbarItem(true);
 
-        _foliageTilemap.SetTile(position, itemToBuild._tile);
+        _resourcesTilemap.SetTile(position, itemToPlace._tile);
     }
 
-    private void Destroy(Vector3Int position)
+    private void Gather(Vector3Int position)
     {
-        RuleTileWithData tile = _foliageTilemap.GetTile<RuleTileWithData>(position);
-        _foliageTilemap.SetTile(position, null);
+        RuleTileWithData tile = _resourcesTilemap.GetTile<RuleTileWithData>(position);
+        _resourcesTilemap.SetTile(position, null);
 
-        Vector3 pos = _foliageTilemap.GetCellCenterWorld(position);
+        Vector3 pos = _resourcesTilemap.GetCellCenterWorld(position);
         GameObject loot = Instantiate(_lootPrefab, pos, Quaternion.identity);
-        loot.GetComponent<LootItem>().Initialise(tile.item);
-    }
-
-    private bool CheckCondition(RuleTileWithData tile, Item currentItem)
-    {
-        if (currentItem._itemType == ItemType.BuildingBlock)
-        {
-            if (!tile)
-            {
-                return false;
-            }
-        }
-        else if (currentItem._itemType == ItemType.Tool)
-        {
-            if (tile && tile.item._actionType == currentItem._actionType)
-            {
-                return true;
-            }
-        }
-
-        return false;
+        loot.GetComponent<LootItem>().Initialise(tile.GetItem());
     }
 }

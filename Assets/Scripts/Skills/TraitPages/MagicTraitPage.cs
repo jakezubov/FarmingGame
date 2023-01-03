@@ -2,29 +2,27 @@ using UnityEngine;
 
 public class MagicTraitPage : MonoBehaviour
 {
-    public AllSkills _allSkills;
     public Trait _swiftness, _packMule, _manaOverload, _spellAffinity, _willpower, _ritualAffinity;
-    public Stat _mana;
 
     private Skill _skill;
-    private int _currentSkillPoints;
     private readonly int _minLevel = 3;
     private readonly int _maxLevel = 10;
 
     private void Start()
     {
-        _skill = _allSkills._magic;
+        _skill = PlayerManager._instance._magic;
         _swiftness.SetLevelUpStatus(true);
     }
 
     public void TraitLevelUp(Trait trait)
     {
-        _currentSkillPoints = _skill.GetSkillPoints();
-        if (trait.CheckLevelUpStatus() && _skill.GetSkillPoints() > 0 && trait.GetLevel() < _maxLevel)
+        int currentSkillPoints = _skill.GetSkillPoints();
+
+        if (trait.CheckLevelUpStatus() && currentSkillPoints > 0 && trait.GetLevel() < _maxLevel)
         {
             trait.IncreaseLevel();
-            _currentSkillPoints--;
-            _skill.SetSkillPoints(_currentSkillPoints);
+            currentSkillPoints--;
+            _skill.SetSkillPoints(currentSkillPoints);
 
             PerformTraitChange(trait);
             UnlockTraits();
@@ -35,7 +33,7 @@ public class MagicTraitPage : MonoBehaviour
     {
         if (trait == _swiftness) { }
         else if (trait == _packMule) { }
-        else if (trait == _manaOverload) { _mana.AddToMaxStatAmount(10); }
+        else if (trait == _manaOverload) { PlayerManager._instance._mana.AddToMaxStatAmount(10); }
         else if (trait == _spellAffinity) { }
         else if (trait == _willpower) { }
         else if (trait == _ritualAffinity) { }

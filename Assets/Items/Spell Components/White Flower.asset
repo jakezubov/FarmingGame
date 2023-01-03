@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: White Flower
   m_EditorClassIdentifier: 
   _tile: {fileID: 0}
-  _actionType: 5
   _range: {x: 5, y: 4}
+  _actionType: 4
   _description: Flower used for spells
+  _textColour: Magenta
   _stackable: 1
   _maxStack: 5
   _image: {fileID: 21300000, guid: 4e8f5fe1a36976443a8b27e16d552dac, type: 3}
-  _itemType: 6
+  _itemType: 7

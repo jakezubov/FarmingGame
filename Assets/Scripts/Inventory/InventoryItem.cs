@@ -2,27 +2,41 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.ComponentModel;
+using System.Reflection;
+using System;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image _image;
     public ChangeText _countText;
 
-    [HideInInspector] public Item _item;   
-    [HideInInspector] public Transform _parentAfterDrag;
-
-    //private Vector3 _position;
+    private Item _item;
+    private Transform _parentAfterDrag;
     private int _count = 1;
 
-    public void InitialiseItem(Item newitem)
+    public void InitialiseItem(Item newItem)
     {
-        _item = newitem;
-        _image.sprite = newitem._image;
+        _item = newItem;
+        _image.sprite = newItem.GetImage();
         RefreshCount();
 
         TooltipTrigger tooltip = GetComponent<TooltipTrigger>();
-        tooltip._header = _item.name;
-        tooltip._content = _item._description;
+        tooltip.SetHeader(_item.name);
+        tooltip.SetDescription(_item.GetDescription());
+
+        if (newItem.GetItemType() == ItemType.SpellComponent)
+        {
+            tooltip.SetColouredText(GetDescriptionFromEnum(ItemType.SpellComponent), newItem.GetTextColour());
+        }
+    }
+
+    public static string GetDescriptionFromEnum(Enum value)
+    {
+        FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
+        DescriptionAttribute[] attributes =
+          (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
+        return attributes == null && attributes.Length == 0 ? value.ToString() : attributes[0].Description;
     }
 
     public void RefreshCount()
@@ -64,7 +78,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.localPosition = Vector3.zero;
         _image.raycastTarget = true;
 
-        if (_parentAfterDrag.childCount == 2) { _parentAfterDrag.GetChild(0).gameObject.SetActive(false); }        
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(_parentAfterDrag.gameObject);
+
+        if (_parentAfterDrag.childCount == 2) { _parentAfterDrag.GetChild(0).gameObject.SetActive(false); }
     }
 
     public void OnEndNav()
@@ -75,34 +92,23 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (_parentAfterDrag.childCount == 2) { _parentAfterDrag.GetChild(0).gameObject.SetActive(false); }
     }
 
-    public ItemType GetItemType()
+    public Item GetItem()
     {
-        return _item._itemType;
+        return _item;
     }
 
-    public int GetMaxStackAmount()
+    public void SetParentAfterDrag(Transform newParent)
     {
-        return _item.GetMaxStack();
-    }
-
-    public void SetMaxStackAmount(int amount)
-    {
-        _item.SetMaxStack(amount);
-    }
-
-    public void AddToCount(int num)
-    {
-        _count += num;
-        RefreshCount();
+        _parentAfterDrag = newParent;
     }
 
     public int GetCount()
     {
         return _count;
     }
-
-    public bool IsStackable()
+    public void AddToCount(int num)
     {
-        return _item._stackable;
+        _count += num;
+        RefreshCount();
     }
 }

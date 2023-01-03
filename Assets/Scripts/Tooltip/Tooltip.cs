@@ -6,11 +6,11 @@ using UnityEngine.EventSystems;
 [ExecuteInEditMode()]
 public class Tooltip : MonoBehaviour
 {
-    public Text _headerField;
-    public Text _contentField;
-    public Text _traitChanges;
-    public Text _traitLocked;
-    public Image _repTierImage;   
+    public Text _header;
+    public Text _description;
+    public Text _colouredText; 
+    public Image _image;
+
     public LayoutElement _layoutElement;
     public int _characterWrapLimit;
 
@@ -21,35 +21,33 @@ public class Tooltip : MonoBehaviour
         _rectTransform = GetComponent<RectTransform>();
     }
 
-    public void SetText(string content, string header = "", string traitChanges = "", string traitLocked = "", Sprite repTierUnlock = null)
+    public void SetText(string description, string header = "", string colouredText = "", string colour = "", Sprite image = null)
     {
+        _description.text = description;       
+
         // Header check
-        if (string.IsNullOrEmpty(header)) { _headerField.gameObject.SetActive(false); }
-        else { _headerField.gameObject.SetActive(true); _headerField.text = header; }
+        if (string.IsNullOrEmpty(header)) { _header.gameObject.SetActive(false); }
+        else { _header.gameObject.SetActive(true); _header.text = header; }
 
-        // Trait changes check
-        if (string.IsNullOrEmpty(traitChanges)) { _traitChanges.gameObject.SetActive(false); }
+        // Coloured Text check 
+        if (string.IsNullOrEmpty(colouredText)) { _colouredText.gameObject.SetActive(false); }
         else 
-        {
-            traitChanges = traitChanges.Replace("---", "\n");
-            _traitChanges.gameObject.SetActive(true);
-            _traitChanges.text = traitChanges; 
-        }
+        { 
+            _colouredText.gameObject.SetActive(true); 
+            _colouredText.text = colouredText; 
+            _colouredText.color = (Color)typeof(Color).GetProperty(colour.ToLowerInvariant()).GetValue(null, null); 
+        }   
 
-        // Trait locked check
-        if (string.IsNullOrEmpty(traitLocked)) { _traitLocked.gameObject.SetActive(false); }
-        else { _traitLocked.gameObject.SetActive(true); _traitLocked.text = traitLocked; }
+        // Image check
+        if (image == null) { _image.gameObject.SetActive(false); }
+        else { _image.gameObject.SetActive(true); _image.sprite = image; }
+      
+        int headerLength = _header.text.Length;
+        int contentLength = _description.text.Length;
+        int colouredTextLength = _colouredText.text.Length;
 
-        // RepTierUnlock check
-        if (repTierUnlock == null) { _repTierImage.gameObject.SetActive(false); }
-        else { _repTierImage.gameObject.SetActive(true); _repTierImage.sprite = repTierUnlock; }
-
-        _contentField.text = content;
-
-        int headerLength = _headerField.text.Length;
-        int contentLength = _contentField.text.Length;
-
-        _layoutElement.enabled = (headerLength > _characterWrapLimit || contentLength > _characterWrapLimit) ? true : false;
+        _layoutElement.enabled = (headerLength > _characterWrapLimit || contentLength > _characterWrapLimit ||
+            colouredTextLength > _characterWrapLimit) ? true : false;
     }
 
     void Update()

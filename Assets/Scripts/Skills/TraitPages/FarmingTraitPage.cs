@@ -2,28 +2,27 @@ using UnityEngine;
 
 public class FarmingTraitPage : MonoBehaviour
 {
-    public AllSkills _allSkills;
     public Trait _seedSupplier, _charismatic, _fierceForager, _animalMagnetism, _timeIsMoney, _greenThumb;
 
     private Skill _skill;
-    private int _currentSkillPoints;
     private readonly int _minLevel = 3;
     private readonly int _maxLevel = 10;
 
     private void Start()
     {
-        _skill = _allSkills._farming;
+        _skill = PlayerManager._instance._farming;
         _seedSupplier.SetLevelUpStatus(true);
     }
 
     public void TraitLevelUp(Trait trait)
     {
-        _currentSkillPoints = _skill.GetSkillPoints();
-        if (trait.CheckLevelUpStatus() && _skill.GetSkillPoints() > 0 && trait.GetLevel() < _maxLevel)
+        int currentSkillPoints = _skill.GetSkillPoints();
+
+        if (trait.CheckLevelUpStatus() && currentSkillPoints > 0 && trait.GetLevel() < _maxLevel)
         {
             trait.IncreaseLevel();
-            _currentSkillPoints--;
-            _skill.SetSkillPoints(_currentSkillPoints);
+            currentSkillPoints--;
+            _skill.SetSkillPoints(currentSkillPoints);
 
             PerformTraitChange(trait);
             UnlockTraits();

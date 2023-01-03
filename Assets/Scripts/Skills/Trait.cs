@@ -4,6 +4,7 @@ public class Trait : MonoBehaviour
 {
     public TraitButton _button;
     public ChangeText _text, _traitLocked;
+
     private int _traitLevel;
     private bool _canLevelUp;
 

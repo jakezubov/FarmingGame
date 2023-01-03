@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class LootItem : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _sr;
-    [SerializeField] private BoxCollider2D _collider;
-    [SerializeField] private float _moveSpeed;
+    public SpriteRenderer _sr;
+    public BoxCollider2D _collider;
 
+    private float _moveSpeed = 4;
     private Item item;
 
     public void Initialise(Item item)
     {
         this.item = item;
-        _sr.sprite = item._image;
+        _sr.sprite = item.GetImage();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

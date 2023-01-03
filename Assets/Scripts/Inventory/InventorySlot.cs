@@ -6,6 +6,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 {
     public Image _image;
     public Color _selectedColour, _notSelectedColour;
+
     private InventoryItem _currentInventoryItem = null;
 
     private void Awake()
@@ -37,13 +38,13 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     {
         if (transform.childCount == 0)
         {
-            newInventoryItem._parentAfterDrag = transform;
+            newInventoryItem.SetParentAfterDrag(transform);
             _currentInventoryItem = newInventoryItem;
         }
         else if (transform.childCount == 1)
         {
-            if (_currentInventoryItem.IsStackable() && _currentInventoryItem._item.name == newInventoryItem._item.name &&
-                (_currentInventoryItem.GetCount() + newInventoryItem.GetCount()) <= _currentInventoryItem.GetMaxStackAmount())
+            if (_currentInventoryItem.GetItem().IsStackable() && _currentInventoryItem.GetItem().name == newInventoryItem.GetItem().name &&
+                (_currentInventoryItem.GetCount() + newInventoryItem.GetCount()) <= _currentInventoryItem.GetItem().GetMaxStackAmount())
             {
                 _currentInventoryItem.AddToCount(newInventoryItem.GetCount());
                 Destroy(newInventoryItem.gameObject);

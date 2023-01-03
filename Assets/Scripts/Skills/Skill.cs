@@ -4,18 +4,32 @@ public class Skill : MonoBehaviour
 {   
     public ChangeSlider _experienceBar;
     public ChangeText _levelText, _skillPointsText;
+
     private int _currentExp, _level, _skillPoints;
+    private readonly int _requiredExpBase = 100;
 
     public Skill()
     {
         _level = 1;       
         _currentExp = 0;
-        _skillPoints = 0;
+        _skillPoints = 0;       
     }
 
     private void Start()
     {
         _levelText.SetText(_level.ToString());
+    }
+
+    public void GainExp(int experience)
+    {
+        AddToCurrentExp(experience);
+        if (_currentExp >= _requiredExpBase * _level)
+        {
+            int leftoverExperience = _currentExp - (_requiredExpBase * _level);
+            LevelUp();
+            SetExpBarMax(_requiredExpBase * GetLevel());
+            SetCurrentExp(leftoverExperience);
+        }
     }
 
     public int GetCurrentExp()
@@ -63,4 +77,6 @@ public class Skill : MonoBehaviour
     {
         _experienceBar.SetMaxValue(value);
     }
+
+    
 }

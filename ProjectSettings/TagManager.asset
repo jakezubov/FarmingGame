@@ -6,8 +6,10 @@ TagManager:
   tags:
   - SpellComponent
   - Belt
-  - ArcaneFocus
   - Ring
+  - ArcaneFocus
+  - Necklace
+  - Arrows
   layers:
   - Default
   - TransparentFX
@@ -48,16 +50,13 @@ TagManager:
   - name: Ground
     uniqueID: 773643511
     locked: 0
-  - name: Water/Cliffs
+  - name: Environmental Colliders
     uniqueID: 920723773
     locked: 0
   - name: Buildings
     uniqueID: 371999851
     locked: 0
-  - name: Building Extras
-    uniqueID: 352039823
-    locked: 0
-  - name: GroundFoliage
+  - name: Resources
     uniqueID: 1399536027
     locked: 0
   - name: Highlight Tile
@@ -66,7 +65,7 @@ TagManager:
   - name: Player
     uniqueID: 281482437
     locked: 0
-  - name: Object Tops
+  - name: Objects No Collider
     uniqueID: 4001750517
     locked: 0
   - name: UI
