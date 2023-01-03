@@ -164,23 +164,31 @@ public class PlayerController : MonoBehaviour
         }
         else if (_playerActionControls.SpellBook.Select.triggered && _isItemSelected)
         {
-            if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventorySlot>() != null)
+            if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<BinSlot>() != null)
+            {
+                BinSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<BinSlot>();
+                slot.NavOnDrop(_selectedItem);
+                _selectedItem.OnEndNav();
+            }
+            else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventorySlot>() != null)
             {
                 InventorySlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventorySlot>();
                 slot.NavOnDrop(_selectedItem);
+                _selectedItem.OnEndNav();
             }
             else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<EquipmentSlot>() != null)
             {
                 EquipmentSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<EquipmentSlot>();
                 slot.NavOnDrop(_selectedItem);
+                _selectedItem.OnEndNav();
             }
             else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<ComponentSlot>() != null)
             {
                 ComponentSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<ComponentSlot>();
                 slot.NavOnDrop(_selectedItem);
-            }        
-
-            _selectedItem.OnEndNav();            
+                _selectedItem.OnEndNav();
+            }
+                       
             _isItemSelected = false;
         }
 

@@ -56,21 +56,22 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Skills\TraitPages\MiningTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Skills\MiningTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Game Manager\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Tooltip\TooltipSystem.cs" />
     <Compile Include="Assets\Scripts\UI Editors\ChangeSlider.cs" />
     <Compile Include="Assets\Scripts\DemoScript.cs" />
     <Compile Include="Assets\Scripts\UI Editors\ChangeText.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
     <Compile Include="Assets\Scripts\Character\PlayerActionControls.cs" />
-    <Compile Include="Assets\Scripts\Skills\TraitPages\CombatTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Skills\CombatTraitPage.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\RuleTileWithData.cs" />
     <Compile Include="Assets\Scripts\Skills\Trait.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Game Manager\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\Tooltip\Tooltip.cs" />
-    <Compile Include="Assets\Scripts\Skills\TraitPages\FishingTraitPage.cs" />
-    <Compile Include="Assets\Scripts\Skills\TraitPages\CraftingTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Skills\FishingTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Skills\CraftingTraitPage.cs" />
     <Compile Include="Assets\Scripts\Game Manager\Stats.cs" />
     <Compile Include="Assets\Scripts\Inventory\ComponentSlot.cs" />
     <Compile Include="Assets\Scripts\Game Manager\Reputation.cs" />
@@ -78,16 +79,17 @@
     <Compile Include="Assets\Scripts\UI Editors\TraitButton.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\Item.cs" />
     <Compile Include="Assets\Scripts\Gameplay\HighlightTile.cs" />
-    <Compile Include="Assets\Scripts\Skills\TraitPages\MagicTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Skills\MagicTraitPage.cs" />
     <Compile Include="Assets\Scripts\Gameplay\LootItem.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentSlot.cs" />
     <Compile Include="Assets\Scripts\Character\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Tooltip\TooltipTrigger.cs" />
-    <Compile Include="Assets\Scripts\Skills\TraitPages\WoodcuttingTraitPage.cs" />
-    <Compile Include="Assets\Scripts\Skills\TraitPages\FarmingTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Skills\WoodcuttingTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Skills\FarmingTraitPage.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Character\Spellbook.cs" />
-    <Compile Include="Assets\Scripts\Game Manager\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\Inventory\BinSlot.cs" />
+    <Compile Include="Assets\Scripts\Skills\TraitPages.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprites\2D Customizable Characters\Character Editor\Fonts\Nunito\OFL.txt" />

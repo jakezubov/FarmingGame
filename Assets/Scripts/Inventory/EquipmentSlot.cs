@@ -25,7 +25,6 @@ public class EquipmentSlot : MonoBehaviour, IDropHandler
             if (CompareTag("Arrows")) { itemType = ItemType.Arrows; }
             if (CompareTag("Necklace")) { itemType = ItemType.Necklace; }
 
-
             if (inventoryItem.GetItem().GetItemType() == itemType)
             {
                 inventoryItem.SetParentAfterDrag(transform);
