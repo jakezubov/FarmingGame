@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     public ComponentSlot[] _componentSlots; 
 
     private int _selectedSlot = -1;
+    private bool _inventoryFull = false;
 
     private void Awake()
     {
@@ -38,29 +39,8 @@ public class InventoryManager : MonoBehaviour
     }
 
     public bool AddItem(Item item)
-    {
-        // spawn item in component pouch if component 
-        if (item.GetItemType() == ItemType.SpellComponent)
-        {
-            for (int i = 0; i < _componentSlots.Length; i++)
-            {
-                ComponentSlot slot = _componentSlots[i];
-                InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-
-                if (itemInSlot != null && itemInSlot.GetItem().IsStackable() &&
-                    itemInSlot.GetItem() == item && itemInSlot.GetCount() < itemInSlot.GetItem().GetMaxStackAmount())
-                {
-                    itemInSlot.AddToCount(1);
-                    return true;
-                }
-                else if(itemInSlot == null)
-                {
-                    SpawnNewItemComp(item, slot);
-                    return true;
-                }
-            }
-        }
-        else // else spawn item in inventory
+    {    
+        if (!_inventoryFull)// spawn item in inventory
         {
             for (int i = 0; i < _inventorySlots.Length; i++)
             {
@@ -77,6 +57,29 @@ public class InventoryManager : MonoBehaviour
                 else if (itemInSlot == null)
                 {
                     SpawnNewItemInv(item, slot);
+                    return true;
+                }
+                
+            }
+            _inventoryFull = true;
+        }
+        // spawn item in component pouch if component 
+        else if (item.GetItemType() == ItemType.SpellComponent) 
+        {
+            for (int i = 0; i < _componentSlots.Length; i++)
+            {
+                ComponentSlot slot = _componentSlots[i];
+                InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+
+                if (itemInSlot != null && itemInSlot.GetItem().IsStackable() &&
+                    itemInSlot.GetItem() == item && itemInSlot.GetCount() < itemInSlot.GetItem().GetMaxStackAmount())
+                {
+                    itemInSlot.AddToCount(1);
+                    return true;
+                }
+                else if (itemInSlot == null)
+                {
+                    SpawnNewItemComp(item, slot);
                     return true;
                 }
             }
@@ -117,11 +120,17 @@ public class InventoryManager : MonoBehaviour
                 if (itemInSlot.GetCount() <= 0)
                 {
                     Destroy(itemInSlot.gameObject);
+                    _inventoryFull = false;
                 }
                 else { itemInSlot.RefreshCount(); }
             }
             return item;
         }
         return null;
+    }
+
+    public void SetInventoryFull(bool b)
+    {
+        _inventoryFull = b;
     }
 }

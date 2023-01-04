@@ -1,20 +1,8 @@
-using UnityEngine;
-using UnityEngine.EventSystems;
-
-public class BinSlot : MonoBehaviour, IDropHandler
+public class BinSlot : Slot
 {
-    void Start()
-    {
-        GetComponent<TooltipTrigger>().SetColouredText("*Warning*", "Red");
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        Destroy(eventData.pointerDrag);
-    }
-
-    public void NavOnDrop(InventoryItem item)
+    public override void OnDropBase(InventoryItem item)
     {
         Destroy(item.gameObject);
+        InventoryManager._instance.SetInventoryFull(false);
     }
 }

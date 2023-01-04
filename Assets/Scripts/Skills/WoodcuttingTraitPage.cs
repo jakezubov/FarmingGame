@@ -20,6 +20,7 @@ public class WoodcuttingTraitPage : TraitPages
         else if (trait == _trait6) { }
     }
 
+    /*
     public override void SetAllModifiers()
     {
         _trait1.SetModifier(3);
@@ -39,5 +40,5 @@ public class WoodcuttingTraitPage : TraitPages
         else if (trait == _trait4) { _trait4.GetComponent<TooltipTrigger>().SetDescription(""); }
         else if (trait == _trait5) { _trait5.GetComponent<TooltipTrigger>().SetDescription(""); }
         else if (trait == _trait6) { _trait6.GetComponent<TooltipTrigger>().SetDescription(""); }
-    }
+    } */
 }

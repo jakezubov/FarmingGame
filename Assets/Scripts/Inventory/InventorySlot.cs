@@ -1,8 +1,7 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IDropHandler
+public class InventorySlot : Slot
 {
     public Image _image;
     public Color _selectedColour, _notSelectedColour;
@@ -24,17 +23,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         _image.color = _notSelectedColour;
     }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        OnDropBase(eventData.pointerDrag.GetComponent<InventoryItem>());
-    }
-
-    public void NavOnDrop(InventoryItem item)
-    {
-        OnDropBase(item); 
-    }
-
-    private void OnDropBase(InventoryItem newInventoryItem)
+    public override void OnDropBase(InventoryItem newInventoryItem)
     {
         if (transform.childCount == 0)
         {

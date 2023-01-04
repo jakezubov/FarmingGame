@@ -5,7 +5,9 @@ public class Interact : MonoBehaviour
 {   
     public Tilemap _resourcesTilemap;
     public Tilemap _objectsNoCollideTilemap;
+    public Tilemap _droppedTilemap;
     public GameObject _lootPrefab;
+    public GameObject _parent;
 
     public RuleTileWithData _woodTile;
     public RuleTileWithData _logTile;
@@ -111,7 +113,6 @@ public class Interact : MonoBehaviour
     private void Place(Vector3Int position)
     {
         Item itemToPlace = InventoryManager._instance.GetSelectedToolbarItem(true);
-
         _resourcesTilemap.SetTile(position, itemToPlace._tile);
     }
 
@@ -120,8 +121,9 @@ public class Interact : MonoBehaviour
         RuleTileWithData tile = _resourcesTilemap.GetTile<RuleTileWithData>(position);
         _resourcesTilemap.SetTile(position, null);
 
-        Vector3 pos = _resourcesTilemap.GetCellCenterWorld(position);
+        Vector3 pos = _droppedTilemap.GetCellCenterWorld(position);
         GameObject loot = Instantiate(_lootPrefab, pos, Quaternion.identity);
         loot.GetComponent<LootItem>().Initialise(tile.GetItem());
+        loot.transform.SetParent(_parent.transform);
     }
 }

@@ -5,9 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public Interact _interact;
     public Tilemap _groundTilemap;
     public Spellbook _spellbook;
+    public Interact _interact;
+    public DropItem _dropItem;
 
     // for debug
     [HideInInspector]public Reputation _reputation;
@@ -215,12 +216,18 @@ public class PlayerController : MonoBehaviour
         }
 
         // trigger for interacting with environment
-        if (_playerActionControls.General.Interact.triggered && !_spellbook.CheckSpellbookActive())
+        if (_playerActionControls.General.Interact.triggered)
         {
             (float movementInputHoriztonal, float movementInputVertical) = GetPlayerMovements();
             if (movementInputHoriztonal == 0 && movementInputVertical == 0) { _currentCell = _previousCell; }
 
             _interact.TryInteract(_currentCell);
+        }
+
+        // trigger for dropping items from toolbar
+        if (_playerActionControls.General.Drop.triggered)
+        {
+            _dropItem.Drop(transform.position);
         }
 
         // triggers for changing toolbar slots

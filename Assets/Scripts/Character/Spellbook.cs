@@ -35,7 +35,7 @@ public class Spellbook : MonoBehaviour
     public void CloseSpellbook()
     {
         HideAllSections();
-        gameObject.SetActive(false);
+        gameObject.SetActive(false);    
         _spellbookActive = false;
     }
    
@@ -50,7 +50,7 @@ public class Spellbook : MonoBehaviour
     {
         _sections++;
         if ((int)_sections == _maxSectionNumber + 1) { _sections = (Sections)1; }
-        UpdateSpellBookSection();
+        UpdateSpellBookSection();      
     }
 
     private void UpdateSpellBookSection()
@@ -85,5 +85,14 @@ public class Spellbook : MonoBehaviour
             case Sections.reputation: _currentSection = _reputationObject; _currentButton = _reputationFirstButton; break;
             default: _currentSection = _inventoryObject; _currentButton = _inventoryFirstButton; break;
         }
+    }
+
+    public void ChangeSelectionFromTabs()
+    {
+        if (_inventoryObject.activeSelf) { _sections = Sections.inventory; }   
+        else if (_skillsObject.activeSelf) { _sections = Sections.skills; }
+        else if (_reputationObject.activeSelf) { _sections = Sections.reputation; }
+
+        UpdateSpellBookSection();
     }
 }

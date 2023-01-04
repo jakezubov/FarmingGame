@@ -48,7 +48,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (transform.parent.childCount == 2) { transform.parent.GetChild(0).gameObject.SetActive(true); }
+        if (transform.parent.GetComponent<EquipmentSlot>()) { transform.parent.GetChild(0).gameObject.SetActive(true); }
 
         _parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
@@ -58,7 +58,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginNav()
     {
-        if (transform.parent.childCount == 2) { transform.parent.GetChild(0).gameObject.SetActive(true); }
+        if (transform.parent.GetComponent<EquipmentSlot>()) { transform.parent.GetChild(0).gameObject.SetActive(true); }
 
         _parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
@@ -80,16 +80,18 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_parentAfterDrag.gameObject);
+        InventoryManager._instance.SetInventoryFull(false);
 
-        if (_parentAfterDrag.childCount == 2) { _parentAfterDrag.GetChild(0).gameObject.SetActive(false); }
+        if (transform.parent.GetComponent<EquipmentSlot>()) { _parentAfterDrag.GetChild(0).gameObject.SetActive(false); }
     }
 
     public void OnEndNav()
     {
         transform.SetParent(_parentAfterDrag);
         transform.localPosition = Vector3.zero;
+        InventoryManager._instance.SetInventoryFull(false);
 
-        if (_parentAfterDrag.childCount == 2) { _parentAfterDrag.GetChild(0).gameObject.SetActive(false); }
+        if (transform.parent.GetComponent<EquipmentSlot>()) { _parentAfterDrag.GetChild(0).gameObject.SetActive(false); }
     }
 
     public Item GetItem()

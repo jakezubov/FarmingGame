@@ -1,19 +1,6 @@
-using UnityEngine;
-using UnityEngine.EventSystems;
-
-public class EquipmentSlot : MonoBehaviour, IDropHandler
+public class EquipmentSlot : Slot
 {
-    public void OnDrop(PointerEventData eventData)
-    {
-        OnDropBase(eventData.pointerDrag.GetComponent<InventoryItem>());
-    }
-
-    public void NavOnDrop(InventoryItem item)
-    {
-        OnDropBase(item);
-    }
-
-    private void OnDropBase(InventoryItem inventoryItem)
+    public override void OnDropBase(InventoryItem inventoryItem)
     {
         ItemType itemType = ItemType.Default;
 

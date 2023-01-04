@@ -42,6 +42,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Drop",
+                    "type": "Button",
+                    "id": "4a26f88d-088d-45b2-8271-35410782406f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Slot0",
                     "type": "Button",
                     "id": "ec7f9830-a854-4136-8235-281b7dce03f1",
@@ -416,6 +425,17 @@
                     "action": "ChangeSlots",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4dab66b-6555-4c3d-be7b-3a553d7468c6",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -490,6 +510,15 @@
                     "name": "Select",
                     "type": "Button",
                     "id": "2b939ceb-4444-4272-9f2f-ab2ba2ee474c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Drop",
+                    "type": "Button",
+                    "id": "42840cc0-bcf3-4af7-8abf-d97fbfb9b74c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -688,6 +717,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e5014b9-3568-4a54-bb54-72e4269c0a1c",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

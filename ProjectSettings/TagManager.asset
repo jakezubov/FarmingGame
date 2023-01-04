@@ -14,10 +14,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Loot
   - Water
   - UI
-  - Loot
+  - 
   - 
   - 
   - 
@@ -58,6 +58,9 @@ TagManager:
     locked: 0
   - name: Resources
     uniqueID: 1399536027
+    locked: 0
+  - name: Dropped Objects
+    uniqueID: 493738153
     locked: 0
   - name: Highlight Tile
     uniqueID: 3319646829

@@ -14,7 +14,7 @@ public class TraitPages : MonoBehaviour
         ChangeLockedText(_trait1);
         ChangeLockedText(_trait2);
         ChangeLockedText(_trait3);
-        SetAllModifiers();
+        //SetAllModifiers();
     }
 
     public virtual void PerformTraitChange(Trait trait)
@@ -22,6 +22,7 @@ public class TraitPages : MonoBehaviour
 
     }
 
+    /*
     public virtual void ImprovementsPerLevel(Trait trait)
     {
 
@@ -30,7 +31,7 @@ public class TraitPages : MonoBehaviour
     public virtual void SetAllModifiers()
     {
 
-    }
+    }*/
 
     public void TraitLevelUp(Trait trait)
     {
@@ -44,7 +45,7 @@ public class TraitPages : MonoBehaviour
 
             PerformTraitChange(trait);
             ChangeLockedText(trait);
-            ImprovementsPerLevel(trait);
+            //ImprovementsPerLevel(trait);
             UnlockTraits();
         }
     }  

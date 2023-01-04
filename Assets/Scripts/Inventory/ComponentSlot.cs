@@ -1,21 +1,8 @@
-using UnityEngine;
-using UnityEngine.EventSystems;
-
-public class ComponentSlot : MonoBehaviour, IDropHandler
+public class ComponentSlot : Slot
 {
     private InventoryItem _currentInventoryItem = null;
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        OnDropBase(eventData.pointerDrag.GetComponent<InventoryItem>());               
-    }
-
-    public void NavOnDrop(InventoryItem item)
-    {
-        OnDropBase(item);
-    }
-
-    private void OnDropBase(InventoryItem newInventoryItem)
+    public override void OnDropBase(InventoryItem newInventoryItem)
     {
         if (transform.childCount == 0 && newInventoryItem.GetItem().GetItemType() == ItemType.SpellComponent)
         {
