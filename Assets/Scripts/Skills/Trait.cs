@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Trait : MonoBehaviour
 {
-    public TraitButton _button;
     public ChangeText _text;
+    public Image _image;
 
     private int _traitLevel = 0;
     private int _levelsToUnlock = 3;
@@ -27,7 +28,7 @@ public class Trait : MonoBehaviour
 
     public void MakeButtonAvaliable()
     {
-        _button.ButtonAvaliableTrue();
+        _image.color = Color.white;
     }
 
     public bool CheckLevelUpStatus()

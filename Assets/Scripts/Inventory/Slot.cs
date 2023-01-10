@@ -8,13 +8,13 @@ public class Slot : MonoBehaviour, IDropHandler
         OnDropBase(eventData.pointerDrag.GetComponent<InventoryItem>());
     }
 
-    public void NavOnDrop(InventoryItem item)
+    public void OnDrop(InventoryItem item)
     {
         OnDropBase(item);
     }
 
     public virtual void OnDropBase(InventoryItem item)
     {
-
+        Debug.Log("No assigned code");
     }
 }

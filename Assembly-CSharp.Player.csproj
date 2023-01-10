@@ -69,7 +69,9 @@
     <Compile Include="Assets\Scripts\Skills\Trait.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Game Manager\InventoryManager.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\DropItem.cs" />
     <Compile Include="Assets\Scripts\Inventory\BinSlot.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Slot.cs" />
     <Compile Include="Assets\Scripts\Tooltip\Tooltip.cs" />
     <Compile Include="Assets\Scripts\Skills\FishingTraitPage.cs" />
     <Compile Include="Assets\Scripts\Skills\CraftingTraitPage.cs" />
@@ -78,7 +80,7 @@
     <Compile Include="Assets\Scripts\Game Manager\Reputation.cs" />
     <Compile Include="Assets\Scripts\Skills\TraitPages.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Interact.cs" />
-    <Compile Include="Assets\Scripts\UI Editors\TraitButton.cs" />
+    <Compile Include="Assets\Scripts\Tooltip\CustomCursor.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\Item.cs" />
     <Compile Include="Assets\Scripts\Gameplay\HighlightTile.cs" />
     <Compile Include="Assets\Scripts\Skills\MagicTraitPage.cs" />
@@ -90,9 +92,6 @@
     <Compile Include="Assets\Scripts\Skills\FarmingTraitPage.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Character\Spellbook.cs" />
-    <Compile Include="Assets\Scripts\Inventory\Slot.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\DropItem.cs" />
-    <Compile Include="Assets\Scripts\Tooltip\CustomCursor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprites\2D Customizable Characters\Character Editor\Fonts\Nunito\OFL.txt" />

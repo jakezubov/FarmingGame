@@ -6,7 +6,7 @@ public class FishingTraitPage : TraitPages
      * Trait 2 = Bait Finder
      * Trait 3 = High Quality Lures
      * Trait 4 = No Time To Lose
-     * Trait 5 = Breed Them Big
+     * Trait 5 = Breeding Frenzy
      * Trait 6 = Keen Sight
      */
 

@@ -3,10 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Object/Custom Rule Tile")]
 public class RuleTileWithData : RuleTile
 {
-    [SerializeField] private Item _item;
+    [SerializeField] private Item droppedItem;
 
     public Item GetItem()
     {
-        return _item;
+        return droppedItem;
     }
 }

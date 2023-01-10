@@ -51,6 +51,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ChangeSlots",
+                    "type": "Value",
+                    "id": "adf90bf2-4ae2-4711-8e28-709b2caf290f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Slot0",
                     "type": "Button",
                     "id": "ec7f9830-a854-4136-8235-281b7dce03f1",
@@ -117,33 +126,6 @@
                     "name": "Slot7",
                     "type": "Button",
                     "id": "e5201627-a9de-45e9-b172-0554a8f38666",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ChangeSlots",
-                    "type": "Value",
-                    "id": "adf90bf2-4ae2-4711-8e28-709b2caf290f",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "FreeReputation",
-                    "type": "Button",
-                    "id": "57e64946-f744-4450-a649-4a1d0f6b93d9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "FreeExp",
-                    "type": "Button",
-                    "id": "672c5633-d22a-403f-920d-744a8161ac3a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -395,23 +377,12 @@
                 },
                 {
                     "name": "",
-                    "id": "b2895c25-efac-4101-8c3b-b15d2f7b290a",
-                    "path": "<Keyboard>/numpadMinus",
+                    "id": "d4dab66b-6555-4c3d-be7b-3a553d7468c6",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "FreeExp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9fad119b-ab41-4f46-940e-baae6caa59d4",
-                    "path": "<Keyboard>/numpadPlus",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "FreeReputation",
+                    "action": "Drop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -423,17 +394,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "ChangeSlots",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d4dab66b-6555-4c3d-be7b-3a553d7468c6",
-                    "path": "<Keyboard>/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Drop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

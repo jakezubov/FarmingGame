@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using UnityEngine.EventSystems;
 
 [ExecuteInEditMode()]
 public class Tooltip : MonoBehaviour
@@ -29,14 +28,14 @@ public class Tooltip : MonoBehaviour
         if (string.IsNullOrEmpty(header)) { _header.gameObject.SetActive(false); }
         else { _header.gameObject.SetActive(true); _header.text = header; }
 
-        // Coloured Text check 
+        // Coloured Text check
         if (string.IsNullOrEmpty(colouredText)) { _colouredText.gameObject.SetActive(false); }
         else 
         { 
-            _colouredText.gameObject.SetActive(true); 
-            _colouredText.text = colouredText; 
-            _colouredText.color = (Color)typeof(Color).GetProperty(colour.ToLowerInvariant()).GetValue(null, null); 
-        }   
+            _colouredText.gameObject.SetActive(true);
+            _colouredText.text= colouredText; 
+            _colouredText.color = (Color)typeof(Color).GetProperty(colour.ToLowerInvariant()).GetValue(null, null);
+        } 
 
         // Image check
         if (image == null) { _image.gameObject.SetActive(false); }
@@ -44,7 +43,7 @@ public class Tooltip : MonoBehaviour
       
         int headerLength = _header.text.Length;
         int contentLength = _description.text.Length;
-        int colouredTextLength = _colouredText.text.Length;
+        int colouredTextLength = _colouredText.text.Length;            
 
         _layoutElement.enabled = (headerLength > _characterWrapLimit || contentLength > _characterWrapLimit ||
             colouredTextLength > _characterWrapLimit) ? true : false;

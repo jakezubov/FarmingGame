@@ -47,8 +47,8 @@ public class InventoryManager : MonoBehaviour
                 InventorySlot slot = _inventorySlots[i];
                 InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
 
-                if (itemInSlot != null && itemInSlot.GetItem().IsStackable() &&
-                    itemInSlot.GetItem() == item && itemInSlot.GetCount() < itemInSlot.GetItem().GetMaxStackAmount())
+                if (itemInSlot != null && itemInSlot.GetItem().stackable &&
+                    itemInSlot.GetItem() == item && itemInSlot.GetCount() < itemInSlot.GetItem().maxStack)
                 {
                     itemInSlot.AddToCount(1);
                     itemInSlot.RefreshCount();
@@ -64,15 +64,15 @@ public class InventoryManager : MonoBehaviour
             _inventoryFull = true;
         }
         // spawn item in component pouch if component 
-        else if (item.GetItemType() == ItemType.SpellComponent) 
+        else if (item.itemType == ItemType.SpellComponent) 
         {
             for (int i = 0; i < _componentSlots.Length; i++)
             {
                 ComponentSlot slot = _componentSlots[i];
                 InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
 
-                if (itemInSlot != null && itemInSlot.GetItem().IsStackable() &&
-                    itemInSlot.GetItem() == item && itemInSlot.GetCount() < itemInSlot.GetItem().GetMaxStackAmount())
+                if (itemInSlot != null && itemInSlot.GetItem().stackable &&
+                    itemInSlot.GetItem() == item && itemInSlot.GetCount() < itemInSlot.GetItem().maxStack)
                 {
                     itemInSlot.AddToCount(1);
                     return true;

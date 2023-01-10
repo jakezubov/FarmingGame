@@ -32,8 +32,8 @@ public class InventorySlot : Slot
         }
         else if (transform.childCount == 1)
         {
-            if (_currentInventoryItem.GetItem().IsStackable() && _currentInventoryItem.GetItem().name == newInventoryItem.GetItem().name &&
-                (_currentInventoryItem.GetCount() + newInventoryItem.GetCount()) <= _currentInventoryItem.GetItem().GetMaxStackAmount())
+            if (_currentInventoryItem.GetItem().stackable && _currentInventoryItem.GetItem().name == newInventoryItem.GetItem().name &&
+                (_currentInventoryItem.GetCount() + newInventoryItem.GetCount()) <= _currentInventoryItem.GetItem().maxStack)
             {
                 _currentInventoryItem.AddToCount(newInventoryItem.GetCount());
                 Destroy(newInventoryItem.gameObject);

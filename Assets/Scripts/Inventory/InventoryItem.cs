@@ -18,16 +18,16 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void InitialiseItem(Item newItem)
     {
         _item = newItem;
-        _image.sprite = newItem.GetImage();
+        _image.sprite = newItem.image;
         RefreshCount();
 
         TooltipTrigger tooltip = GetComponent<TooltipTrigger>();
         tooltip.SetHeader(_item.name);
-        tooltip.SetDescription(_item.GetDescription());
+        tooltip.SetDescription(_item.description);
 
-        if (newItem.GetItemType() == ItemType.SpellComponent)
+        if (newItem.itemType == ItemType.SpellComponent)
         {
-            tooltip.SetColouredText(GetDescriptionFromEnum(ItemType.SpellComponent), newItem.GetTextColour());
+            tooltip.SetColouredText(GetDescriptionFromEnum(ItemType.SpellComponent), newItem.textColour);
         }
     }
 

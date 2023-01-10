@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34266c8ad99fa484cb4f97668aaef637, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
-  _tile: {fileID: 11400000, guid: 2ac05f60bda3ff94aa2f99eeeda1c601, type: 2}
-  _actionType: 3
-  _range: {x: 5, y: 4}
-  _description: Some wood used for crafting
-  _stackable: 1
-  _maxStack: 20
-  _image: {fileID: 21300378, guid: 537c371732866ca438a76cc8b649cde7, type: 3}
-  _itemType: 8
+  tile: {fileID: 11400000, guid: 2ac05f60bda3ff94aa2f99eeeda1c601, type: 2}
+  range: {x: 5, y: 4}
+  damage: 0
+  description: This is used in crafting
+  textColour: 
+  stackable: 1
+  maxStack: 20
+  image: {fileID: 21300124, guid: 8f5efdef9329ebc4ab5577858eccfea8, type: 3}
+  itemType: 2
+  equipmentType: 0
+  toolType: 0
+  weaponType: 0

@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Spellbook : MonoBehaviour
 {
     public GameObject _inventoryObject, _skillsObject, _reputationObject;
     public GameObject _inventoryFirstButton, _skillsFirstButton, _reputationFirstButton;
+    public Color _selectedColour;
+    public Color _notSelectedColour;
 
     private bool _spellbookActive = false;
     private Sections _sections = (Sections)1;
@@ -19,6 +22,16 @@ public class Spellbook : MonoBehaviour
         skills = 2,
         reputation = 3
     };
+
+    public void Select(Image image)
+    {
+        image.color = _selectedColour;
+    }
+
+    public void Deselect(Image image)
+    {
+        image.color = _notSelectedColour;
+    }
 
     public bool CheckSpellbookActive()
     {
@@ -67,11 +80,15 @@ public class Spellbook : MonoBehaviour
         _inventoryObject.SetActive(false);
         _skillsObject.SetActive(false);
         _reputationObject.SetActive(false);
+        Deselect(_inventoryFirstButton.GetComponent<Image>());
+        Deselect(_skillsFirstButton.GetComponent<Image>());
+        Deselect(_reputationFirstButton.GetComponent<Image>());
     }
 
     private void UnhideSection(GameObject section, GameObject firstButton)
     {
         section.SetActive(true);
+        Select(firstButton.GetComponent<Image>());
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstButton);
     }

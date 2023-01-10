@@ -13,7 +13,7 @@ public class LootItem : MonoBehaviour
     public void Initialise(Item item)
     {
         this._item = item;
-        _sr.sprite = item.GetImage();
+        _sr.sprite = item.image;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

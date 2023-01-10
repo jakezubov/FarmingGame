@@ -73,6 +73,15 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""ChangeSlots"",
+                    ""type"": ""Value"",
+                    ""id"": ""adf90bf2-4ae2-4711-8e28-709b2caf290f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Slot0"",
                     ""type"": ""Button"",
                     ""id"": ""ec7f9830-a854-4136-8235-281b7dce03f1"",
@@ -139,33 +148,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""name"": ""Slot7"",
                     ""type"": ""Button"",
                     ""id"": ""e5201627-a9de-45e9-b172-0554a8f38666"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ChangeSlots"",
-                    ""type"": ""Value"",
-                    ""id"": ""adf90bf2-4ae2-4711-8e28-709b2caf290f"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""FreeReputation"",
-                    ""type"": ""Button"",
-                    ""id"": ""57e64946-f744-4450-a649-4a1d0f6b93d9"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""FreeExp"",
-                    ""type"": ""Button"",
-                    ""id"": ""672c5633-d22a-403f-920d-744a8161ac3a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -417,23 +399,12 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b2895c25-efac-4101-8c3b-b15d2f7b290a"",
-                    ""path"": ""<Keyboard>/numpadMinus"",
+                    ""id"": ""d4dab66b-6555-4c3d-be7b-3a553d7468c6"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""FreeExp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9fad119b-ab41-4f46-940e-baae6caa59d4"",
-                    ""path"": ""<Keyboard>/numpadPlus"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""FreeReputation"",
+                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -445,17 +416,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ChangeSlots"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d4dab66b-6555-4c3d-be7b-3a553d7468c6"",
-                    ""path"": ""<Keyboard>/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -765,6 +725,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         m_General_OpenSpellBook = m_General.FindAction("OpenSpellBook", throwIfNotFound: true);
         m_General_Interact = m_General.FindAction("Interact", throwIfNotFound: true);
         m_General_Drop = m_General.FindAction("Drop", throwIfNotFound: true);
+        m_General_ChangeSlots = m_General.FindAction("ChangeSlots", throwIfNotFound: true);
         m_General_Slot0 = m_General.FindAction("Slot0", throwIfNotFound: true);
         m_General_Slot1 = m_General.FindAction("Slot1", throwIfNotFound: true);
         m_General_Slot2 = m_General.FindAction("Slot2", throwIfNotFound: true);
@@ -773,9 +734,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         m_General_Slot5 = m_General.FindAction("Slot5", throwIfNotFound: true);
         m_General_Slot6 = m_General.FindAction("Slot6", throwIfNotFound: true);
         m_General_Slot7 = m_General.FindAction("Slot7", throwIfNotFound: true);
-        m_General_ChangeSlots = m_General.FindAction("ChangeSlots", throwIfNotFound: true);
-        m_General_FreeReputation = m_General.FindAction("FreeReputation", throwIfNotFound: true);
-        m_General_FreeExp = m_General.FindAction("FreeExp", throwIfNotFound: true);
         // SpellBook
         m_SpellBook = asset.FindActionMap("SpellBook", throwIfNotFound: true);
         m_SpellBook_CloseSpellBook = m_SpellBook.FindAction("CloseSpellBook", throwIfNotFound: true);
@@ -853,6 +811,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
     private readonly InputAction m_General_OpenSpellBook;
     private readonly InputAction m_General_Interact;
     private readonly InputAction m_General_Drop;
+    private readonly InputAction m_General_ChangeSlots;
     private readonly InputAction m_General_Slot0;
     private readonly InputAction m_General_Slot1;
     private readonly InputAction m_General_Slot2;
@@ -861,9 +820,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
     private readonly InputAction m_General_Slot5;
     private readonly InputAction m_General_Slot6;
     private readonly InputAction m_General_Slot7;
-    private readonly InputAction m_General_ChangeSlots;
-    private readonly InputAction m_General_FreeReputation;
-    private readonly InputAction m_General_FreeExp;
     public struct GeneralActions
     {
         private @PlayerActionControls m_Wrapper;
@@ -873,6 +829,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         public InputAction @OpenSpellBook => m_Wrapper.m_General_OpenSpellBook;
         public InputAction @Interact => m_Wrapper.m_General_Interact;
         public InputAction @Drop => m_Wrapper.m_General_Drop;
+        public InputAction @ChangeSlots => m_Wrapper.m_General_ChangeSlots;
         public InputAction @Slot0 => m_Wrapper.m_General_Slot0;
         public InputAction @Slot1 => m_Wrapper.m_General_Slot1;
         public InputAction @Slot2 => m_Wrapper.m_General_Slot2;
@@ -881,9 +838,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         public InputAction @Slot5 => m_Wrapper.m_General_Slot5;
         public InputAction @Slot6 => m_Wrapper.m_General_Slot6;
         public InputAction @Slot7 => m_Wrapper.m_General_Slot7;
-        public InputAction @ChangeSlots => m_Wrapper.m_General_ChangeSlots;
-        public InputAction @FreeReputation => m_Wrapper.m_General_FreeReputation;
-        public InputAction @FreeExp => m_Wrapper.m_General_FreeExp;
         public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -908,6 +862,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Drop.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDrop;
                 @Drop.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDrop;
                 @Drop.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDrop;
+                @ChangeSlots.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
+                @ChangeSlots.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
+                @ChangeSlots.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
                 @Slot0.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot0;
                 @Slot0.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot0;
                 @Slot0.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot0;
@@ -932,15 +889,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Slot7.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot7;
                 @Slot7.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot7;
                 @Slot7.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot7;
-                @ChangeSlots.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
-                @ChangeSlots.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
-                @ChangeSlots.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
-                @FreeReputation.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFreeReputation;
-                @FreeReputation.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFreeReputation;
-                @FreeReputation.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFreeReputation;
-                @FreeExp.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFreeExp;
-                @FreeExp.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFreeExp;
-                @FreeExp.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnFreeExp;
             }
             m_Wrapper.m_GeneralActionsCallbackInterface = instance;
             if (instance != null)
@@ -960,6 +908,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Drop.started += instance.OnDrop;
                 @Drop.performed += instance.OnDrop;
                 @Drop.canceled += instance.OnDrop;
+                @ChangeSlots.started += instance.OnChangeSlots;
+                @ChangeSlots.performed += instance.OnChangeSlots;
+                @ChangeSlots.canceled += instance.OnChangeSlots;
                 @Slot0.started += instance.OnSlot0;
                 @Slot0.performed += instance.OnSlot0;
                 @Slot0.canceled += instance.OnSlot0;
@@ -984,15 +935,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Slot7.started += instance.OnSlot7;
                 @Slot7.performed += instance.OnSlot7;
                 @Slot7.canceled += instance.OnSlot7;
-                @ChangeSlots.started += instance.OnChangeSlots;
-                @ChangeSlots.performed += instance.OnChangeSlots;
-                @ChangeSlots.canceled += instance.OnChangeSlots;
-                @FreeReputation.started += instance.OnFreeReputation;
-                @FreeReputation.performed += instance.OnFreeReputation;
-                @FreeReputation.canceled += instance.OnFreeReputation;
-                @FreeExp.started += instance.OnFreeExp;
-                @FreeExp.performed += instance.OnFreeExp;
-                @FreeExp.canceled += instance.OnFreeExp;
             }
         }
     }
@@ -1117,6 +1059,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         void OnOpenSpellBook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
+        void OnChangeSlots(InputAction.CallbackContext context);
         void OnSlot0(InputAction.CallbackContext context);
         void OnSlot1(InputAction.CallbackContext context);
         void OnSlot2(InputAction.CallbackContext context);
@@ -1125,9 +1068,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         void OnSlot5(InputAction.CallbackContext context);
         void OnSlot6(InputAction.CallbackContext context);
         void OnSlot7(InputAction.CallbackContext context);
-        void OnChangeSlots(InputAction.CallbackContext context);
-        void OnFreeReputation(InputAction.CallbackContext context);
-        void OnFreeExp(InputAction.CallbackContext context);
     }
     public interface ISpellBookActions
     {

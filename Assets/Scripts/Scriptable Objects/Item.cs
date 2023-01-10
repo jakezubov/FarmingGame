@@ -6,84 +6,65 @@ using System.ComponentModel;
 public class Item : ScriptableObject
 {
     [Header("Only gameplay")]
-    public TileBase _tile;  
-    public Vector2Int _range = new Vector2Int(5, 4);
-    [SerializeField] private ActionType _actionType;
+    public TileBase tile;  
+    public Vector2Int range = new Vector2Int(5, 4);
+    public int damage;
 
     [Header("Only UI")]
-    [SerializeField] private string _description;
-    [SerializeField] private string _textColour;
-    [SerializeField] private bool _stackable = false;
-    [SerializeField] private int _maxStack = 0;  
+    public string description;
+    public string textColour;
+    public bool stackable = false;
+    public int maxStack = 0;  
 
     [Header("Both")]
-    [SerializeField] private Sprite _image;
-    [SerializeField] private ItemType _itemType;
+    public Sprite image;
 
-    public ItemType GetItemType()
-    {
-        return _itemType;
-    }
-    public ActionType GetActionType()
-    {
-        return _actionType;
-    }
-
-    public bool IsStackable()
-    {
-        return _stackable;
-    }
-
-    public int GetMaxStackAmount()
-    {
-        return _maxStack;
-    }
-
-    public void SetMaxStackAmount(int amount)
-    {
-        _maxStack = amount;
-    }
-
-    public Sprite GetImage()
-    {
-        return _image;
-    }
-
-    public void SetImage(Sprite sprite)
-    {
-        _image = sprite;
-    }
-
-    public string GetDescription()
-    {
-        return _description;
-    }
-
-    public string GetTextColour()
-    {
-        return _textColour;
-    }
+    [Header("Type")]
+    public ItemType itemType;
+    public EquipmentType equipmentType;
+    public ToolType toolType;
+    public WeaponType weaponType;
 }
 
 public enum ItemType
-{   
-    Default,
-    Tool,
+{
+    NA,
+    BuildingBlock,  
+    Resource,
+    [Description("Spell Component")] SpellComponent
+}
+
+public enum EquipmentType
+{
+    NA,
     Ring,
     Belt,
     Necklace,
     Arrows,
-    ArcaneFocus,
-    [Description("Spell Component")] SpellComponent,
-    Resource,
-    BuildingBlock
+    ArcaneFocus
 }
 
-public enum ActionType
+public enum ToolType
 {
-    NoAction,
-    Mine,
-    Fish,
-    Chop,
-    Gather
+    NA,
+    Axe,
+    FishingRod,
+    Hammer,
+    Hoe,
+    Pickaxe,
+    WateringCan
 }
+
+public enum WeaponType
+{
+    NA,
+    Axe,
+    Bow,
+    Crossbow,
+    Dagger,
+    Mace,
+    Spear,
+    Staff,
+    Sword
+}
+

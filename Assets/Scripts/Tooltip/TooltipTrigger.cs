@@ -29,9 +29,9 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         _header = newText;
     }
 
-    public void SetColouredText(string newText, string newColor)
+    public void SetColouredText(string text, string colour)
     {
-        _colouredText = newText;
-        _colour = newColor;
+        _colouredText = text;
+        _colour = colour;
     }
 }

@@ -2,17 +2,17 @@ public class EquipmentSlot : Slot
 {
     public override void OnDropBase(InventoryItem inventoryItem)
     {
-        ItemType itemType = ItemType.Default;
+        EquipmentType equipmentType = EquipmentType.NA;
 
         if (transform.childCount == 1)
         {
-            if (CompareTag("Belt")) { itemType = ItemType.Belt; }
-            if (CompareTag("Ring")) { itemType = ItemType.Ring; }
-            if (CompareTag("ArcaneFocus")) { itemType = ItemType.ArcaneFocus; }
-            if (CompareTag("Arrows")) { itemType = ItemType.Arrows; }
-            if (CompareTag("Necklace")) { itemType = ItemType.Necklace; }
+            if (CompareTag("Belt")) { equipmentType = EquipmentType.Belt; }
+            else if (CompareTag("Ring")) { equipmentType = EquipmentType.Ring; }
+            else if (CompareTag("ArcaneFocus")) { equipmentType = EquipmentType.ArcaneFocus; }
+            else if (CompareTag("Arrows")) { equipmentType = EquipmentType.Arrows; }
+            else if (CompareTag("Necklace")) { equipmentType = EquipmentType.Necklace; }
 
-            if (inventoryItem.GetItem().GetItemType() == itemType)
+            if (inventoryItem.GetItem().equipmentType == equipmentType)
             {
                 inventoryItem.SetParentAfterDrag(transform);
             }

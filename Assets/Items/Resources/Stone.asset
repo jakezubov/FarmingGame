@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34266c8ad99fa484cb4f97668aaef637, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  _tile: {fileID: 11400000, guid: 64ab342cad61ae04197bf1b3725ffc4c, type: 2}
-  _actionType: 1
-  _range: {x: 5, y: 4}
-  _description: A rock used for crafting
-  _stackable: 1
-  _maxStack: 20
-  _image: {fileID: 21300476, guid: 537c371732866ca438a76cc8b649cde7, type: 3}
-  _itemType: 8
+  tile: {fileID: 11400000, guid: 64ab342cad61ae04197bf1b3725ffc4c, type: 2}
+  range: {x: 5, y: 4}
+  damage: 0
+  description: This is used in crafting
+  textColour: 
+  stackable: 1
+  maxStack: 20
+  image: {fileID: 21300070, guid: 8f5efdef9329ebc4ab5577858eccfea8, type: 3}
+  itemType: 2
+  equipmentType: 0
+  toolType: 0
+  weaponType: 0

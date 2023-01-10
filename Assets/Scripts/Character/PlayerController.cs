@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,20 +11,17 @@ public class PlayerController : MonoBehaviour
     public Interact _interact;
     public DropItem _dropItem;
 
-    // for debug
-    [HideInInspector]public Reputation _reputation;
-
     private static PlayerActionControls _playerActionControls;
     private Rigidbody2D _rb;
     private Animator _animator;
 
     private float _speed = 5;
     private readonly int _reach = 1;
-    private Vector3Int _previousCell, _currentCell;
-
-    private int _activeSlot = 0;
+    private int _activeSlot = 0;    
+    private bool _isInteracting = false;
     private bool _isItemSelected = false;
     private InventoryItem _selectedItem = null;
+    private Vector3Int _previousCell, _currentCell;
 
     private void Awake()
     {
@@ -67,56 +65,13 @@ public class PlayerController : MonoBehaviour
             else if (movementInputVertical == -1) { _currentCell.y -= _reach; _previousCell = _currentCell; }
             else if (movementInputVertical == 1) { _currentCell.y += _reach; _previousCell = _currentCell; }
 
-            Move(movementInputHoriztonal,movementInputVertical);
+            if (!_isInteracting)
+            {
+                CheckForAxeBool();
+                Move(movementInputHoriztonal, movementInputVertical);
+            }
         }        
-    }
-
-    private void Move(float movementInputHoriztonal, float movementInputVertical)
-    {
-        // Move the player
-        Vector3 currentPosition = transform.position;
-        currentPosition.x += movementInputHoriztonal * _speed * Time.deltaTime;
-        currentPosition.y += movementInputVertical * _speed * Time.deltaTime;
-        _rb.MovePosition(currentPosition);
-
-        // Animations
-        if (movementInputHoriztonal == -1) 
-        { 
-            _animator.SetBool("MoveSide", true); 
-            _animator.SetBool("Idle", false); 
-            GetComponent<SpriteRenderer>().flipX = true; 
-        }
-        else if (movementInputHoriztonal == 1) 
-        { 
-            _animator.SetBool("MoveSide", true); 
-            _animator.SetBool("Idle", false); 
-            GetComponent<SpriteRenderer>().flipX = false; 
-        }
-        else 
-        { 
-            _animator.SetBool("Idle", true); 
-            _animator.SetBool("MoveSide", false); 
-        }
-
-        if (movementInputVertical == -1) 
-        { 
-            _animator.SetBool("MoveUp", false);
-            _animator.SetBool("MoveDown", true); 
-            _animator.SetBool("Idle", false); 
-        }
-        else if (movementInputVertical == 1) 
-        { 
-            _animator.SetBool("MoveUp", true); 
-            _animator.SetBool("MoveDown", false); 
-            _animator.SetBool("Idle", false); 
-        }
-        else 
-        {            
-            _animator.SetBool("MoveUp", false); 
-            _animator.SetBool("MoveDown", false);
-            _animator.SetBool("Idle", true);
-        }
-    }
+    }   
 
     public static (float, float) GetPlayerMovements()
     {
@@ -168,25 +123,25 @@ public class PlayerController : MonoBehaviour
             if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<BinSlot>() != null)
             {
                 BinSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<BinSlot>();
-                slot.NavOnDrop(_selectedItem);
+                slot.OnDrop(_selectedItem);
                 _selectedItem.OnEndNav();
             }
             else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventorySlot>() != null)
             {
                 InventorySlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventorySlot>();
-                slot.NavOnDrop(_selectedItem);
+                slot.OnDrop(_selectedItem);
                 _selectedItem.OnEndNav();
             }
             else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<EquipmentSlot>() != null)
             {
                 EquipmentSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<EquipmentSlot>();
-                slot.NavOnDrop(_selectedItem);
+                slot.OnDrop(_selectedItem);
                 _selectedItem.OnEndNav();
             }
             else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<ComponentSlot>() != null)
             {
                 ComponentSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<ComponentSlot>();
-                slot.NavOnDrop(_selectedItem);
+                slot.OnDrop(_selectedItem);
                 _selectedItem.OnEndNav();
             }
                        
@@ -216,13 +171,14 @@ public class PlayerController : MonoBehaviour
         }
 
         // trigger for interacting with environment
-        if (_playerActionControls.General.Interact.triggered)
+        if (_playerActionControls.General.Interact.triggered && !_isInteracting)
         {
             (float movementInputHoriztonal, float movementInputVertical) = GetPlayerMovements();
             if (movementInputHoriztonal == 0 && movementInputVertical == 0) { _currentCell = _previousCell; }
 
-            _interact.TryInteract(_currentCell);
-        }
+            _interact.GetData(_currentCell);
+            StartCoroutine(PlaySwingAnimation());           
+        }          
 
         // trigger for dropping items from toolbar
         if (_playerActionControls.General.Drop.triggered)
@@ -231,35 +187,103 @@ public class PlayerController : MonoBehaviour
         }
 
         // triggers for changing toolbar slots
-        if (_playerActionControls.General.Slot0.triggered) { _activeSlot = 0; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
-        if (_playerActionControls.General.Slot1.triggered) { _activeSlot = 1; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
-        if (_playerActionControls.General.Slot2.triggered) { _activeSlot = 2; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
-        if (_playerActionControls.General.Slot3.triggered) { _activeSlot = 3; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
-        if (_playerActionControls.General.Slot4.triggered) { _activeSlot = 4; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
-        if (_playerActionControls.General.Slot5.triggered) { _activeSlot = 5; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
-        if (_playerActionControls.General.Slot6.triggered) { _activeSlot = 6; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
-        if (_playerActionControls.General.Slot7.triggered) { _activeSlot = 7; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
-        if (_playerActionControls.General.ChangeSlots.triggered)
+        if (_playerActionControls.General.Slot0.triggered || _playerActionControls.General.Slot1.triggered || _playerActionControls.General.Slot2.triggered ||
+            _playerActionControls.General.Slot3.triggered || _playerActionControls.General.Slot4.triggered || _playerActionControls.General.Slot5.triggered ||
+            _playerActionControls.General.Slot6.triggered || _playerActionControls.General.Slot7.triggered || _playerActionControls.General.ChangeSlots.triggered)
         {
-            Vector2 value = _playerActionControls.General.ChangeSlots.ReadValue<Vector2>();
-            if (value.y < 0)
+            if (_playerActionControls.General.ChangeSlots.triggered)
             {
-                _activeSlot++;
-                if (_activeSlot == 8) { _activeSlot = 0; };
-                InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot);
+                Vector2 value = _playerActionControls.General.ChangeSlots.ReadValue<Vector2>();
+                if (value.y < 0)
+                {
+                    _activeSlot++;
+                    if (_activeSlot == 8) { _activeSlot = 0; };
+                }
+                else if (value.y > 0)
+                {
+                    _activeSlot--;
+                    if (_activeSlot == -1) { _activeSlot = 7; };
+                }
             }
-            if (value.y > 0)
-            {
-                _activeSlot--;
-                if (_activeSlot == -1) { _activeSlot = 7; };
-                InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot);
-            }
-        }
+            else if (_playerActionControls.General.Slot0.triggered) { _activeSlot = 0; }
+            else if (_playerActionControls.General.Slot1.triggered) { _activeSlot = 1; }
+            else if (_playerActionControls.General.Slot2.triggered) { _activeSlot = 2; }
+            else if (_playerActionControls.General.Slot3.triggered) { _activeSlot = 3; }
+            else if (_playerActionControls.General.Slot4.triggered) { _activeSlot = 4; }
+            else if (_playerActionControls.General.Slot5.triggered) { _activeSlot = 5; }
+            else if (_playerActionControls.General.Slot6.triggered) { _activeSlot = 6; }
+            else if (_playerActionControls.General.Slot7.triggered) { _activeSlot = 7; }
 
-        // for debug
-        if (_playerActionControls.General.FreeExp.triggered) { PlayerManager._instance.FreeExp(); }
-        if (_playerActionControls.General.FreeReputation.triggered) { PlayerManager._instance.FreeReputation(); }
+            InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot);
+        }   
     }
 
-    
+    private IEnumerator PlaySwingAnimation()
+    {
+        _animator.SetBool("Swing", true);
+        _isInteracting = true;
+
+        //AnimatorClipInfo[] clip = _animator.GetCurrentAnimatorClipInfo(_animator.GetLayerIndex("Base Layer"));
+        //float timer = clip[0].clip.length;
+
+        yield return new WaitForSeconds(0.5f);
+        
+        _animator.SetBool("Swing", false);
+        _isInteracting = false;
+        _interact.InteractNow();
+    }
+
+    private void Move(float movementInputHoriztonal, float movementInputVertical)
+    {    
+        // Move the player
+        Vector3 currentPosition = transform.position;
+        currentPosition.x += movementInputHoriztonal * _speed * Time.deltaTime;
+        currentPosition.y += movementInputVertical * _speed * Time.deltaTime;
+        _rb.MovePosition(currentPosition);
+
+        // Animations
+        if (movementInputHoriztonal == -1 && movementInputVertical == 0) // start horizontal checks
+        {
+            SetAllAnimationsFalse();
+            _animator.SetBool("MoveSide", true);
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else if (movementInputHoriztonal == 1 && movementInputVertical == 0)
+        {
+            SetAllAnimationsFalse();
+            _animator.SetBool("MoveSide", true);
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (movementInputVertical == -1 && movementInputHoriztonal == 0) // start vertical checks
+        {
+            SetAllAnimationsFalse();
+            _animator.SetBool("MoveDown", true);
+        }
+        else if (movementInputVertical == 1 && movementInputHoriztonal == 0)
+        {
+            SetAllAnimationsFalse();
+            _animator.SetBool("MoveUp", true);
+        }
+        else if (movementInputHoriztonal == 0 && movementInputVertical == 0) // check if no movement
+        {
+            SetAllAnimationsFalse();
+        }  
+    }
+
+    private void SetAllAnimationsFalse()
+    {
+        _animator.SetBool("MoveSide", false);
+        _animator.SetBool("MoveUp", false);
+        _animator.SetBool("MoveDown", false);
+    }
+
+    public void CheckForAxeBool()
+    {
+        if (InventoryManager._instance.GetSelectedToolbarItem(false) != null &&
+            InventoryManager._instance.GetSelectedToolbarItem(false).toolType == ToolType.Axe)
+        {
+            _animator.SetBool("HasAxe", true);
+        }
+        else { _animator.SetBool("HasAxe", false); }
+    }
 }
