@@ -32,23 +32,6 @@ public class Skill : MonoBehaviour
         }
     }
 
-    public int GetCurrentExp()
-    {
-        return _currentExp;
-    }
-
-    public void SetCurrentExp(int exp)
-    {
-        _currentExp = exp;
-        _experienceBar.SetValue(_currentExp);
-    }
-
-    public void AddToCurrentExp(int exp)
-    {
-        _currentExp += exp;
-        _experienceBar.SetValue(_currentExp);
-    }
-
     public int GetLevel()
     {
         return _level;
@@ -73,10 +56,20 @@ public class Skill : MonoBehaviour
         _skillPointsText.SetText(_skillPoints.ToString());
     }
 
-    public void SetExpBarMax(int value)
+    private void SetCurrentExp(int exp)
     {
-        _experienceBar.SetMaxValue(value);
+        _currentExp = exp;
+        _experienceBar.SetValue(_currentExp);
     }
 
-    
+    private void AddToCurrentExp(int exp)
+    {
+        _currentExp += exp;
+        _experienceBar.SetValue(_currentExp);
+    }
+
+    private void SetExpBarMax(int value)
+    {
+        _experienceBar.SetMaxValue(value);
+    } 
 }

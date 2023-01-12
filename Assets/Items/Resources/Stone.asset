@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   tile: {fileID: 11400000, guid: 64ab342cad61ae04197bf1b3725ffc4c, type: 2}
-  range: {x: 5, y: 4}
   damage: 0
-  description: This is used in crafting
-  textColour: 
+  durability: 0
+  description: Can be used for crafting
   stackable: 1
   maxStack: 20
+  value: 0
   image: {fileID: 21300070, guid: 8f5efdef9329ebc4ab5577858eccfea8, type: 3}
   itemType: 2
   equipmentType: 0

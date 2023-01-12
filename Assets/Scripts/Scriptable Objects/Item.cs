@@ -1,25 +1,24 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using System.ComponentModel;
 
 [CreateAssetMenu(menuName = "Scriptable Object/Item")]
 public class Item : ScriptableObject
 {
     [Header("Only gameplay")]
     public TileBase tile;  
-    public Vector2Int range = new Vector2Int(5, 4);
-    public int damage;
+    public int damage;    
 
     [Header("Only UI")]
-    public string description;
-    public string textColour;
+    public string description;  
     public bool stackable = false;
-    public int maxStack = 0;  
+    public int maxStack;
+    public int value;
 
     [Header("Both")]
     public Sprite image;
+    public int durability;
 
-    [Header("Type")]
+    [Header("Tags")]
     public ItemType itemType;
     public EquipmentType equipmentType;
     public ToolType toolType;
@@ -31,7 +30,11 @@ public enum ItemType
     NA,
     BuildingBlock,  
     Resource,
-    [Description("Spell Component")] SpellComponent
+    SpellComponent,
+    Equipment,
+    Tool,
+    Weapon,
+    Artefact
 }
 
 public enum EquipmentType
@@ -52,6 +55,7 @@ public enum ToolType
     Hammer,
     Hoe,
     Pickaxe,
+    Shovel,
     WateringCan
 }
 

@@ -8,7 +8,6 @@ public class Trait : MonoBehaviour
 
     private int _traitLevel = 0;
     private int _levelsToUnlock = 3;
-    private int _modifierPerLevel = 0;
     private bool _canLevelUp = false;
 
     public int GetLevel()
@@ -26,23 +25,16 @@ public class Trait : MonoBehaviour
         }
     }
 
-    public void MakeButtonAvaliable()
-    {
-        _image.color = Color.white;
-    }
-
     public bool CheckLevelUpStatus()
     {
         return _canLevelUp;
     }
 
-    public void SetLevelUpStatus(bool b)
+    public void UnlockTrait()
     {
-        _canLevelUp = b;
-        if (b)
-        {
-            GetComponent<TooltipTrigger>().SetColouredText(null, null);
-        }
+        _canLevelUp = true;
+        GetComponent<TooltipTrigger>().SetColouredText(null, null);
+        _image.color = Color.white;
     }
 
     public bool IsUnlocked()
@@ -53,15 +45,5 @@ public class Trait : MonoBehaviour
     public int GetLevelsToUnlock()
     {
         return _levelsToUnlock;
-    }
-
-    public int GetModifier()
-    {
-        return _modifierPerLevel;
-    }
-
-    public void SetModifier(int modifier)
-    {
-        _modifierPerLevel = modifier;
     }
 }

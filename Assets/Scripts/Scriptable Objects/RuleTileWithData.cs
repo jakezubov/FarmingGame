@@ -3,10 +3,19 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Object/Custom Rule Tile")]
 public class RuleTileWithData : RuleTile
 {
-    [SerializeField] private Item droppedItem;
+    [SerializeField] private Item[] droppedItems;
 
-    public Item GetItem()
+    public Item[] GetAllItems()
     {
-        return droppedItem;
+        return droppedItems;
+    }
+
+    public Item GetRandomItem()
+    {
+        if (droppedItems.Length > 1)
+        {
+            return droppedItems[Random.Range(0, droppedItems.Length)];
+        }
+        return droppedItems[0];
     }
 }

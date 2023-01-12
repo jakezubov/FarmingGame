@@ -5,7 +5,7 @@ public class Stats : MonoBehaviour
     public ChangeSlider _slider;
     public ChangeText _textCS; // Character sheet text
 
-    private int _maxAmount = 100;
+    private int _maxAmount = 1000;
     private int _currentAmount;
 
     public Stats()

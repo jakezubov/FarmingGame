@@ -11,28 +11,16 @@ public class TraitPages : MonoBehaviour
 
     private void Start()
     {
-        _trait1.SetLevelUpStatus(true);
+        _trait1.UnlockTrait();
         ChangeLockedText(_trait1);
         ChangeLockedText(_trait2);
         ChangeLockedText(_trait3);
-        //SetAllModifiers();
     }
 
     public virtual void PerformTraitChange(Trait trait)
     {
         Debug.Log("No assigned code");
     }
-
-    /*
-    public virtual void ImprovementsPerLevel(Trait trait)
-    {
-        Debug.Log("No assigned code");
-    }
-
-    public virtual void SetAllModifiers()
-    {
-        Debug.Log("No assigned code");
-    }*/
 
     public void TraitLevelUp()
     {
@@ -47,7 +35,6 @@ public class TraitPages : MonoBehaviour
 
             PerformTraitChange(trait);
             ChangeLockedText(trait);
-            //ImprovementsPerLevel(trait);
             UnlockTraits();
         }
     }  
@@ -79,32 +66,20 @@ public class TraitPages : MonoBehaviour
     {
         if (_trait1Unlocks && _trait1.GetLevel() == _minLevel)
         {
-            _trait2.MakeButtonAvaliable();
-            _trait2.SetLevelUpStatus(true);
-
-            _trait3.MakeButtonAvaliable();
-            _trait3.SetLevelUpStatus(true);
-
+            _trait2.UnlockTrait();
+            _trait3.UnlockTrait();
             _trait1Unlocks = false;
         }
         if (_trait2Unlocks && _trait2.GetLevel() == _minLevel)
         {
-            _trait4.MakeButtonAvaliable();
-            _trait4.SetLevelUpStatus(true);
-
-            _trait5.MakeButtonAvaliable();
-            _trait5.SetLevelUpStatus(true);
-
+            _trait4.UnlockTrait();
+            _trait5.UnlockTrait();
             _trait2Unlocks = false;
         }
         if (_trait3Unlocks && _trait3.GetLevel() == _minLevel)
         {
-            _trait5.MakeButtonAvaliable();
-            _trait5.SetLevelUpStatus(true);
-
-            _trait6.MakeButtonAvaliable();
-            _trait6.SetLevelUpStatus(true);
-
+            _trait5.UnlockTrait();
+            _trait6.UnlockTrait();
             _trait3Unlocks = false;
         }        
     }

@@ -1,27 +1,39 @@
 public class ComponentSlot : Slot
 {
-    private InventoryItem _currentInventoryItem = null;
-
     public override void OnDropBase(InventoryItem newInventoryItem)
     {
-        if (transform.childCount == 0 && newInventoryItem.GetItem().itemType == ItemType.SpellComponent)
+        if (newInventoryItem.GetItem().itemType == ItemType.SpellComponent)
         {
-            newInventoryItem.SetParentAfterDrag(transform);
-            _currentInventoryItem = newInventoryItem;
-        }
-        else if (transform.childCount == 1)
-        {
-            if (_currentInventoryItem.GetItem().stackable && _currentInventoryItem.GetItem().name == newInventoryItem.GetItem().name &&
-                (_currentInventoryItem.GetCount() + newInventoryItem.GetCount()) <= _currentInventoryItem.GetItem().maxStack)
+            if (transform.childCount == 0)
             {
-                _currentInventoryItem.AddToCount(newInventoryItem.GetCount());
-                Destroy(newInventoryItem.gameObject);
+                newInventoryItem.SetParentAfterDrag(transform);
+                _currentInventoryItem = newInventoryItem;
             }
-        }
-    }
+            else if (transform.childCount == 1)
+            {
+                if (_currentInventoryItem.GetItem().stackable && _currentInventoryItem.GetItem().name == newInventoryItem.GetItem().name &&
+                   (_currentInventoryItem.GetCount() + newInventoryItem.GetCount()) <= _currentInventoryItem.GetItem().maxStack)
+                {
+                    _currentInventoryItem.AddToCount(newInventoryItem.GetCount());
+                    Destroy(newInventoryItem.gameObject);
+                }
+                else if (newInventoryItem.GetParentBeforeDrag().GetComponent<ComponentSlot>())
+                {
+                    newInventoryItem.SetParentAfterDrag(transform);
+                    _currentInventoryItem.transform.SetParent(newInventoryItem.GetParentBeforeDrag());
 
-    public void SetCurrentItem(InventoryItem item)
-    {
-        _currentInventoryItem = item;
+                    newInventoryItem.GetParentBeforeDrag().GetComponent<ComponentSlot>().SetCurrentItem(_currentInventoryItem);
+                    _currentInventoryItem = newInventoryItem;
+                }
+                else if (newInventoryItem.GetParentBeforeDrag().GetComponent<InventorySlot>())
+                {
+                    newInventoryItem.SetParentAfterDrag(transform);
+                    _currentInventoryItem.transform.SetParent(newInventoryItem.GetParentBeforeDrag());
+
+                    newInventoryItem.GetParentBeforeDrag().GetComponent<InventorySlot>().SetCurrentItem(_currentInventoryItem);
+                    _currentInventoryItem = newInventoryItem;
+                }
+            }
+        }  
     }
 }

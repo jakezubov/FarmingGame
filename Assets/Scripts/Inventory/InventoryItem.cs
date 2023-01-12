@@ -13,6 +13,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private Item _item;
     private Transform _parentAfterDrag;
+    private Transform _parentBeforeDrag;
     private int _count = 1;
 
     public void InitialiseItem(Item newItem)
@@ -27,7 +28,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         if (newItem.itemType == ItemType.SpellComponent)
         {
-            tooltip.SetColouredText(GetDescriptionFromEnum(ItemType.SpellComponent), newItem.textColour);
+            tooltip.SetColouredText("Spell Component", "Magenta");
+        }
+        if (newItem.itemType == ItemType.Artefact)
+        {
+            tooltip.SetColouredText("Artefact", "Cyan");
         }
     }
 
@@ -48,9 +53,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (transform.parent.GetComponent<EquipmentSlot>()) { transform.parent.GetChild(0).gameObject.SetActive(true); }
-
+        _parentBeforeDrag = transform.parent;
         _parentAfterDrag = transform.parent;
+
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         _image.raycastTarget = false;
@@ -58,9 +63,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginNav()
     {
-        if (transform.parent.GetComponent<EquipmentSlot>()) { transform.parent.GetChild(0).gameObject.SetActive(true); }
-
+        _parentBeforeDrag = transform.parent;
         _parentAfterDrag = transform.parent;
+
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
     }
@@ -80,18 +85,22 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_parentAfterDrag.gameObject);
-        InventoryManager._instance.SetInventoryFull(false);
 
-        if (transform.parent.GetComponent<EquipmentSlot>()) { _parentAfterDrag.GetChild(0).gameObject.SetActive(false); }
+        if (_parentBeforeDrag.GetComponent<ComponentSlot>() && _parentAfterDrag.GetComponent<InventorySlot>())
+        {
+            InventoryManager._instance.SetComponentsFull(false);
+        }
     }
 
     public void OnEndNav()
     {
         transform.SetParent(_parentAfterDrag);
         transform.localPosition = Vector3.zero;
-        InventoryManager._instance.SetInventoryFull(false);
 
-        if (transform.parent.GetComponent<EquipmentSlot>()) { _parentAfterDrag.GetChild(0).gameObject.SetActive(false); }
+        if (_parentBeforeDrag.GetComponent<ComponentSlot>() && _parentAfterDrag.GetComponent<InventorySlot>())
+        {
+            InventoryManager._instance.SetComponentsFull(false);
+        }
     }
 
     public Item GetItem()
@@ -102,6 +111,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void SetParentAfterDrag(Transform newParent)
     {
         _parentAfterDrag = newParent;
+    }
+
+    public Transform GetParentBeforeDrag()
+    {
+        return _parentBeforeDrag;
     }
 
     public int GetCount()

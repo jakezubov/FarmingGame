@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     public Tilemap _groundTilemap;
     public Spellbook _spellbook;
-    public Interact _interact;
+    public Use _use;
     public DropItem _dropItem;
 
     private static PlayerActionControls _playerActionControls;
@@ -66,8 +66,7 @@ public class PlayerController : MonoBehaviour
             else if (movementInputVertical == 1) { _currentCell.y += _reach; _previousCell = _currentCell; }
 
             if (!_isInteracting)
-            {
-                CheckForAxeBool();
+            {               
                 Move(movementInputHoriztonal, movementInputVertical);
             }
         }        
@@ -124,7 +123,6 @@ public class PlayerController : MonoBehaviour
             {
                 BinSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<BinSlot>();
                 slot.OnDrop(_selectedItem);
-                _selectedItem.OnEndNav();
             }
             else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventorySlot>() != null)
             {
@@ -176,7 +174,7 @@ public class PlayerController : MonoBehaviour
             (float movementInputHoriztonal, float movementInputVertical) = GetPlayerMovements();
             if (movementInputHoriztonal == 0 && movementInputVertical == 0) { _currentCell = _previousCell; }
 
-            _interact.GetData(_currentCell);
+            _use.GetData(_currentCell);
             StartCoroutine(PlaySwingAnimation());           
         }          
 
@@ -190,7 +188,7 @@ public class PlayerController : MonoBehaviour
         if (_playerActionControls.General.Slot0.triggered || _playerActionControls.General.Slot1.triggered || _playerActionControls.General.Slot2.triggered ||
             _playerActionControls.General.Slot3.triggered || _playerActionControls.General.Slot4.triggered || _playerActionControls.General.Slot5.triggered ||
             _playerActionControls.General.Slot6.triggered || _playerActionControls.General.Slot7.triggered || _playerActionControls.General.ChangeSlots.triggered)
-        {
+        {          
             if (_playerActionControls.General.ChangeSlots.triggered)
             {
                 Vector2 value = _playerActionControls.General.ChangeSlots.ReadValue<Vector2>();
@@ -213,8 +211,9 @@ public class PlayerController : MonoBehaviour
             else if (_playerActionControls.General.Slot5.triggered) { _activeSlot = 5; }
             else if (_playerActionControls.General.Slot6.triggered) { _activeSlot = 6; }
             else if (_playerActionControls.General.Slot7.triggered) { _activeSlot = 7; }
-
+   
             InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot);
+            CheckForAxeBool();
         }   
     }
 
@@ -230,7 +229,7 @@ public class PlayerController : MonoBehaviour
         
         _animator.SetBool("Swing", false);
         _isInteracting = false;
-        _interact.InteractNow();
+        _use.UseItemInSlot();
     }
 
     private void Move(float movementInputHoriztonal, float movementInputVertical)

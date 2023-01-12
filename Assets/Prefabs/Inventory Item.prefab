@@ -161,7 +161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0d49d11ae267d714b9857bd681a25a4b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -184,11 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 2368435373343711291}
-  _button: {fileID: 0}
   _countText: {fileID: 3941569282689278662}
-  _item: {fileID: 0}
-  _count: 1
-  _parentAfterDrag: {fileID: 0}
 --- !u!114 &7385920116179570660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _header: 
-  _traitLocked: 
-  _content: 
-  _skill: 
-  _repTierUnlock: {fileID: 0}
+  _description: 
+  _colouredText: 
+  _colour: 
+  _image: {fileID: 0}

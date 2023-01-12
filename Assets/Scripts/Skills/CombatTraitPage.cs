@@ -17,8 +17,8 @@ public class CombatTraitPage : TraitPages
     public override void PerformTraitChange(Trait trait)
     {
         if (trait == _trait1) { _player.AddToSpeed(0.1f); }
-        else if (trait == _trait2) { PlayerManager._instance._health.AddToMaxStatAmount(10); }
-        else if (trait == _trait3) { PlayerManager._instance._stamina.AddToMaxStatAmount(10); }
+        else if (trait == _trait2) { PlayerManager._instance._health.AddToMaxStatAmount(100); }
+        else if (trait == _trait3) { PlayerManager._instance._stamina.AddToMaxStatAmount(100); }
         else if (trait == _trait4) { }
         else if (trait == _trait5) { }
         else if (trait == _trait6) { }
