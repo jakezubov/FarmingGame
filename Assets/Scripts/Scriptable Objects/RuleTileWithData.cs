@@ -18,4 +18,18 @@ public class RuleTileWithData : RuleTile
         }
         return droppedItems[0];
     }
+
+    public Item GetMainItem()
+    {
+        return droppedItems[0];
+    }
+
+    public Item GetSecondaryItem()
+    {
+        if (droppedItems.Length > 1)
+        {
+            return droppedItems[Random.Range(1, droppedItems.Length)];
+        }
+        return droppedItems[0];
+    }
 }

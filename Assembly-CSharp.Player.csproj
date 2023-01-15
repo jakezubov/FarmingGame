@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Skills\CombatTraitPage.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\RuleTileWithData.cs" />
     <Compile Include="Assets\Scripts\Skills\Trait.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Forage.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Game Manager\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\DropItem.cs" />
@@ -94,7 +95,6 @@
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Axe.cs" />
     <Compile Include="Assets\Scripts\Character\Spellbook.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Forage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprites\2D Customizable Characters\Character Editor\Fonts\Nunito\OFL.txt" />

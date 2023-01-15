@@ -33,7 +33,7 @@ public class Trait : MonoBehaviour
     public void UnlockTrait()
     {
         _canLevelUp = true;
-        GetComponent<TooltipTrigger>().SetColouredText(null, null);
+        GetComponent<TooltipTrigger>().SetSubHeading(null, null);
         _image.color = Color.white;
     }
 

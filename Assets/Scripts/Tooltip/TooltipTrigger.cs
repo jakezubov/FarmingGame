@@ -7,11 +7,12 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField] private string _description;
     [SerializeField] private string _colouredText;
     [SerializeField] private string _colour;
+    [SerializeField] private string _extraText;
     [SerializeField] private Sprite _image;  
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipSystem.Show(_description, _header, _colouredText, _colour, _image);       
+        TooltipSystem.Show(_description, _header, _colouredText, _colour, _extraText, _image);       
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -29,7 +30,12 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         _header = newText;
     }
 
-    public void SetColouredText(string text, string colour)
+    public void SetExtraText(string newText)
+    {
+        _extraText = newText;
+    }
+
+    public void SetSubHeading(string text, string colour)
     {
         _colouredText = text;
         _colour = colour;

@@ -6,8 +6,9 @@ using UnityEngine.InputSystem;
 public class Tooltip : MonoBehaviour
 {
     public Text _header;
+    public Text _subHeading;
     public Text _description;
-    public Text _colouredText; 
+    public Text _extraText;
     public Image _image;
 
     public LayoutElement _layoutElement;
@@ -20,7 +21,7 @@ public class Tooltip : MonoBehaviour
         _rectTransform = GetComponent<RectTransform>();
     }
 
-    public void SetText(string description, string header = "", string colouredText = "", string colour = "", Sprite image = null)
+    public void SetText(string description, string header = "", string subHeading = "", string colour = "", string extraText = "", Sprite image = null)
     {
         _description.text = description;       
 
@@ -28,25 +29,32 @@ public class Tooltip : MonoBehaviour
         if (string.IsNullOrEmpty(header)) { _header.gameObject.SetActive(false); }
         else { _header.gameObject.SetActive(true); _header.text = header; }
 
-        // Coloured Text check
-        if (string.IsNullOrEmpty(colouredText)) { _colouredText.gameObject.SetActive(false); }
+        // Sub Heading check
+        if (string.IsNullOrEmpty(subHeading)) { _subHeading.gameObject.SetActive(false); }
         else 
-        { 
-            _colouredText.gameObject.SetActive(true);
-            _colouredText.text= colouredText; 
-            _colouredText.color = (Color)typeof(Color).GetProperty(colour.ToLowerInvariant()).GetValue(null, null);
-        } 
+        {
+            _subHeading.gameObject.SetActive(true);
+            _subHeading.text = subHeading;
+            _subHeading.color = (Color)typeof(Color).GetProperty(colour.ToLowerInvariant()).GetValue(null, null);
+        }
+
+        // Extra Text check
+        if (string.IsNullOrEmpty(extraText)) { _extraText.gameObject.SetActive(false); }
+        else { _extraText.gameObject.SetActive(true); _extraText.text = extraText; }
 
         // Image check
         if (image == null) { _image.gameObject.SetActive(false); }
         else { _image.gameObject.SetActive(true); _image.sprite = image; }
       
+
+        // checking for wraping text
         int headerLength = _header.text.Length;
         int contentLength = _description.text.Length;
-        int colouredTextLength = _colouredText.text.Length;            
+        int subHeadingLength = _subHeading.text.Length;
+        int extraTextLength = _extraText.text.Length;
 
         _layoutElement.enabled = (headerLength > _characterWrapLimit || contentLength > _characterWrapLimit ||
-            colouredTextLength > _characterWrapLimit) ? true : false;
+            subHeadingLength > _characterWrapLimit || extraTextLength > _characterWrapLimit) ? true : false;
     }
 
     void Update()

@@ -26,24 +26,24 @@ public class Axe : MonoBehaviour
                 _use._resourcesTilemap.GetTile<RuleTileWithData>(new Vector3Int(currentCell.x - 1, currentCell.y, currentCell.z)) == _logTile)
             {
                 currentCell.x += 1;
-                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap); }
+                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap); }
                 currentCell.x += 1;
-                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap); }
+                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap); }
                 currentCell.x -= 3;
-                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap); }
+                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap); }
                 currentCell.x -= 1;
-                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap); }
+                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap); }
             }
             else // vertical logs
             {
                 currentCell.y += 1;
-                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap); }
+                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap); }
                 currentCell.y += 1;
-                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap); }
+                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap); }
                 currentCell.y -= 3;
-                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap); }
+                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap); }
                 currentCell.y -= 1;
-                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap); }
+                if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap); }
             }
 
             PlayerManager._instance._stamina.LowerCurrentStatAmount(_use._baseStamina * 3 - _axeEfficiencyModifier);
@@ -53,17 +53,17 @@ public class Axe : MonoBehaviour
         {
             int treeHeight = 4;
 
-            _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
+            _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
             for (int i = 0; i < treeHeight; i++) { currentCell.y += 1; _use.Gather(currentCell, null, _use._objectsNoCollideTilemap); }
             currentCell.y -= treeHeight;
             RollForExtraWood(currentCell, ruleTile);
             
-            currentCell.x += 1; _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._objectsNoCollideTilemap);
+            currentCell.x += 1; _use.Gather(currentCell, ruleTile.GetMainItem(), _use._objectsNoCollideTilemap);
             for (int i = 0; i < treeHeight; i++) { currentCell.y += 1; _use.Gather(currentCell, null, _use._objectsNoCollideTilemap); }
             currentCell.y -= treeHeight;
             RollForExtraWood(currentCell, ruleTile);
 
-            currentCell.x -= 2; _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._objectsNoCollideTilemap);
+            currentCell.x -= 2; _use.Gather(currentCell, ruleTile.GetMainItem(), _use._objectsNoCollideTilemap);
             for (int i = 0; i < treeHeight; i++) { currentCell.y += 1; _use.Gather(currentCell, null, _use._objectsNoCollideTilemap); }
             currentCell.y -= treeHeight;
             RollForExtraWood(currentCell, ruleTile);
@@ -82,7 +82,7 @@ public class Axe : MonoBehaviour
             if (randChance == 1)
             {
                 currentCell.y += 1;
-                _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
+                _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
                 PlayerManager._instance._mining.GainExp(_use._baseExp);
             }
             else { _use.Gather(currentCell, null, _use._resourcesTilemap); }

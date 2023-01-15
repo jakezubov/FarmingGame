@@ -213,7 +213,7 @@ public class PlayerController : MonoBehaviour
             else if (_playerActionControls.General.Slot7.triggered) { _activeSlot = 7; }
    
             InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot);
-            CheckForAxeBool();
+            CheckForTools();
         }   
     }
 
@@ -225,11 +225,20 @@ public class PlayerController : MonoBehaviour
         //AnimatorClipInfo[] clip = _animator.GetCurrentAnimatorClipInfo(_animator.GetLayerIndex("Base Layer"));
         //float timer = clip[0].clip.length;
 
-        yield return new WaitForSeconds(0.5f);
-        
-        _animator.SetBool("Swing", false);
-        _isInteracting = false;
-        _use.UseItemInSlot();
+        yield return new WaitForSeconds(0.35f);
+ 
+        bool used = _use.UseItemInSlot();
+        if (used)
+        {
+            _isInteracting = false;
+            _animator.SetBool("Swing", false);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.3f);
+            _isInteracting = false;
+            _animator.SetBool("Swing", false);
+        }
     }
 
     private void Move(float movementInputHoriztonal, float movementInputVertical)
@@ -276,13 +285,27 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("MoveDown", false);
     }
 
-    public void CheckForAxeBool()
+    public void CheckForTools()
     {
-        if (InventoryManager._instance.GetSelectedToolbarItem(false) != null &&
-            InventoryManager._instance.GetSelectedToolbarItem(false).toolType == ToolType.Axe)
+        if(InventoryManager._instance.GetSelectedToolbarItem(false) != null &&
+           InventoryManager._instance.GetSelectedToolbarItem(false).itemType == ItemType.Tool)
         {
-            _animator.SetBool("HasAxe", true);
+            Item item = InventoryManager._instance.GetSelectedToolbarItem(false);
+            if (item.toolType == ToolType.Axe)
+            {
+                _animator.SetBool("HasAxe", true);
+                _animator.SetBool("HasPickaxe", false);
+            }
+            else if (item.toolType == ToolType.Pickaxe)
+            {
+                _animator.SetBool("HasPickaxe", true);
+                _animator.SetBool("HasAxe", false);
+            }
+            else
+            {
+                _animator.SetBool("HasAxe", false);
+                _animator.SetBool("HasPickaxe", false);
+            }
         }
-        else { _animator.SetBool("HasAxe", false); }
     }
 }

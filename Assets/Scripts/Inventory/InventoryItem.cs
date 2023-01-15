@@ -26,13 +26,19 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         tooltip.SetHeader(_item.name);
         tooltip.SetDescription(_item.description);
 
+        if (_item.maxStack > 0)
+        {
+            tooltip.SetExtraText($"Value: {_item.value}   Max Stack: {_item.maxStack}");
+        }
+        else { tooltip.SetExtraText($"Value: {_item.value}"); }
+
         if (newItem.itemType == ItemType.SpellComponent)
         {
-            tooltip.SetColouredText("Spell Component", "Magenta");
+            tooltip.SetSubHeading("Spell Component", "Magenta");
         }
         if (newItem.itemType == ItemType.Artefact)
         {
-            tooltip.SetColouredText("Artefact", "Cyan");
+            tooltip.SetSubHeading("Artefact", "Cyan");
         }
     }
 

@@ -3,7 +3,10 @@ using UnityEngine;
 public class Pickaxe : MonoBehaviour
 {
     public RuleTileWithData _rockTile;
-    public RuleTileWithData _nodeTile;
+    public RuleTileWithData _TinTile;
+    public RuleTileWithData _CopperTile;
+    public RuleTileWithData _IronTile;
+    public RuleTileWithData _GoldTile;
 
     private Use _use;
     private int _oreMinerModifier = 0;
@@ -21,44 +24,62 @@ public class Pickaxe : MonoBehaviour
 
         if (ruleTile == _rockTile)
         {
-            _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
+            _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
             currentCell.y += 1;
             if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _rockTile) 
             { 
-                _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
+                _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
                 
             }
             currentCell.y -= 2; 
             if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _rockTile)
             {
-                _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
+                _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
             }
             PlayerManager._instance._mining.GainExp(_use._baseExp);
         }
-        else if (ruleTile == _nodeTile)
+        else if (ruleTile == _TinTile)
         {
-            _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
-            currentCell.y += 1;
-            if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _nodeTile) 
-            {
-                RollForExtraOre(currentCell, ruleTile);
-                
-            }
-            currentCell.y -= 2;
-            if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _nodeTile)
-            {
-                RollForExtraOre(currentCell, ruleTile);
-            }
-            PlayerManager._instance._mining.GainExp(_use._baseExp * 3);
+            CheckForOres(currentCell, ruleTile, _TinTile);
+        }
+        else if (ruleTile == _CopperTile)
+        {
+            CheckForOres(currentCell, ruleTile, _CopperTile);
+        }
+        else if (ruleTile == _IronTile)
+        {
+            CheckForOres(currentCell, ruleTile, _IronTile);
+        }
+        else if (ruleTile == _GoldTile)
+        {
+            CheckForOres(currentCell, ruleTile, _GoldTile);
         }
     }
 
-    public void RollForExtraOre(Vector3Int currentCell, RuleTileWithData ruleTile)
+    private void CheckForOres(Vector3Int currentCell, RuleTileWithData ruleTile, RuleTileWithData target)
+    {
+        _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
+        _use.Gather(currentCell, ruleTile.GetSecondaryItem(), _use._resourcesTilemap);
+        currentCell.y += 1;
+        if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == target)
+        {
+            RollForExtraOre(currentCell, ruleTile);
+
+        }
+        currentCell.y -= 2;
+        if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == target)
+        {
+            RollForExtraOre(currentCell, ruleTile);
+        }
+        PlayerManager._instance._mining.GainExp(_use._baseExp * 3);
+    }
+
+    private void RollForExtraOre(Vector3Int currentCell, RuleTileWithData ruleTile)
     {
         int randChance = Random.Range(1, 15 - _oreMinerModifier);
         if (randChance == 1)
         {
-            _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
+            _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
             PlayerManager._instance._mining.GainExp(_use._baseExp);
         }
         else { _use.Gather(currentCell, null, _use._resourcesTilemap); }

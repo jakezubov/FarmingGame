@@ -47,18 +47,18 @@ public class TraitPages : MonoBehaviour
 
         if (trait == _trait1 && _trait1.GetLevel() <= _minLevel)
         {
-            _trait2.GetComponent<TooltipTrigger>().SetColouredText($"{_trait2.name} will unlock in {_trait1.GetLevelsToUnlock()} levels", "Red");
-            _trait3.GetComponent<TooltipTrigger>().SetColouredText($"{_trait3.name} will unlock in {_trait1.GetLevelsToUnlock()} levels", "Red");
+            _trait2.GetComponent<TooltipTrigger>().SetSubHeading($"{_trait2.name} will unlock in {_trait1.GetLevelsToUnlock()} levels", "Red");
+            _trait3.GetComponent<TooltipTrigger>().SetSubHeading($"{_trait3.name} will unlock in {_trait1.GetLevelsToUnlock()} levels", "Red");
         }
         else if (trait == _trait2 && _trait2.GetLevel() <= _minLevel)
         {
-            _trait4.GetComponent<TooltipTrigger>().SetColouredText($"{_trait4.name} will unlock in {_trait2.GetLevelsToUnlock()} levels", "Red");
-            _trait5.GetComponent<TooltipTrigger>().SetColouredText($"{_trait5.name} will unlock in {trait5LevelsToUnlock} levels", "Red");
+            _trait4.GetComponent<TooltipTrigger>().SetSubHeading($"{_trait4.name} will unlock in {_trait2.GetLevelsToUnlock()} levels", "Red");
+            _trait5.GetComponent<TooltipTrigger>().SetSubHeading($"{_trait5.name} will unlock in {trait5LevelsToUnlock} levels", "Red");
         }
         else if (trait == _trait3 && _trait3.GetLevel() <= _minLevel)
         {
-            _trait5.GetComponent<TooltipTrigger>().SetColouredText($"{_trait5.name} will unlock in {trait5LevelsToUnlock} levels", "Red");
-            _trait6.GetComponent<TooltipTrigger>().SetColouredText($"{_trait6.name} will unlock in {_trait3.GetLevelsToUnlock()} levels", "Red");
+            _trait5.GetComponent<TooltipTrigger>().SetSubHeading($"{_trait5.name} will unlock in {trait5LevelsToUnlock} levels", "Red");
+            _trait6.GetComponent<TooltipTrigger>().SetSubHeading($"{_trait6.name} will unlock in {_trait3.GetLevelsToUnlock()} levels", "Red");
         }
     }
 

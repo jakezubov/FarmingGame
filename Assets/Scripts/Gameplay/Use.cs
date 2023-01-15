@@ -55,11 +55,12 @@ public class Use : MonoBehaviour
         }
     }
 
-    public void UseItemInSlot()
+    public bool UseItemInSlot()
     {
         if (_toolbarItem != null && _toolbarItem.itemType == ItemType.BuildingBlock)
         {
             Place();
+            return true;
         }
         else if (PlayerManager._instance._stamina.GetCurrentStatAmount() > 0)
         {
@@ -68,6 +69,7 @@ public class Use : MonoBehaviour
                 if (_toolbarItem != null && _toolbarItem.toolType == ToolType.Shovel)
                 {
                     _shovel.Dig(_currentCell, _ruleTile);
+                    return true;
                 }
             }
             else if (_ruleTileWithData != null)
@@ -76,20 +78,24 @@ public class Use : MonoBehaviour
                     _ruleTileWithData == _pinkFlowerTile || _ruleTileWithData == _whiteFlowerTile)
                 {
                     _forage.Foraging(_currentCell, _ruleTileWithData);
+                    return true;
                 }  
                 else if (_toolbarItem != null && _toolbarItem.itemType == ItemType.Tool)
                 {
                     if (_toolbarItem.toolType == ToolType.Axe)
                     {
                         _axe.Chop(_currentCell, _ruleTileWithData);
+                        return true;
                     }
                     else if (_toolbarItem.toolType == ToolType.Pickaxe)
                     {
                         _pickaxe.Mine(_currentCell, _ruleTileWithData);
+                        return true;
                     }    
                 }                       
             }
-        }       
+        }
+        return false;
     }
 
     private void Place()
