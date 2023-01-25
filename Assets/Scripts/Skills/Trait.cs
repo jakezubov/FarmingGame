@@ -6,8 +6,7 @@ public class Trait : MonoBehaviour
     public ChangeText _text;
     public Image _image;
 
-    private int _traitLevel = 0;
-    private int _levelsToUnlock = 3;
+    private int _traitLevel, _maxTraitLevel = 10;
     private bool _canLevelUp = false;
 
     public int GetLevel()
@@ -15,15 +14,18 @@ public class Trait : MonoBehaviour
         return _traitLevel;
     }
 
+    // used for loading game
+    public void SetLevel(int newLevel)
+    {
+        _traitLevel = newLevel;
+        _text.SetText($"{_traitLevel}/{_maxTraitLevel}");
+    }
+
     public void IncreaseLevel()
     {
         _traitLevel++;
-        _text.SetText(_traitLevel.ToString());
-        if (_levelsToUnlock > 0)
-        {
-            _levelsToUnlock--;
-        }
-    }
+        _text.SetText($"{_traitLevel}/{_maxTraitLevel}");
+    }  
 
     public bool CheckLevelUpStatus()
     {
@@ -35,15 +37,5 @@ public class Trait : MonoBehaviour
         _canLevelUp = true;
         GetComponent<TooltipTrigger>().SetSubHeading(null, null);
         _image.color = Color.white;
-    }
-
-    public bool IsUnlocked()
-    {
-        return _canLevelUp;
-    }
-
-    public int GetLevelsToUnlock()
-    {
-        return _levelsToUnlock;
     }
 }

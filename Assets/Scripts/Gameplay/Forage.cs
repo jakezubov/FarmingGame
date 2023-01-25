@@ -2,20 +2,23 @@ using UnityEngine;
 
 public class Forage : MonoBehaviour
 {
-    private Use _use;
+    public Stats _stats;
+    public SkillHandler _skills;
+
+    private UseToolbar _use;
     private int _fierceForagerModifier = 0;
 
     private void Start()
     {
-        _use = GetComponent<Use>();
+        _use = GetComponent<UseToolbar>();
     }
 
     public void Foraging(Vector3Int currentCell, RuleTileWithData ruleTile)
     {
-        PlayerManager._instance._stamina.LowerCurrentStatAmount(_use._baseStamina * 1 / 4);
+        _stats.LowerCurrentStatAmount(Stat.stamina, _use._baseStamina * 1 / 4);
 
         _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
-        PlayerManager._instance._farming.GainExp(_use._baseExp * 1 / 2);
+        _skills.GainExperience(Skills.forestry, _use._baseExp * 1 / 2);
 
         if (_fierceForagerModifier > 0)
         {
@@ -24,13 +27,13 @@ public class Forage : MonoBehaviour
             {
                 currentCell.x += 1;
                 _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
-                PlayerManager._instance._farming.GainExp(_use._baseExp * 1 / 2);
+                _skills.GainExperience(Skills.forestry, _use._baseExp * 1 / 2);
             }
         }
     }
 
-    public void AddToFierceForagerModifier(int amount)
+    public void SetFierceForagerModifier(int amount)
     {
-        _fierceForagerModifier += amount;
+        _fierceForagerModifier = amount;
     }
 }

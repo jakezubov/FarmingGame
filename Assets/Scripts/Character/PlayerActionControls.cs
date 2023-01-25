@@ -55,7 +55,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""UseToolbar"",
                     ""type"": ""Button"",
                     ""id"": ""fdac0a8e-649b-45d2-82fd-a0357870a5de"",
                     ""expectedControlType"": ""Button"",
@@ -67,6 +67,15 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""name"": ""Drop"",
                     ""type"": ""Button"",
                     ""id"": ""4a26f88d-088d-45b2-8271-35410782406f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Options"",
+                    ""type"": ""Button"",
+                    ""id"": ""bbd96ad6-6544-4801-835a-8e179fe767e9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -228,7 +237,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interact"",
+                    ""action"": ""UseToolbar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -418,6 +427,17 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""action"": ""ChangeSlots"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""44a13b3b-adcd-4b95-af33-72d65376f6cb"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Options"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -501,6 +521,15 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""name"": ""Drop"",
                     ""type"": ""Button"",
                     ""id"": ""42840cc0-bcf3-4af7-8abf-d97fbfb9b74c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Options"",
+                    ""type"": ""Button"",
+                    ""id"": ""985148ce-970b-4202-a8b4-7adbf484f507"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -649,17 +678,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 },
                 {
                     ""name"": """",
-                    ""id"": ""529d2e5c-ffe1-4c56-a4d7-c8060a0fe7ed"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CloseSpellBook"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""4a323ce7-672a-43af-9c05-3fe145cdd016"",
                     ""path"": ""<Keyboard>/numpadPlus"",
                     ""interactions"": """",
@@ -712,6 +730,17 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa1e6f95-a3b4-4970-bd77-8b95698998e8"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Options"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -723,8 +752,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         m_General_MoveHorizontal = m_General.FindAction("MoveHorizontal", throwIfNotFound: true);
         m_General_MoveVertical = m_General.FindAction("MoveVertical", throwIfNotFound: true);
         m_General_OpenSpellBook = m_General.FindAction("OpenSpellBook", throwIfNotFound: true);
-        m_General_Interact = m_General.FindAction("Interact", throwIfNotFound: true);
+        m_General_UseToolbar = m_General.FindAction("UseToolbar", throwIfNotFound: true);
         m_General_Drop = m_General.FindAction("Drop", throwIfNotFound: true);
+        m_General_Options = m_General.FindAction("Options", throwIfNotFound: true);
         m_General_ChangeSlots = m_General.FindAction("ChangeSlots", throwIfNotFound: true);
         m_General_Slot0 = m_General.FindAction("Slot0", throwIfNotFound: true);
         m_General_Slot1 = m_General.FindAction("Slot1", throwIfNotFound: true);
@@ -745,6 +775,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         m_SpellBook_NavigateDown = m_SpellBook.FindAction("NavigateDown", throwIfNotFound: true);
         m_SpellBook_Select = m_SpellBook.FindAction("Select", throwIfNotFound: true);
         m_SpellBook_Drop = m_SpellBook.FindAction("Drop", throwIfNotFound: true);
+        m_SpellBook_Options = m_SpellBook.FindAction("Options", throwIfNotFound: true);
         m_SpellBook_FreeExp = m_SpellBook.FindAction("FreeExp", throwIfNotFound: true);
         m_SpellBook_FreeReputation = m_SpellBook.FindAction("FreeReputation", throwIfNotFound: true);
     }
@@ -809,8 +840,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
     private readonly InputAction m_General_MoveHorizontal;
     private readonly InputAction m_General_MoveVertical;
     private readonly InputAction m_General_OpenSpellBook;
-    private readonly InputAction m_General_Interact;
+    private readonly InputAction m_General_UseToolbar;
     private readonly InputAction m_General_Drop;
+    private readonly InputAction m_General_Options;
     private readonly InputAction m_General_ChangeSlots;
     private readonly InputAction m_General_Slot0;
     private readonly InputAction m_General_Slot1;
@@ -827,8 +859,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         public InputAction @MoveHorizontal => m_Wrapper.m_General_MoveHorizontal;
         public InputAction @MoveVertical => m_Wrapper.m_General_MoveVertical;
         public InputAction @OpenSpellBook => m_Wrapper.m_General_OpenSpellBook;
-        public InputAction @Interact => m_Wrapper.m_General_Interact;
+        public InputAction @UseToolbar => m_Wrapper.m_General_UseToolbar;
         public InputAction @Drop => m_Wrapper.m_General_Drop;
+        public InputAction @Options => m_Wrapper.m_General_Options;
         public InputAction @ChangeSlots => m_Wrapper.m_General_ChangeSlots;
         public InputAction @Slot0 => m_Wrapper.m_General_Slot0;
         public InputAction @Slot1 => m_Wrapper.m_General_Slot1;
@@ -856,12 +889,15 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @OpenSpellBook.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnOpenSpellBook;
                 @OpenSpellBook.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnOpenSpellBook;
                 @OpenSpellBook.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnOpenSpellBook;
-                @Interact.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
+                @UseToolbar.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnUseToolbar;
+                @UseToolbar.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnUseToolbar;
+                @UseToolbar.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnUseToolbar;
                 @Drop.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDrop;
                 @Drop.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDrop;
                 @Drop.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDrop;
+                @Options.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnOptions;
+                @Options.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnOptions;
+                @Options.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnOptions;
                 @ChangeSlots.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
                 @ChangeSlots.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
                 @ChangeSlots.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
@@ -902,12 +938,15 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @OpenSpellBook.started += instance.OnOpenSpellBook;
                 @OpenSpellBook.performed += instance.OnOpenSpellBook;
                 @OpenSpellBook.canceled += instance.OnOpenSpellBook;
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
+                @UseToolbar.started += instance.OnUseToolbar;
+                @UseToolbar.performed += instance.OnUseToolbar;
+                @UseToolbar.canceled += instance.OnUseToolbar;
                 @Drop.started += instance.OnDrop;
                 @Drop.performed += instance.OnDrop;
                 @Drop.canceled += instance.OnDrop;
+                @Options.started += instance.OnOptions;
+                @Options.performed += instance.OnOptions;
+                @Options.canceled += instance.OnOptions;
                 @ChangeSlots.started += instance.OnChangeSlots;
                 @ChangeSlots.performed += instance.OnChangeSlots;
                 @ChangeSlots.canceled += instance.OnChangeSlots;
@@ -952,6 +991,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
     private readonly InputAction m_SpellBook_NavigateDown;
     private readonly InputAction m_SpellBook_Select;
     private readonly InputAction m_SpellBook_Drop;
+    private readonly InputAction m_SpellBook_Options;
     private readonly InputAction m_SpellBook_FreeExp;
     private readonly InputAction m_SpellBook_FreeReputation;
     public struct SpellBookActions
@@ -967,6 +1007,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         public InputAction @NavigateDown => m_Wrapper.m_SpellBook_NavigateDown;
         public InputAction @Select => m_Wrapper.m_SpellBook_Select;
         public InputAction @Drop => m_Wrapper.m_SpellBook_Drop;
+        public InputAction @Options => m_Wrapper.m_SpellBook_Options;
         public InputAction @FreeExp => m_Wrapper.m_SpellBook_FreeExp;
         public InputAction @FreeReputation => m_Wrapper.m_SpellBook_FreeReputation;
         public InputActionMap Get() { return m_Wrapper.m_SpellBook; }
@@ -1005,6 +1046,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Drop.started -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnDrop;
                 @Drop.performed -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnDrop;
                 @Drop.canceled -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnDrop;
+                @Options.started -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnOptions;
+                @Options.performed -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnOptions;
+                @Options.canceled -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnOptions;
                 @FreeExp.started -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnFreeExp;
                 @FreeExp.performed -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnFreeExp;
                 @FreeExp.canceled -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnFreeExp;
@@ -1042,6 +1086,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Drop.started += instance.OnDrop;
                 @Drop.performed += instance.OnDrop;
                 @Drop.canceled += instance.OnDrop;
+                @Options.started += instance.OnOptions;
+                @Options.performed += instance.OnOptions;
+                @Options.canceled += instance.OnOptions;
                 @FreeExp.started += instance.OnFreeExp;
                 @FreeExp.performed += instance.OnFreeExp;
                 @FreeExp.canceled += instance.OnFreeExp;
@@ -1057,8 +1104,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         void OnMoveHorizontal(InputAction.CallbackContext context);
         void OnMoveVertical(InputAction.CallbackContext context);
         void OnOpenSpellBook(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
+        void OnUseToolbar(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
+        void OnOptions(InputAction.CallbackContext context);
         void OnChangeSlots(InputAction.CallbackContext context);
         void OnSlot0(InputAction.CallbackContext context);
         void OnSlot1(InputAction.CallbackContext context);
@@ -1080,6 +1128,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         void OnNavigateDown(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
+        void OnOptions(InputAction.CallbackContext context);
         void OnFreeExp(InputAction.CallbackContext context);
         void OnFreeReputation(InputAction.CallbackContext context);
     }

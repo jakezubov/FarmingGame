@@ -42,50 +42,62 @@ public class InventoryManager : MonoBehaviour
     public bool AddItem(Item item)
     {    
         // if component check if item can fit in component pouch
-        if (item.itemType == ItemType.SpellComponent && !_componentsFull)
+        if (item.type == Type.SpellComponent)
         {
-            for (int i = 0; i < _componentSlots.Length; i++)
+            foreach (ComponentSlot slot in _componentSlots)
             {
-                ComponentSlot slot = _componentSlots[i];
                 InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
 
-                if (_componentSlots[i].GetComponent<Button>().interactable == true)
+                if (slot.GetComponent<Button>().interactable == true)
                 {
-                    if (itemInSlot != null && itemInSlot.GetItem().stackable &&
+                    if (itemInSlot != null && itemInSlot.GetItem().maxStack > 1 &&
                     itemInSlot.GetItem() == item && itemInSlot.GetCount() < itemInSlot.GetItem().maxStack)
                     {
                         itemInSlot.AddToCount(1);
                         return true;
                     }
-                    else if (itemInSlot == null)
-                    {
-                        SpawnNewItemComp(item, slot);
-                        return true;
-                    }
                 }          
             }
-            _componentsFull = true;
-        }
-        else // spawn item in inventory
-        {           
-            for (int i = 0; i < _inventorySlots.Length; i++)
+            if (!_componentsFull)
             {
-                InventorySlot slot = _inventorySlots[i];
-                InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+                foreach (ComponentSlot slot in _componentSlots)
+                {
+                    InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
 
-                if (itemInSlot != null && itemInSlot.GetItem().stackable &&
-                    itemInSlot.GetItem() == item && itemInSlot.GetCount() < itemInSlot.GetItem().maxStack)
-                {
-                    itemInSlot.AddToCount(1);
-                    return true;
+                    if (slot.GetComponent<Button>().interactable == true)
+                    {
+                        if (itemInSlot == null)
+                        {
+                            SpawnNewItemComp(item, slot);
+                            return true;
+                        }
+                    }
                 }
-                else if (itemInSlot == null)
-                {
-                    SpawnNewItemInv(item, slot);
-                    return true;
-                }
+            }  
+            _componentsFull = true;
+        }   
+        
+        foreach (InventorySlot slot in _inventorySlots)
+        {
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+
+            if (itemInSlot != null && itemInSlot.GetItem().maxStack > 1 &&
+                itemInSlot.GetItem() == item && itemInSlot.GetCount() < itemInSlot.GetItem().maxStack)
+            {
+                itemInSlot.AddToCount(1);
+                return true;
             }
         }
+        foreach (InventorySlot slot in _inventorySlots)
+        {
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+
+            if (itemInSlot == null)
+            {
+                SpawnNewItemInv(item, slot);
+                return true;
+            }
+        }      
         return false;
     }
 

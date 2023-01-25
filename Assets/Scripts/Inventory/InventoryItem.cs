@@ -7,7 +7,7 @@ using System.Reflection;
 using System;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
-{
+{   
     public Image _image;
     public ChangeText _countText;
 
@@ -26,17 +26,17 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         tooltip.SetHeader(_item.name);
         tooltip.SetDescription(_item.description);
 
-        if (_item.maxStack > 0)
+        if (_item.maxStack > 1)
         {
             tooltip.SetExtraText($"Value: {_item.value}   Max Stack: {_item.maxStack}");
         }
         else { tooltip.SetExtraText($"Value: {_item.value}"); }
 
-        if (newItem.itemType == ItemType.SpellComponent)
+        if (newItem.type == Type.SpellComponent)
         {
             tooltip.SetSubHeading("Spell Component", "Magenta");
         }
-        if (newItem.itemType == ItemType.Artefact)
+        if (newItem.type == Type.Artefact)
         {
             tooltip.SetSubHeading("Artefact", "Cyan");
         }

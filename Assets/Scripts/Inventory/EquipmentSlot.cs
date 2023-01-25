@@ -2,7 +2,7 @@ public class EquipmentSlot : Slot
 {
     public override void OnDropBase(InventoryItem newInventoryItem)
     {
-        if (newInventoryItem.GetItem().equipmentType == GetSlotType())
+        if (newInventoryItem.GetItem().subType == GetSlotType())
         {
             if (transform.childCount == 0)
             {
@@ -13,7 +13,7 @@ public class EquipmentSlot : Slot
             {
                 if (newInventoryItem.GetParentBeforeDrag().GetComponent<EquipmentSlot>())
                 {
-                    if (_currentInventoryItem.GetItem().equipmentType == newInventoryItem.GetParentBeforeDrag().GetComponent<EquipmentSlot>().GetSlotType())
+                    if (_currentInventoryItem.GetItem().subType == newInventoryItem.GetParentBeforeDrag().GetComponent<EquipmentSlot>().GetSlotType())
                     {
                         newInventoryItem.SetParentAfterDrag(transform);
                         _currentInventoryItem.transform.SetParent(newInventoryItem.GetParentBeforeDrag());
@@ -34,13 +34,13 @@ public class EquipmentSlot : Slot
         } 
     }
 
-    public EquipmentType GetSlotType()
+    public SubType GetSlotType()
     {
-        if (CompareTag("Belt")) { return EquipmentType.Belt; }
-        else if (CompareTag("Ring")) { return EquipmentType.Ring; }
-        else if (CompareTag("ArcaneFocus")) { return EquipmentType.ArcaneFocus; }
-        else if (CompareTag("Arrows")) { return EquipmentType.Arrows; }
-        else if (CompareTag("Necklace")) { return EquipmentType.Necklace; }
-        else { return EquipmentType.NA; }
+        if (CompareTag("Belt")) { return SubType.Belt; }
+        else if (CompareTag("Ring")) { return SubType.Ring; }
+        else if (CompareTag("ArcaneFocus")) { return SubType.ArcaneFocus; }
+        else if (CompareTag("Arrows")) { return SubType.Arrows; }
+        else if (CompareTag("Necklace")) { return SubType.Necklace; }
+        else { return SubType.NA; }
     }
 }

@@ -4,46 +4,33 @@ public class Skill : MonoBehaviour
 {   
     public ChangeSlider _experienceBar;
     public ChangeText _levelText, _skillPointsText;
+    public TraitHandler _traits;
 
     private int _currentExp, _level, _skillPoints;
     private readonly int _requiredExpBase = 100;
 
-    public Skill()
+    public (bool, int) AddToCurrentExp(int experience)
     {
-        _level = 1;       
-        _currentExp = 0;
-        _skillPoints = 0;       
-    }
+        _currentExp += experience;
+        _experienceBar.SetValue(_currentExp);
 
-    private void Start()
-    {
-        _levelText.SetText(_level.ToString());
-    }
-
-    public void GainExp(int experience)
-    {
-        AddToCurrentExp(experience);
         if (_currentExp >= _requiredExpBase * _level)
         {
-            int leftoverExperience = _currentExp - (_requiredExpBase * _level);
+            int leftoverExp = _currentExp - (_requiredExpBase * _level);
             LevelUp();
-            SetExpBarMax(_requiredExpBase * GetLevel());
-            SetCurrentExp(leftoverExperience);
+
+            SetExpBarMax((_requiredExpBase * _level));
+            SetCurrentExp(leftoverExp);
+
+            return (true, leftoverExp);
         }
+        return (true, _currentExp);
     }
 
     public int GetLevel()
     {
         return _level;
-    }
-
-    public void LevelUp()
-    {
-        _level++;
-        _levelText.SetText(_level.ToString());
-        _skillPoints++;
-        _skillPointsText.SetText(_skillPoints.ToString());
-    }
+    }   
 
     public int GetSkillPoints()
     {
@@ -60,16 +47,30 @@ public class Skill : MonoBehaviour
     {
         _currentExp = exp;
         _experienceBar.SetValue(_currentExp);
-    }
-
-    private void AddToCurrentExp(int exp)
-    {
-        _currentExp += exp;
-        _experienceBar.SetValue(_currentExp);
-    }
+    }   
 
     private void SetExpBarMax(int value)
     {
         _experienceBar.SetMaxValue(value);
-    } 
+    }
+
+    private void LevelUp()
+    {
+        _level++;
+        _levelText.SetText(_level.ToString());
+        _skillPoints++;
+        _skillPointsText.SetText(_skillPoints.ToString());
+        _traits.ChangeLockedText();
+        _traits.UnlockTraits();
+    }
+
+    public void SetupSkills(int level, int sp, int exp)
+    {
+        _level = level;
+        _levelText.SetText(level.ToString());
+        SetSkillPoints(sp);
+
+        SetExpBarMax(_requiredExpBase * level);
+        SetCurrentExp(exp);     
+    }
 }

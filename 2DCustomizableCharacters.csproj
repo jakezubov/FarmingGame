@@ -56,30 +56,30 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\CharacterExpression.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\ScaleGroup.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\BodyPart.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\CustomizationData.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\DirectionalSpritesSet.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\ExpressionData.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\CustomizationLocation.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\CustomizationCategory.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\CustomizableCharacter.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\Customizer.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\WeaponSlot.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\Customization.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\ScaleGroupPreset.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\HipPositionAdjuster.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\InverseScaleSpriteReplacer.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\CharacterPreset.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\CustomizationSpriteSet.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\HipPositionAdjusterGroup.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\CustomizationSet.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\ScaleCustomizer.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Scripts\CustomizationSlot.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\CustomizationData.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\ExpressionData.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\CustomizableCharacter.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\Customization.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\HipPositionAdjusterGroup.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\CustomizationSlot.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\CharacterExpression.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\ScaleGroup.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\BodyPart.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\DirectionalSpritesSet.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\CustomizationLocation.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\CustomizationCategory.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\Customizer.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\WeaponSlot.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\ScaleGroupPreset.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\HipPositionAdjuster.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\InverseScaleSpriteReplacer.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\CharacterPreset.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\CustomizationSpriteSet.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\CustomizationSet.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Scripts\ScaleCustomizer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprites\2D Customizable Characters\Scripts\2DCustomizableCharacters.asmdef" />
+    <None Include="Assets\2D Customizable Characters\Scripts\2DCustomizableCharacters.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -321,6 +321,9 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.0\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.0\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>

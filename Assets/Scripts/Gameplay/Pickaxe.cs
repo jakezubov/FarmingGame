@@ -2,25 +2,27 @@ using UnityEngine;
 
 public class Pickaxe : MonoBehaviour
 {
+    public Stats _stats;
+    public SkillHandler _skills;
     public RuleTileWithData _rockTile;
     public RuleTileWithData _TinTile;
     public RuleTileWithData _CopperTile;
     public RuleTileWithData _IronTile;
     public RuleTileWithData _GoldTile;
 
-    private Use _use;
-    private int _oreMinerModifier = 0;
+    private UseToolbar _use;
+    private int _prospectorModifier = 0;
     private int _pickaxeEfficiencyModifier = 0;
     
 
     private void Start()
     {
-        _use = GetComponent<Use>();
+        _use = GetComponent<UseToolbar>();
     }
 
     public void Mine(Vector3Int currentCell, RuleTileWithData ruleTile)
     {
-        PlayerManager._instance._stamina.LowerCurrentStatAmount(_use._baseStamina - _pickaxeEfficiencyModifier);
+        _stats.LowerCurrentStatAmount(Stat.stamina, _use._baseStamina - _pickaxeEfficiencyModifier);
 
         if (ruleTile == _rockTile)
         {
@@ -36,7 +38,7 @@ public class Pickaxe : MonoBehaviour
             {
                 _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
             }
-            PlayerManager._instance._mining.GainExp(_use._baseExp);
+            _skills.GainExperience(Skills.mining, _use._baseExp);
         }
         else if (ruleTile == _TinTile)
         {
@@ -71,26 +73,26 @@ public class Pickaxe : MonoBehaviour
         {
             RollForExtraOre(currentCell, ruleTile);
         }
-        PlayerManager._instance._mining.GainExp(_use._baseExp * 3);
+        _skills.GainExperience(Skills.mining, _use._baseExp * 3);
     }
 
     private void RollForExtraOre(Vector3Int currentCell, RuleTileWithData ruleTile)
     {
-        int randChance = Random.Range(1, 15 - _oreMinerModifier);
+        int randChance = Random.Range(1, 15 - _prospectorModifier);
         if (randChance == 1)
         {
             _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
-            PlayerManager._instance._mining.GainExp(_use._baseExp);
+            _skills.GainExperience(Skills.mining, _use._baseExp);
         }
         else { _use.Gather(currentCell, null, _use._resourcesTilemap); }
     }
 
-    public void AddToOreMinerModifier(int amount)
+    public void SetProspectorModifier(int amount)
     {
-        _oreMinerModifier += amount;
+        _prospectorModifier = amount;
     }
-    public void AddToPickaxeEfficiencyModifier(int amount)
+    public void SetPickaxeEfficiencyModifier(int amount)
     {
-        _pickaxeEfficiencyModifier += amount;
+        _pickaxeEfficiencyModifier = amount;
     }
 }

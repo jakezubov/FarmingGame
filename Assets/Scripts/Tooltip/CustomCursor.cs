@@ -10,9 +10,13 @@ public class CustomCursor : MonoBehaviour
     {
         // this sets the base cursor as invisible
         Cursor.visible = false;
+
+        #if UNITY_EDITOR
+            Cursor.visible = true;
+        #endif
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 position = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         position.z = Camera.main.nearClipPlane;

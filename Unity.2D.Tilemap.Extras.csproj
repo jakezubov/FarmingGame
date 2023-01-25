@@ -56,13 +56,13 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library\PackageCache\com.unity.2d.tilemap.extras@1.8.4-preview\Runtime\GridInformation\GridInformation.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap.extras@1.8.4-preview\Runtime\Tiles\RuleOverrideTile\RuleOverrideTile.cs" />
+    <Compile Include="Library\PackageCache\com.unity.2d.tilemap.extras@1.8.4-preview\Runtime\Tiles\RuleOverrideTile\AdvancedRuleOverrideTile.cs" />
+    <Compile Include="Library\PackageCache\com.unity.2d.tilemap.extras@1.8.4-preview\Runtime\Tiles\AnimatedTile\AnimatedTile.cs" />
+    <Compile Include="Library\PackageCache\com.unity.2d.tilemap.extras@1.8.4-preview\Runtime\GridInformation\GridInformation.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap.extras@1.8.4-preview\Runtime\Tiles\IsometricRuleTile\IsometricRuleTile.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap.extras@1.8.4-preview\Runtime\Tiles\HexagonalRuleTile\HexagonalRuleTile.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap.extras@1.8.4-preview\Runtime\Tiles\RuleTile\RuleTile.cs" />
-    <Compile Include="Library\PackageCache\com.unity.2d.tilemap.extras@1.8.4-preview\Runtime\Tiles\RuleOverrideTile\AdvancedRuleOverrideTile.cs" />
-    <Compile Include="Library\PackageCache\com.unity.2d.tilemap.extras@1.8.4-preview\Runtime\Tiles\AnimatedTile\AnimatedTile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library\PackageCache\com.unity.2d.tilemap.extras@1.8.4-preview\Runtime\Unity.2D.Tilemap.Extras.asmdef" />
@@ -307,6 +307,9 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.0\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.0\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>

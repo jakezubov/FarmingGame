@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
+                    "name": "UseToolbar",
                     "type": "Button",
                     "id": "fdac0a8e-649b-45d2-82fd-a0357870a5de",
                     "expectedControlType": "Button",
@@ -45,6 +45,15 @@
                     "name": "Drop",
                     "type": "Button",
                     "id": "4a26f88d-088d-45b2-8271-35410782406f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Options",
+                    "type": "Button",
+                    "id": "bbd96ad6-6544-4801-835a-8e179fe767e9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -206,7 +215,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "UseToolbar",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -396,6 +405,17 @@
                     "action": "ChangeSlots",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "44a13b3b-adcd-4b95-af33-72d65376f6cb",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Options",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -479,6 +499,15 @@
                     "name": "Drop",
                     "type": "Button",
                     "id": "42840cc0-bcf3-4af7-8abf-d97fbfb9b74c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Options",
+                    "type": "Button",
+                    "id": "985148ce-970b-4202-a8b4-7adbf484f507",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -627,17 +656,6 @@
                 },
                 {
                     "name": "",
-                    "id": "529d2e5c-ffe1-4c56-a4d7-c8060a0fe7ed",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CloseSpellBook",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "4a323ce7-672a-43af-9c05-3fe145cdd016",
                     "path": "<Keyboard>/numpadPlus",
                     "interactions": "",
@@ -688,6 +706,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Drop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa1e6f95-a3b4-4970-bd77-8b95698998e8",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Options",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

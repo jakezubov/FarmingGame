@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34266c8ad99fa484cb4f97668aaef637, type: 3}
+  m_Name: Wood
+  m_EditorClassIdentifier: 
+  tile: {fileID: 11400000, guid: 2ac05f60bda3ff94aa2f99eeeda1c601, type: 2}
+  damage: 0
+  description: Can be used for crafting
+  maxStack: 20
+  value: 0
+  image: {fileID: 21300124, guid: 8f5efdef9329ebc4ab5577858eccfea8, type: 3}
+  durability: 0
+  type: 1
+  subType: 0

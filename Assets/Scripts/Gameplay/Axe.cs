@@ -2,17 +2,20 @@ using UnityEngine;
 
 public class Axe : MonoBehaviour
 {
+    public Stats _stats;
+    public SkillHandler _skills;
+
     public RuleTileWithData _logTile;
     public RuleTileWithData _oakTile;
     public RuleTileWithData _spruceTile;
 
-    private Use _use;
-    private int _woodFarmerModifier = 0;
+    private UseToolbar _use;
+    private int _lumberjackModifier = 0;
     private int _axeEfficiencyModifier = 0;
 
     private void Start()
     {
-        _use = GetComponent<Use>();
+        _use = GetComponent<UseToolbar>();
     }
 
     public void Chop(Vector3Int currentCell, RuleTileWithData ruleTile)
@@ -46,8 +49,8 @@ public class Axe : MonoBehaviour
                 if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap); }
             }
 
-            PlayerManager._instance._stamina.LowerCurrentStatAmount(_use._baseStamina * 3 - _axeEfficiencyModifier);
-            PlayerManager._instance._woodcutting.GainExp(_use._baseExp * 3);
+            _stats.LowerCurrentStatAmount(Stat.stamina, _use._baseStamina * 3 - _axeEfficiencyModifier);
+            _skills.GainExperience(Skills.forestry, _use._baseExp * 3);
         }
         else if (ruleTile == _spruceTile || ruleTile == _oakTile)
         {
@@ -68,34 +71,34 @@ public class Axe : MonoBehaviour
             currentCell.y -= treeHeight;
             RollForExtraWood(currentCell, ruleTile);
 
-            PlayerManager._instance._stamina.LowerCurrentStatAmount(_use._baseStamina * 3 - _axeEfficiencyModifier);
-            PlayerManager._instance._woodcutting.GainExp(_use._baseExp * 3);
+            _stats.LowerCurrentStatAmount(Stat.stamina, _use._baseStamina * 3 - _axeEfficiencyModifier);
+            _skills.GainExperience(Skills.forestry, _use._baseExp * 3);
         }
     }
 
     public void RollForExtraWood(Vector3Int currentCell, RuleTileWithData ruleTile)
     {
-        if (_woodFarmerModifier > 0)
+        if (_lumberjackModifier > 0)
         {
             Debug.Log("test");
-            int randChance = Random.Range(1, 11 - _woodFarmerModifier);
+            int randChance = Random.Range(1, 11 - _lumberjackModifier);
             if (randChance == 1)
             {
                 currentCell.y += 1;
                 _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
-                PlayerManager._instance._mining.GainExp(_use._baseExp);
+                _skills.GainExperience(Skills.forestry, _use._baseExp);
             }
             else { _use.Gather(currentCell, null, _use._resourcesTilemap); }
         } 
     }
 
-    public void AddToWoodFarmerModifier(int amount)
+    public void SetLumberjackModifier(int amount)
     {
-        _woodFarmerModifier += amount;
+        _lumberjackModifier = amount;
     }
 
-    public void AddToAxeEfficiencyModifier(int amount)
+    public void SetAxeEfficiencyModifier(int amount)
     {
-        _axeEfficiencyModifier += amount;
+        _axeEfficiencyModifier = amount;
     }
 }

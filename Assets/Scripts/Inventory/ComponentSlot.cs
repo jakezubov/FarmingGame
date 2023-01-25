@@ -2,7 +2,7 @@ public class ComponentSlot : Slot
 {
     public override void OnDropBase(InventoryItem newInventoryItem)
     {
-        if (newInventoryItem.GetItem().itemType == ItemType.SpellComponent)
+        if (newInventoryItem.GetItem().type == Type.SpellComponent)
         {
             if (transform.childCount == 0)
             {
@@ -11,7 +11,7 @@ public class ComponentSlot : Slot
             }
             else if (transform.childCount == 1)
             {
-                if (_currentInventoryItem.GetItem().stackable && _currentInventoryItem.GetItem().name == newInventoryItem.GetItem().name &&
+                if (_currentInventoryItem.GetItem().maxStack > 1 && _currentInventoryItem.GetItem().name == newInventoryItem.GetItem().name &&
                    (_currentInventoryItem.GetCount() + newInventoryItem.GetCount()) <= _currentInventoryItem.GetItem().maxStack)
                 {
                     _currentInventoryItem.AddToCount(newInventoryItem.GetCount());

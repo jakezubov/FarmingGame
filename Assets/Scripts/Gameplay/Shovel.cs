@@ -2,23 +2,24 @@ using UnityEngine;
 
 public class Shovel : MonoBehaviour
 {
+    public Stats _stats;
     public RuleTile _grassTile;
     public RuleTile _sandTile;  
     public Item _bait;
     public Item[] _artefacts;
     
-    private Use _use;
+    private UseToolbar _use;
     private int _baitFinderModifier = 0;
     private int _archaeologistModifier = 0;
 
     private void Start()
     {
-        _use = GetComponent<Use>();
+        _use = GetComponent<UseToolbar>();
     }
 
     public void Dig(Vector3Int currentCell, RuleTile ruleTile)
     {
-        PlayerManager._instance._stamina.LowerCurrentStatAmount(_use._baseStamina);
+        _stats.LowerCurrentStatAmount(Stat.stamina, _use._baseStamina);
 
         if (ruleTile == _grassTile)
         {
@@ -43,13 +44,13 @@ public class Shovel : MonoBehaviour
         }
     }
 
-    public void AddToBaitFinderModifier(int amount)
+    public void SetBaitFinderModifier(int amount)
     {
-        _baitFinderModifier += amount;
+        _baitFinderModifier = amount;
     }
 
-    public void AddToArchaeologistModifier(int amount)
+    public void SetArchaeologistModifier(int amount)
     {
-        _archaeologistModifier += amount;
+        _archaeologistModifier = amount;
     }
 }

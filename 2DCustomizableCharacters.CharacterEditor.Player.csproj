@@ -56,54 +56,54 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\UICustomizationSets.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\CharacterEditorCustomization.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\Demo Scripts\Arrow.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\InfoTooltip.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\AnimationPlayer.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\ICharacterController.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\Demo Scripts\DemoCharacterController.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\BackgroundColorOption.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\Demo Scripts\InputSystemInputs.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\CustomizationTab.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\CustomizationRandomizer.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\EditorOnlyButton.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\GroupButton.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\CharacterPreviewController.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\ClipToSpriteExporter.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\AnimationClipGroup.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\ButtonGroup.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\ColorOptionButton.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\UICharacterPresets.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\UIButtonGroupData.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\Demo Scripts\CharacterControllerInputs.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\CustomizationCategoryButton.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\ButtonDropdown.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\ScaleGroupButton.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\CameraZoomController.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\Demo Scripts\LegacyInputs.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\ScaleTab.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\CharacterDemo.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\CharacterEditorData.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\SpriteExporter.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\CharacterEditorSettings.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\ConfirmationWindow.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\GameObjectSearch.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\ScaleGroupSettings.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\VisibilityPanel.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\CaptureAreaBounds.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\HoverHighlight.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\SpriteExporterClip.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\EnterExitEventTrigger.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\CustomizationDisplay.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\PrefabExporter.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\CharacterEditorManager.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\AssetOptionsPanel.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\CharacterPicker.cs" />
-    <Compile Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\UI\CategoryTab.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\CharacterEditorCustomization.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\Demo Scripts\Arrow.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\InfoTooltip.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\AnimationPlayer.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\ICharacterController.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\Demo Scripts\DemoCharacterController.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\BackgroundColorOption.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\Demo Scripts\InputSystemInputs.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\AnimationClipGroup.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\ColorOptionButton.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\UICharacterPresets.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\UIButtonGroupData.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\CustomizationCategoryButton.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\ScaleGroupButton.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\Demo Scripts\LegacyInputs.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\CharacterDemo.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\CharacterEditorData.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\SpriteExporter.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\CharacterEditorSettings.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\GameObjectSearch.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\ScaleGroupSettings.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\VisibilityPanel.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\CaptureAreaBounds.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\HoverHighlight.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\CharacterEditorManager.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\AssetOptionsPanel.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\CharacterPicker.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\CategoryTab.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\UICustomizationSets.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\CustomizationTab.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\CustomizationRandomizer.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\EditorOnlyButton.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\GroupButton.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\CharacterPreviewController.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\ClipToSpriteExporter.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\ButtonGroup.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\Demo Scripts\CharacterControllerInputs.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\ButtonDropdown.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\CameraZoomController.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\ScaleTab.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\ConfirmationWindow.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\SpriteExporterClip.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\EnterExitEventTrigger.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\UI\CustomizationDisplay.cs" />
+    <Compile Include="Assets\2D Customizable Characters\Character Editor\Scripts\PrefabExporter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprites\2D Customizable Characters\Character Editor\Scripts\2DCustomizableCharacters.CharacterEditor.asmdef" />
+    <None Include="Assets\2D Customizable Characters\Character Editor\Scripts\2DCustomizableCharacters.CharacterEditor.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -303,6 +303,9 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.37f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

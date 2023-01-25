@@ -15,4 +15,14 @@ public class ChangeSlider : MonoBehaviour
     {
         _slider.value = value;
     }
+
+    public void LowerValue(int value)
+    {
+        _slider.value -= value;
+    }
+
+    public int GetValue()
+    {
+        return Mathf.RoundToInt(_slider.value);
+    }
 }

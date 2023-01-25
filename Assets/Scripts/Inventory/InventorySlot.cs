@@ -30,13 +30,13 @@ public class InventorySlot : Slot
         }
         else if (transform.childCount == 1)
         {
-            if (_currentInventoryItem.GetItem().stackable && _currentInventoryItem.GetItem().name == newInventoryItem.GetItem().name &&
+            if (_currentInventoryItem.GetItem().maxStack > 1 && _currentInventoryItem.GetItem().name == newInventoryItem.GetItem().name &&
                 _currentInventoryItem.GetCount() + newInventoryItem.GetCount() <= _currentInventoryItem.GetItem().maxStack)
             {
                 _currentInventoryItem.AddToCount(newInventoryItem.GetCount());
                 Destroy(newInventoryItem.gameObject);
             }
-            else if (newInventoryItem.GetParentBeforeDrag().GetComponent<ComponentSlot>() && _currentInventoryItem.GetItem().itemType == ItemType.SpellComponent)
+            else if (newInventoryItem.GetParentBeforeDrag().GetComponent<ComponentSlot>() && _currentInventoryItem.GetItem().type == Type.SpellComponent)
             {
                 newInventoryItem.SetParentAfterDrag(transform);
                 _currentInventoryItem.transform.SetParent(newInventoryItem.GetParentBeforeDrag());
@@ -46,7 +46,7 @@ public class InventorySlot : Slot
             }
             else if (newInventoryItem.GetParentBeforeDrag().GetComponent<EquipmentSlot>())
             {
-                if (_currentInventoryItem.GetItem().equipmentType == newInventoryItem.GetParentBeforeDrag().GetComponent<EquipmentSlot>().GetSlotType())
+                if (_currentInventoryItem.GetItem().subType == newInventoryItem.GetParentBeforeDrag().GetComponent<EquipmentSlot>().GetSlotType())
                 {
                     newInventoryItem.SetParentAfterDrag(transform);
                     _currentInventoryItem.transform.SetParent(newInventoryItem.GetParentBeforeDrag());

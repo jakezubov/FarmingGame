@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Reputation : MonoBehaviour
 {
+    public ReputationHandler _repHandler;
     public ChangeSlider _slider;
     private RepTier _repTier;
     private int _currentRep;
@@ -13,8 +14,6 @@ public class Reputation : MonoBehaviour
 
     public Reputation()
     {
-        _currentRep = 0;
-        _repTier = RepTier.Stranger;
         _acquaintanceRepAmount = Mathf.RoundToInt(_totalRep * 1 / 4);
         _friendsRepAmount = Mathf.RoundToInt(_totalRep * 1 / 2);
         _closeFriendsRepAmount = Mathf.RoundToInt(_totalRep * 3 / 4);
@@ -28,11 +27,16 @@ public class Reputation : MonoBehaviour
         CloseFriends
     };
 
-    public void GainRep(int rep)
+    public void AddToCurrentRep(int amount)
     {
-        AddToCurrentRep(rep);
-        if (_currentRep > _totalRep) { SetCurrentRep(_totalRep); }
-        SetSlider(_currentRep);
+        _currentRep += amount;
+        _slider.SetValue(_currentRep);
+
+        if (_currentRep > _totalRep) 
+        {
+            _currentRep = _totalRep;
+            _slider.SetValue(_totalRep);
+        }    
 
         switch (_repTier)
         {
@@ -40,37 +44,23 @@ public class Reputation : MonoBehaviour
             case RepTier.Acquaintance: if (_currentRep >= _friendsRepAmount) { _repTier = RepTier.Friends; } break;
             case RepTier.Friends: if (_currentRep >= _closeFriendsRepAmount) { _repTier = RepTier.CloseFriends; } break;
             case RepTier.CloseFriends: break;
-            default: _repTier = RepTier.Stranger; break;
         }
     }
 
-    public int GetCurrentRep()
-    {
-        return _currentRep;
-    }
-
+    // used for when loading game
     public void SetCurrentRep(int amount)
     {
         _currentRep = amount;
-    }
+        _slider.SetValue(amount);
 
-    public void AddToCurrentRep(int amount)
-    {
-        _currentRep += amount;
+        if (amount > _closeFriendsRepAmount) { _repTier = RepTier.CloseFriends; }
+        else if (amount > _friendsRepAmount) { _repTier = RepTier.Friends; }
+        else if (amount > _acquaintanceRepAmount) { _repTier = RepTier.Acquaintance; }
+        else { _repTier = RepTier.Stranger; }
     }
 
     public RepTier GetRepTier()
     {
         return _repTier;
-    }
-
-    public void SetRepTier(RepTier newTier)
-    {
-        _repTier = newTier;
-    }
-
-    public void SetSlider(int value)
-    {
-        _slider.SetValue(value);
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 public class LootItem : MonoBehaviour
 {
     public SpriteRenderer _sr;
-    public BoxCollider2D _collider;
 
     private float _moveSpeed = 4;
     private Item _item;
@@ -30,8 +29,6 @@ public class LootItem : MonoBehaviour
 
     private IEnumerator MoveAndCollect(Transform target)
     {
-        Destroy(_collider);
-
         while (transform.position != target.position)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, _moveSpeed * Time.deltaTime);
@@ -45,7 +42,6 @@ public class LootItem : MonoBehaviour
     public IEnumerator ThrowItem(Vector3 target)
     {
         _throwingItem = true;
-        Destroy(_collider);
 
         target.x += Random.Range(1, -2);
         target.y -= 1;

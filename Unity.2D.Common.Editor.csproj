@@ -56,10 +56,10 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library\PackageCache\com.unity.2d.common@4.2.0\Editor\ImagePacker\Jobs\FindTightRectJob.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.common@4.2.0\Editor\ImagePacker\ImagePacker.cs" />
-    <Compile Include="Library\PackageCache\com.unity.2d.common@4.2.0\Editor\AssemblyInfo.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.common@4.2.0\Editor\TextureGenerator\TextureGeneratorHelper.cs" />
+    <Compile Include="Library\PackageCache\com.unity.2d.common@4.2.0\Editor\ImagePacker\Jobs\FindTightRectJob.cs" />
+    <Compile Include="Library\PackageCache\com.unity.2d.common@4.2.0\Editor\AssemblyInfo.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.common@4.2.0\Editor\ImagePacker\ImagePackNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.common@4.2.0\Editor\ImagePacker\ImagePackerDebugEditor.cs" />
   </ItemGroup>
@@ -306,6 +306,9 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.0\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.0\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>

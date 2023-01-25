@@ -56,49 +56,63 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Skills\MiningTraitPage.cs" />
-    <Compile Include="Assets\Scripts\Game Manager\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\CraftableItem.cs" />
+    <Compile Include="Assets\Scripts\Skills\MiningTraits.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyAttack.cs" />
+    <Compile Include="Assets\Scripts\Character\InitialSetup.cs" />
     <Compile Include="Assets\Scripts\Tooltip\TooltipSystem.cs" />
-    <Compile Include="Assets\Scripts\UI Editors\ChangeSlider.cs" />
     <Compile Include="Assets\Scripts\UI Editors\ChangeText.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
-    <Compile Include="Assets\Scripts\Character\PlayerActionControls.cs" />
-    <Compile Include="Assets\Scripts\Skills\CombatTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Skills\SkillHandler.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\RuleTileWithData.cs" />
     <Compile Include="Assets\Scripts\Skills\Trait.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Forage.cs" />
-    <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Game Manager\InventoryManager.cs" />
+    <Compile Include="Assets\Scripts\Game Manager\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\Gameplay\DropItem.cs" />
-    <Compile Include="Assets\Scripts\Inventory\BinSlot.cs" />
-    <Compile Include="Assets\Scripts\Inventory\Slot.cs" />
     <Compile Include="Assets\Scripts\Tooltip\Tooltip.cs" />
-    <Compile Include="Assets\Scripts\Skills\FishingTraitPage.cs" />
-    <Compile Include="Assets\Scripts\Skills\CraftingTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Game Manager\ReputationHandler.cs" />
+    <Compile Include="Assets\Scripts\Skills\FishingTraits.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Shovel.cs" />
     <Compile Include="Assets\Scripts\Game Manager\Stats.cs" />
-    <Compile Include="Assets\Scripts\Inventory\ComponentSlot.cs" />
     <Compile Include="Assets\Scripts\Game Manager\Reputation.cs" />
-    <Compile Include="Assets\Scripts\Skills\TraitPages.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Use.cs" />
-    <Compile Include="Assets\Scripts\Tooltip\CustomCursor.cs" />
-    <Compile Include="Assets\Scripts\Scriptable Objects\Item.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\HighlightTile.cs" />
-    <Compile Include="Assets\Scripts\Skills\MagicTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\UseToolbar.cs" />
+    <Compile Include="Assets\Scripts\Character\HighlightTile.cs" />
+    <Compile Include="Assets\Scripts\Skills\MagicTraits.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Pickaxe.cs" />
     <Compile Include="Assets\Scripts\Gameplay\LootItem.cs" />
-    <Compile Include="Assets\Scripts\Inventory\EquipmentSlot.cs" />
-    <Compile Include="Assets\Scripts\Character\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Tooltip\TooltipTrigger.cs" />
-    <Compile Include="Assets\Scripts\Skills\WoodcuttingTraitPage.cs" />
-    <Compile Include="Assets\Scripts\Skills\FarmingTraitPage.cs" />
+    <Compile Include="Assets\Scripts\Skills\ForestryTraits.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Axe.cs" />
-    <Compile Include="Assets\Scripts\Character\Spellbook.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyAttackHitbox.cs" />
+    <Compile Include="Assets\Scripts\Game Manager\Spellbook.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\Ritual.cs" />
+    <Compile Include="Assets\Scripts\UI Editors\ChangeSlider.cs" />
+    <Compile Include="Assets\Scripts\Character\PlayerActionControls.cs" />
+    <Compile Include="Assets\Scripts\Skills\CombatTraits.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Forage.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
+    <Compile Include="Assets\Scripts\Game Manager\SaveData.cs" />
+    <Compile Include="Assets\Scripts\Inventory\BinSlot.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Slot.cs" />
+    <Compile Include="Assets\Scripts\Skills\CraftingTraits.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ComponentSlot.cs" />
+    <Compile Include="Assets\Scripts\Skills\TraitHandler.cs" />
+    <Compile Include="Assets\Scripts\Tooltip\CustomCursor.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\Spell.cs" />
+    <Compile Include="Assets\Scripts\Enemies\SetupEnemy.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\Item.cs" />
+    <Compile Include="Assets\Scripts\Inventory\EquipmentSlot.cs" />
+    <Compile Include="Assets\Scripts\Character\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Skills\FarmingTraits.cs" />
+    <Compile Include="Assets\Scripts\Character\PlayerAttackHitbox.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyDeath.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprites\2D Customizable Characters\Character Editor\Fonts\Nunito\OFL.txt" />
-    <None Include="Assets\Sprites\2D Customizable Characters\Readme.txt" />
+    <None Include="Assets\2D Customizable Characters\Character Editor\Fonts\Nunito\OFL.txt" />
+    <None Include="Assets\2D Customizable Characters\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -317,6 +331,9 @@
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="PackageToolsEditor">
+      <HintPath>Library\ScriptAssemblies\PackageToolsEditor.dll</HintPath>
+    </Reference>
     <Reference Include="2DCustomizableCharacters.CharacterEditor.Editor">
       <HintPath>Library\ScriptAssemblies\2DCustomizableCharacters.CharacterEditor.Editor.dll</HintPath>
     </Reference>
@@ -359,11 +376,17 @@
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="AstarPathfindingProjectEditor">
+      <HintPath>Library\ScriptAssemblies\AstarPathfindingProjectEditor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.37f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -755,6 +778,10 @@
     <ProjectReference Include="Unity.2D.IK.Runtime.Player.csproj">
       <Project>{A4932A28-C396-FC9F-F38A-D4E7368D4D92}</Project>
       <Name>Unity.2D.IK.Runtime.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProject.Player.csproj">
+      <Project>{1C515767-CED4-E4A3-86A6-6A5C0FD668C1}</Project>
+      <Name>AstarPathfindingProject.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Runtime.Player.csproj">
       <Project>{244AF4DC-64E9-D5D1-69D2-2677F6050206}</Project>
