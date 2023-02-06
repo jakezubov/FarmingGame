@@ -7,13 +7,11 @@ public class Spellbook : MonoBehaviour
 {
     public GameObject _inventoryObject, _skillsObject, _mapObject, _questsObject, _spellsObject, _reputationObject, _toolbarObject;
     public GameObject _inventoryFirstButton, _skillsFirstButton, _mapFirstButton, _questsFirstButton, _spellsFirstButton, _reputationFirstButton;
-    public Color _selectedColour;
-    public Color _notSelectedColour;
+    public Color _selectedColour, _notSelectedColour;
 
     private bool _spellbookActive = false;
     private Sections _sections = (Sections)1;
-    private GameObject _currentSection;
-    private GameObject _currentButton;
+    private GameObject _currentSection, _currentButton;
     private readonly int _maxSectionNumber = Enum.GetNames(typeof(Sections)).Length;
 
     public enum Sections
@@ -48,13 +46,13 @@ public class Spellbook : MonoBehaviour
         _spellbookActive = true;
     }
 
-    public void CloseSpellbook(int activeSlot)
+    public void CloseSpellbook()
     {
         HideAllSections();
         gameObject.SetActive(false);    
         _spellbookActive = false;
         _toolbarObject.SetActive(true);
-        InventoryManager._instance.ChangeToolbarSelectedSlot(activeSlot);
+        InventoryManager._instance.ChangeToolbarSelectedSlot(0);
     }
    
     public void ChangeSectionLeft()

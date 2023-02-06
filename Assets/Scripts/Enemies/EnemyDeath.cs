@@ -5,6 +5,7 @@ public class EnemyDeath : MonoBehaviour
 {
     public ChangeSlider _health;
     public GameObject _lootPrefab;
+    public GameObject _destination;
 
     void Update()
     {
@@ -12,6 +13,7 @@ public class EnemyDeath : MonoBehaviour
         {
             // add in animation
             Destroy(gameObject);
+            Destroy(_destination);
 
             Tilemap tilemap = GameObject.Find("Dropped Objects").GetComponent<Tilemap>();
             Vector3Int pos = tilemap.WorldToCell(transform.position);

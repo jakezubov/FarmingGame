@@ -6,7 +6,8 @@ public class Item : ScriptableObject
 {
     [Header("Gameplay")]
     public TileBase tile;  
-    public float damage;    
+    public float damage;
+    public DamageType damageType;
 
     [Header("UI")]
     public string description;  

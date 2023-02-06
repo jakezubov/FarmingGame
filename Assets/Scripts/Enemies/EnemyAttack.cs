@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    private Animator _anim;
+    public Animator _anim;
     private float _resetCooldown;
     private float _cooldown;
 
     private void Start()
     {
-        _anim = GetComponentInParent<Animator>();
         _resetCooldown = GetComponentInParent<SetupEnemy>()._enemy.cooldown;
         _cooldown = _resetCooldown;
     }

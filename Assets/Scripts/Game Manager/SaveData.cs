@@ -60,4 +60,7 @@ public static class SaveData
     public static int knightsRep;
     public static int merchantsRep;
     public static int farmersRep;
+
+    // Checks
+    public static bool ranInitalSetup;
 }

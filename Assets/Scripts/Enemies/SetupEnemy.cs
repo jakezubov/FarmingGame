@@ -10,6 +10,7 @@ public class SetupEnemy : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().sprite = _enemy.image;
         GetComponent<Animator>().runtimeAnimatorController = _enemy.animationController;
+
         _healthCanvas.worldCamera = Camera.main;
         _health.SetMaxValue(Mathf.RoundToInt(_enemy.health));
         _health.SetValue(Mathf.RoundToInt(_enemy.health));

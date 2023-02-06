@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 2778516995837424453}
   - component: {fileID: 2368435373343711291}
   - component: {fileID: 3602659052407727731}
-  - component: {fileID: 7385920116179570660}
+  - component: {fileID: 6173441281407090247}
   m_Layer: 5
   m_Name: Inventory Item
   m_TagString: Untagged
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 2368435373343711291}
   _countText: {fileID: 3941569282689278662}
---- !u!114 &7385920116179570660
+--- !u!114 &6173441281407090247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,11 +194,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7877192879210081581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c2c2c0e8f479348b07f203226b174a, type: 3}
+  m_Script: {fileID: 11500000, guid: 202654c1e2166b941be31673216f9661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _header: 
   _description: 
   _colouredText: 
   _colour: 
+  _extraText: 
   _image: {fileID: 0}

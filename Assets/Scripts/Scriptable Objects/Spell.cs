@@ -1,19 +1,9 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Object/Spell")]
 public class Spell : ScriptableObject
 {
-    [Header("Gameplay")]
-    public float damage;
-    public float range;
-    public float radius;
-    public float effectDuration;
-    public Element element;   
-
-    [Header("UI")] 
+    [Header("General")] 
     public string description;    
-
-    [Header("Both")]
     public float manaCost;
     public Sprite image;
     public Item[] components;

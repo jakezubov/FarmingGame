@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class Axe : MonoBehaviour
 {
-    public Stats _stats;
+    public Stat _stamina;
     public SkillHandler _skills;
+    public ForestryTraits _forestry;
 
     public RuleTileWithData _logTile;
     public RuleTileWithData _oakTile;
     public RuleTileWithData _spruceTile;
 
     private UseToolbar _use;
-    private int _lumberjackModifier = 0;
-    private int _axeEfficiencyModifier = 0;
 
     private void Start()
     {
@@ -49,7 +48,7 @@ public class Axe : MonoBehaviour
                 if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _logTile) { _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap); }
             }
 
-            _stats.LowerCurrentStatAmount(Stat.stamina, _use._baseStamina * 3 - _axeEfficiencyModifier);
+            _stamina.LowerStatAmount(_use._baseStamina * 3 - _forestry.GetAxeEfficiencyModifier());
             _skills.GainExperience(Skills.forestry, _use._baseExp * 3);
         }
         else if (ruleTile == _spruceTile || ruleTile == _oakTile)
@@ -59,46 +58,33 @@ public class Axe : MonoBehaviour
             _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
             for (int i = 0; i < treeHeight; i++) { currentCell.y += 1; _use.Gather(currentCell, null, _use._objectsNoCollideTilemap); }
             currentCell.y -= treeHeight;
-            RollForExtraWood(currentCell, ruleTile);
+            TryGetExtraWood(currentCell, ruleTile);
             
             currentCell.x += 1; _use.Gather(currentCell, ruleTile.GetMainItem(), _use._objectsNoCollideTilemap);
             for (int i = 0; i < treeHeight; i++) { currentCell.y += 1; _use.Gather(currentCell, null, _use._objectsNoCollideTilemap); }
             currentCell.y -= treeHeight;
-            RollForExtraWood(currentCell, ruleTile);
+            TryGetExtraWood(currentCell, ruleTile);
 
             currentCell.x -= 2; _use.Gather(currentCell, ruleTile.GetMainItem(), _use._objectsNoCollideTilemap);
             for (int i = 0; i < treeHeight; i++) { currentCell.y += 1; _use.Gather(currentCell, null, _use._objectsNoCollideTilemap); }
             currentCell.y -= treeHeight;
-            RollForExtraWood(currentCell, ruleTile);
+            TryGetExtraWood(currentCell, ruleTile);
 
-            _stats.LowerCurrentStatAmount(Stat.stamina, _use._baseStamina * 3 - _axeEfficiencyModifier);
+            _stamina.LowerStatAmount(_use._baseStamina * 3 - _forestry.GetAxeEfficiencyModifier());
             _skills.GainExperience(Skills.forestry, _use._baseExp * 3);
         }
     }
 
-    public void RollForExtraWood(Vector3Int currentCell, RuleTileWithData ruleTile)
+    private void TryGetExtraWood(Vector3Int currentCell, RuleTileWithData ruleTile)
     {
-        if (_lumberjackModifier > 0)
+        bool result = _forestry.RollForExtraWood();
+        if (result)
         {
-            Debug.Log("test");
-            int randChance = Random.Range(1, 11 - _lumberjackModifier);
-            if (randChance == 1)
-            {
-                currentCell.y += 1;
-                _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
-                _skills.GainExperience(Skills.forestry, _use._baseExp);
-            }
-            else { _use.Gather(currentCell, null, _use._resourcesTilemap); }
-        } 
-    }
-
-    public void SetLumberjackModifier(int amount)
-    {
-        _lumberjackModifier = amount;
-    }
-
-    public void SetAxeEfficiencyModifier(int amount)
-    {
-        _axeEfficiencyModifier = amount;
+            currentCell.y += 1;
+            _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
+            _skills.GainExperience(Skills.forestry, _use._baseExp);
+        }
+        else { _use.Gather(currentCell, null, _use._resourcesTilemap); }
+        
     }
 }

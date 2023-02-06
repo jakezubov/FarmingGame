@@ -1184,8 +1184,8 @@ GameObject:
   - component: {fileID: 8566854801692418563}
   - component: {fileID: 8566854801692418565}
   - component: {fileID: 8566854801692418562}
-  - component: {fileID: 8566854801692418564}
-  - component: {fileID: 8566854801692418567}
+  - component: {fileID: 7643549985590259639}
+  - component: {fileID: 1272850318187186776}
   m_Layer: 5
   m_Name: Trait (4)
   m_TagString: Untagged
@@ -1252,7 +1252,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8566854801692418564
+--- !u!114 &7643549985590259639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1261,16 +1261,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854801692418560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c2c2c0e8f479348b07f203226b174a, type: 3}
+  m_Script: {fileID: 11500000, guid: 202654c1e2166b941be31673216f9661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _header: Trait Name
-  _description: Trait Description
+  _header: 
+  _description: 
   _colouredText: 
   _colour: 
   _extraText: 
   _image: {fileID: 0}
---- !u!114 &8566854801692418567
+--- !u!114 &1272850318187186776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854801692418560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ea207b231f227499f142bb858854aa, type: 3}
+  m_Script: {fileID: 11500000, guid: abaa320e0e833744585b07b3945aa51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 8923279974411479914}
@@ -1452,7 +1452,7 @@ MonoBehaviour:
         m_MethodName: TraitLevelUp
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8566854802694753157}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: Trait, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1470,8 +1470,8 @@ GameObject:
   - component: {fileID: 8566854802007302548}
   - component: {fileID: 8566854802007302550}
   - component: {fileID: 8566854802007302551}
-  - component: {fileID: 8566854802007302553}
-  - component: {fileID: 8566854802007302552}
+  - component: {fileID: 2071484596041330798}
+  - component: {fileID: 2567331741383993756}
   m_Layer: 5
   m_Name: Trait (6)
   m_TagString: Untagged
@@ -1538,7 +1538,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8566854802007302553
+--- !u!114 &2071484596041330798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1547,16 +1547,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854802007302549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c2c2c0e8f479348b07f203226b174a, type: 3}
+  m_Script: {fileID: 11500000, guid: 202654c1e2166b941be31673216f9661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _header: Trait Name
-  _description: Trait Description
+  _header: 
+  _description: 
   _colouredText: 
   _colour: 
   _extraText: 
   _image: {fileID: 0}
---- !u!114 &8566854802007302552
+--- !u!114 &2567331741383993756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854802007302549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ea207b231f227499f142bb858854aa, type: 3}
+  m_Script: {fileID: 11500000, guid: abaa320e0e833744585b07b3945aa51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 2398673872285119478}
@@ -1660,8 +1660,8 @@ GameObject:
   - component: {fileID: 8566854802125025825}
   - component: {fileID: 8566854802125025827}
   - component: {fileID: 8566854802125025824}
-  - component: {fileID: 8566854802125025826}
-  - component: {fileID: 8566854802125025829}
+  - component: {fileID: 3127868685185587250}
+  - component: {fileID: 9039221291606920867}
   m_Layer: 5
   m_Name: Trait (5)
   m_TagString: Untagged
@@ -1728,7 +1728,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8566854802125025826
+--- !u!114 &3127868685185587250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1737,16 +1737,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854802125025822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c2c2c0e8f479348b07f203226b174a, type: 3}
+  m_Script: {fileID: 11500000, guid: 202654c1e2166b941be31673216f9661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _header: Trait Name
-  _description: Trait Description
+  _header: 
+  _description: 
   _colouredText: 
   _colour: 
   _extraText: 
   _image: {fileID: 0}
---- !u!114 &8566854802125025829
+--- !u!114 &9039221291606920867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1755,7 +1755,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854802125025822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ea207b231f227499f142bb858854aa, type: 3}
+  m_Script: {fileID: 11500000, guid: abaa320e0e833744585b07b3945aa51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 8014023599903393319}
@@ -1885,7 +1885,7 @@ MonoBehaviour:
         m_MethodName: TraitLevelUp
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8566854802125025829}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: Trait, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1903,8 +1903,8 @@ GameObject:
   - component: {fileID: 8566854802694753153}
   - component: {fileID: 8566854802694753155}
   - component: {fileID: 8566854802694753152}
-  - component: {fileID: 8566854802694753154}
-  - component: {fileID: 8566854802694753157}
+  - component: {fileID: 7351604765436845358}
+  - component: {fileID: 5437276375544166547}
   m_Layer: 5
   m_Name: Trait (3)
   m_TagString: Untagged
@@ -1971,7 +1971,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8566854802694753154
+--- !u!114 &7351604765436845358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1980,16 +1980,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854802694753278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c2c2c0e8f479348b07f203226b174a, type: 3}
+  m_Script: {fileID: 11500000, guid: 202654c1e2166b941be31673216f9661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _header: Trait Name
-  _description: Trait Description
+  _header: 
+  _description: 
   _colouredText: 
   _colour: 
   _extraText: 
   _image: {fileID: 0}
---- !u!114 &8566854802694753157
+--- !u!114 &5437276375544166547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1998,7 +1998,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854802694753278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ea207b231f227499f142bb858854aa, type: 3}
+  m_Script: {fileID: 11500000, guid: abaa320e0e833744585b07b3945aa51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 4341294127183364311}
@@ -2221,7 +2221,7 @@ MonoBehaviour:
         m_MethodName: TraitLevelUp
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8566854802810854431}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: Trait, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2239,8 +2239,8 @@ GameObject:
   - component: {fileID: 8566854802810854427}
   - component: {fileID: 8566854802810854429}
   - component: {fileID: 8566854802810854426}
-  - component: {fileID: 8566854802810854428}
-  - component: {fileID: 8566854802810854431}
+  - component: {fileID: 6041219403622067901}
+  - component: {fileID: 4840386666109522537}
   m_Layer: 5
   m_Name: Trait (2)
   m_TagString: Untagged
@@ -2307,7 +2307,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8566854802810854428
+--- !u!114 &6041219403622067901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2316,16 +2316,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854802810854424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c2c2c0e8f479348b07f203226b174a, type: 3}
+  m_Script: {fileID: 11500000, guid: 202654c1e2166b941be31673216f9661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _header: Trait Name
-  _description: Trait Description
+  _header: 
+  _description: 
   _colouredText: 
   _colour: 
   _extraText: 
   _image: {fileID: 0}
---- !u!114 &8566854802810854431
+--- !u!114 &4840386666109522537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2334,7 +2334,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854802810854424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ea207b231f227499f142bb858854aa, type: 3}
+  m_Script: {fileID: 11500000, guid: abaa320e0e833744585b07b3945aa51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 5401128997040321138}
@@ -2350,8 +2350,8 @@ GameObject:
   - component: {fileID: 8566854802858395161}
   - component: {fileID: 8566854802858395163}
   - component: {fileID: 8566854802858395160}
-  - component: {fileID: 8566854802858395162}
-  - component: {fileID: 8566854802858395165}
+  - component: {fileID: 4864354079679624433}
+  - component: {fileID: 5009878248022853970}
   m_Layer: 5
   m_Name: Trait (1)
   m_TagString: Untagged
@@ -2418,7 +2418,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8566854802858395162
+--- !u!114 &4864354079679624433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2427,16 +2427,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854802858395158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c2c2c0e8f479348b07f203226b174a, type: 3}
+  m_Script: {fileID: 11500000, guid: 202654c1e2166b941be31673216f9661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _header: Trait Name
-  _description: Trait Description
+  _header: 
+  _description: 
   _colouredText: 
   _colour: 
   _extraText: 
   _image: {fileID: 0}
---- !u!114 &8566854802858395165
+--- !u!114 &5009878248022853970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2445,7 +2445,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566854802858395158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ea207b231f227499f142bb858854aa, type: 3}
+  m_Script: {fileID: 11500000, guid: abaa320e0e833744585b07b3945aa51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 8566854802728383660}
@@ -2575,7 +2575,7 @@ MonoBehaviour:
         m_MethodName: TraitLevelUp
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8566854802007302552}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: Trait, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2707,7 +2707,7 @@ MonoBehaviour:
         m_MethodName: TraitLevelUp
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8566854802858395165}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: Trait, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2932,7 +2932,7 @@ MonoBehaviour:
         m_MethodName: TraitLevelUp
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8566854801692418567}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: Trait, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0

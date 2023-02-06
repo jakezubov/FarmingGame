@@ -3,36 +3,28 @@ using Pathfinding;
 using UnityEngine.Tilemaps;
 
 public class EnemyMovement : MonoBehaviour
-{
-    public Tilemap _groundTilemap;
+{   
+    public AIPath _aiPath;
+    public AIDestinationSetter _aiDest;
+    public Animator _anim;
+    public EnemyDeath _death;
 
-    private AIPath _aiPath;
-    private AIDestinationSetter _aiDest;
-    private Animator _anim;
-
+    private Tilemap _tilemap;
     private Vector3Int _currentCell;
-    private GameObject _destinationParent;
     private GameObject _destination;
     private bool _hasDestination = false;
     private bool _isChasing = false;
-
     private float _walkSpeed;
     
 
     private void Start()
     {
-        _aiPath = transform.parent.GetComponentInParent<AIPath>();
-        _aiDest = transform.parent.GetComponentInParent<AIDestinationSetter>();
-        _anim = GetComponentInParent<Animator>();
-
-        if (!GameObject.Find("Enemy Destinations"))
-        {
-            _destinationParent = new GameObject("Enemy Destinations");
-        }
-        _destination = new GameObject("Destination");
-        _destination.transform.SetParent(_destinationParent.transform);
-
+        _tilemap = GameObject.Find("Ground").GetComponent<Tilemap>();   
         _walkSpeed = GetComponentInParent<SetupEnemy>()._enemy.walkSpeed;
+
+        _destination = new GameObject("Destination");
+        _destination.transform.SetParent(transform.parent.parent.parent);
+        _death._destination = _destination;
     }
 
     private void Update()
@@ -70,7 +62,7 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        _currentCell = _groundTilemap.WorldToCell(transform.position);
+        _currentCell = _tilemap.WorldToCell(transform.position);
 
         if (_aiPath.desiredVelocity.x >= 0.01f && _aiPath.desiredVelocity.x > _aiPath.desiredVelocity.y)
         {
@@ -117,10 +109,5 @@ public class EnemyMovement : MonoBehaviour
         _anim.SetBool("MoveSide", false);
         _anim.SetBool("MoveUp", false);
         _anim.SetBool("MoveDown", false);
-    }
-
-    public Vector3 GetCurrentCell()
-    {
-        return _currentCell;
     }
 }

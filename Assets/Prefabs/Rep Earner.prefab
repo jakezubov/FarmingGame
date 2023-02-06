@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3471201878246249461}
   - component: {fileID: 3471201878246249462}
   - component: {fileID: 3471201878246249463}
-  - component: {fileID: 3471201878246249448}
+  - component: {fileID: 3187432046704552733}
   m_Layer: 5
   m_Name: 3/4 Mark
   m_TagString: Untagged
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3471201878246249448
+--- !u!114 &3187432046704552733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,13 +130,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3471201878246249450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c2c2c0e8f479348b07f203226b174a, type: 3}
+  m_Script: {fileID: 11500000, guid: 202654c1e2166b941be31673216f9661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _header: Close Friends
-  _description: ???
+  _header: 
+  _description: 
   _colouredText: 
   _colour: 
+  _extraText: 
   _image: {fileID: 0}
 --- !u!1 &3471201878438788025
 GameObject:
@@ -150,7 +151,7 @@ GameObject:
   - component: {fileID: 3471201878438787972}
   - component: {fileID: 3471201878438787973}
   - component: {fileID: 3471201878438787974}
-  - component: {fileID: 3471201878438787975}
+  - component: {fileID: 3240765161464365807}
   m_Layer: 5
   m_Name: 1/4 Mark
   m_TagString: Untagged
@@ -259,7 +260,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3471201878438787975
+--- !u!114 &3240765161464365807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,13 +269,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3471201878438788025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c2c2c0e8f479348b07f203226b174a, type: 3}
+  m_Script: {fileID: 11500000, guid: 202654c1e2166b941be31673216f9661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _header: Acquaintance
-  _description: ???
+  _header: 
+  _description: 
   _colouredText: 
   _colour: 
+  _extraText: 
   _image: {fileID: 0}
 --- !u!1 &3471201878784294400
 GameObject:
@@ -288,7 +290,7 @@ GameObject:
   - component: {fileID: 3471201878784294411}
   - component: {fileID: 3471201878784294412}
   - component: {fileID: 3471201878784294413}
-  - component: {fileID: 3471201878784294414}
+  - component: {fileID: 8201241629251641301}
   m_Layer: 5
   m_Name: 1/2 Mark
   m_TagString: Untagged
@@ -397,7 +399,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3471201878784294414
+--- !u!114 &8201241629251641301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,13 +408,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3471201878784294400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c2c2c0e8f479348b07f203226b174a, type: 3}
+  m_Script: {fileID: 11500000, guid: 202654c1e2166b941be31673216f9661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _header: Friends
-  _description: ???
+  _header: 
+  _description: 
   _colouredText: 
   _colour: 
+  _extraText: 
   _image: {fileID: 0}
 --- !u!1 &3471201879013587383
 GameObject:
@@ -498,7 +501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3471201879024312533}
-  - component: {fileID: 3471201879024312532}
+  - component: {fileID: 166952145368928892}
   m_Layer: 5
   m_Name: Rep Earner
   m_TagString: Untagged
@@ -513,7 +516,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3471201879024312534}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -529,7 +532,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3471201879024312532
+--- !u!114 &166952145368928892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -538,9 +541,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3471201879024312534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87528564b4238bc4dbe87916ee527d0c, type: 3}
+  m_Script: {fileID: 11500000, guid: ba86237cf62e25d45940700db30def05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _repHandler: {fileID: 0}
   _slider: {fileID: 3471201879316796566}
 --- !u!1 &3471201879063593658
 GameObject:
@@ -734,7 +738,7 @@ GameObject:
   - component: {fileID: 3471201879303371136}
   - component: {fileID: 3471201879303371149}
   - component: {fileID: 3471201879303371150}
-  - component: {fileID: 3471201879303371151}
+  - component: {fileID: 7992983229989871061}
   - component: {fileID: 3471201879303371148}
   m_Layer: 5
   m_Name: Image
@@ -800,7 +804,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3471201879303371151
+--- !u!114 &7992983229989871061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -809,13 +813,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3471201879303371137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c2c2c0e8f479348b07f203226b174a, type: 3}
+  m_Script: {fileID: 11500000, guid: 202654c1e2166b941be31673216f9661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _header: Farmers
-  _description: ???
+  _header: 
+  _description: 
   _colouredText: 
   _colour: 
+  _extraText: 
   _image: {fileID: 0}
 --- !u!114 &3471201879303371148
 MonoBehaviour:

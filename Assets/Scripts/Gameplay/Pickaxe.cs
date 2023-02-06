@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Pickaxe : MonoBehaviour
 {
-    public Stats _stats;
+    public Stat _stamina;
     public SkillHandler _skills;
+    public MiningTraits _mining;
+
     public RuleTileWithData _rockTile;
     public RuleTileWithData _TinTile;
     public RuleTileWithData _CopperTile;
@@ -11,8 +13,6 @@ public class Pickaxe : MonoBehaviour
     public RuleTileWithData _GoldTile;
 
     private UseToolbar _use;
-    private int _prospectorModifier = 0;
-    private int _pickaxeEfficiencyModifier = 0;
     
 
     private void Start()
@@ -22,21 +22,15 @@ public class Pickaxe : MonoBehaviour
 
     public void Mine(Vector3Int currentCell, RuleTileWithData ruleTile)
     {
-        _stats.LowerCurrentStatAmount(Stat.stamina, _use._baseStamina - _pickaxeEfficiencyModifier);
+        _stamina.LowerStatAmount(_use._baseStamina - _mining.GetPickaxeEfficiencyModifier());
 
         if (ruleTile == _rockTile)
         {
             _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
-            currentCell.y += 1;
-            if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _rockTile) 
-            { 
-                _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
-                
-            }
-            currentCell.y -= 2; 
-            if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == _rockTile)
+            if (_mining.RollForGem())
             {
-                _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
+                _use.Gather(currentCell, ruleTile.GetSecondaryItem(), _use._resourcesTilemap);
+                _skills.GainExperience(Skills.mining, _use._baseExp);
             }
             _skills.GainExperience(Skills.mining, _use._baseExp);
         }
@@ -62,37 +56,11 @@ public class Pickaxe : MonoBehaviour
     {
         _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
         _use.Gather(currentCell, ruleTile.GetSecondaryItem(), _use._resourcesTilemap);
-        currentCell.y += 1;
-        if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == target)
-        {
-            RollForExtraOre(currentCell, ruleTile);
-
-        }
-        currentCell.y -= 2;
-        if (_use._resourcesTilemap.GetTile<RuleTileWithData>(currentCell) == target)
-        {
-            RollForExtraOre(currentCell, ruleTile);
-        }
-        _skills.GainExperience(Skills.mining, _use._baseExp * 3);
-    }
-
-    private void RollForExtraOre(Vector3Int currentCell, RuleTileWithData ruleTile)
-    {
-        int randChance = Random.Range(1, 15 - _prospectorModifier);
-        if (randChance == 1)
+        if (_mining.RollForExtraOre())
         {
             _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
             _skills.GainExperience(Skills.mining, _use._baseExp);
         }
-        else { _use.Gather(currentCell, null, _use._resourcesTilemap); }
-    }
-
-    public void SetProspectorModifier(int amount)
-    {
-        _prospectorModifier = amount;
-    }
-    public void SetPickaxeEfficiencyModifier(int amount)
-    {
-        _pickaxeEfficiencyModifier = amount;
+        _skills.GainExperience(Skills.mining, _use._baseExp);
     }
 }

@@ -2,9 +2,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using System.ComponentModel;
-using System.Reflection;
-using System;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {   
@@ -40,14 +37,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             tooltip.SetSubHeading("Artefact", "Cyan");
         }
-    }
-
-    public static string GetDescriptionFromEnum(Enum value)
-    {
-        FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
-        DescriptionAttribute[] attributes =
-          (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
-        return attributes == null && attributes.Length == 0 ? value.ToString() : attributes[0].Description;
     }
 
     public void RefreshCount()
@@ -128,6 +117,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         return _count;
     }
+
     public void AddToCount(int num)
     {
         _count += num;

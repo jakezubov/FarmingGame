@@ -16,7 +16,7 @@ public class UseToolbar : MonoBehaviour
     public RuleTileWithData _whiteFlowerTile;
     public RuleTileWithData _candlenutTile;
 
-    public readonly int _baseStamina = 20;
+    public readonly int _baseStamina = 10;
     public readonly int _baseExp = 10;
 
     private Shovel _shovel;
