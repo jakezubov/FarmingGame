@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject _prefab;
 
     private float _cooldown;
-    private bool _stopSpawn;
+    private bool _playerInRange;
 
     void Start()
     {
@@ -17,7 +17,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (!_stopSpawn && transform.childCount < _maxEnemies)
+        // spawns enemy if player isnt in range and the max amount of enimies isnt currently spawned by the spawner
+        if (!_playerInRange && transform.childCount < _maxEnemies)
         {
             _cooldown -= Time.deltaTime;
 
@@ -38,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            _stopSpawn = true;
+            _playerInRange = true;
         }
     }
 
@@ -46,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            _stopSpawn = false;
+            _playerInRange = false;
         }
     }
 }

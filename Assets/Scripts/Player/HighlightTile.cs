@@ -11,16 +11,19 @@ public class HighlightTile : MonoBehaviour
 
     private void LateUpdate()
     {
+        // get current movements from the player controller
         (float movementInputHoriztonal, float movementInputVertical)  = PlayerController.GetPlayerMovements();
 
         Vector3Int currentCell = _highlightMap.WorldToCell(transform.position);
 
+        // change highlight tile position based on faced direction
         if (movementInputHoriztonal == -1) { currentCell.x -= _reach; }
         else if (movementInputHoriztonal == 1) { currentCell.x += _reach; }                
         else if (movementInputVertical == -1) { currentCell.y -= _reach; }
         else if (movementInputVertical == 1) { currentCell.y += _reach; }
         else { currentCell = _previous; }
 
+        // updates highlight tile to new cell when position changed
         if (currentCell != _previous)
         {
             _highlightMap.SetTile(currentCell, _highlightTile);

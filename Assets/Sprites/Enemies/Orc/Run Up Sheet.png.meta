@@ -30,7 +30,7 @@ TextureImporter:
       213: -4027712836706771774
     second: Weapon Run Up Sheet_8
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -51,6 +51,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -89,6 +90,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -104,6 +106,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -316,6 +330,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Weapon Run Up Sheet_0: 2079867227811790023
+      Weapon Run Up Sheet_8: -4027712836706771774
+      Weapon Run Up Sheet_5: -362323332213130314
+      Weapon Run Up Sheet_7: 4149866441216067569
+      Weapon Run Up Sheet_4: -7130394618133437131
+      Weapon Run Up Sheet_1: -7748600063297895913
+      Weapon Run Up Sheet_3: -8036799715045643642
+      Weapon Run Up Sheet_2: 8663086037780324442
+      Weapon Run Up Sheet_6: -5363468290444888768
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

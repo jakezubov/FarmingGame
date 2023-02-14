@@ -13,10 +13,10 @@ public class Trait : MonoBehaviour
     {
         return _traitLevel;
     }
-
-    // used for loading game
+    
     public void SetLevel(int newLevel)
     {
+        // used for loading game
         _traitLevel = newLevel;
         _text.SetText($"{_traitLevel}/{_maxTraitLevel}");
     }
@@ -34,6 +34,7 @@ public class Trait : MonoBehaviour
 
     public void UnlockTrait()
     {
+        // when unlocked the coloured text is nulled and the image turns clear
         _canLevelUp = true;
         GetComponent<TooltipTrigger>().SetSubHeading(null, null);
         _image.color = Color.white;

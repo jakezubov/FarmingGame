@@ -19,26 +19,31 @@ public class TraitHandler : MonoBehaviour
 
     public virtual void PerformTraitChange(Trait trait)
     {
+        // used for inheritance
         Debug.Log("No assigned code");
     }
 
     public virtual void LoadTraitLevels()
     {
+        // used for inheritance
         Debug.Log("No assigned code");
     }
 
     public virtual void SaveTraitLevels()
     {
+        // used for inheritance
         Debug.Log("No assigned code");
     }
 
     public void TraitLevelUp()
     {
+        // used when clicked with mouse or keyboard/controller to level up a trait
         Trait trait = EventSystem.current.currentSelectedGameObject.GetComponentInParent<Trait>();
         int currentSkillPoints = _skill.GetSkillPoints();
 
         if (trait.CheckLevelUpStatus() && currentSkillPoints > 0 && trait.GetLevel() < _maxLevel)
         {
+            // increase a trait level and lower the avaliable skill points
             trait.IncreaseLevel();
             currentSkillPoints--;
             _skill.SetSkillPoints(currentSkillPoints);
@@ -48,6 +53,7 @@ public class TraitHandler : MonoBehaviour
 
     public void ChangeLockedText()
     {
+        // controls the locked text for each trait based on what the current skill level is
         if (_skill.GetLevel() < _tier1unlock)
         {
             _trait2.GetComponent<TooltipTrigger>().SetSubHeading($"{_trait2.name} will unlock in {_tier1unlock - _skill.GetLevel()} {_skill.name} levels", "Red");
@@ -63,6 +69,7 @@ public class TraitHandler : MonoBehaviour
 
     public void UnlockTraits()
     {
+        // unlock trait tiers when a specific skill level is met
         if (!_isTier1Unlocked && _skill.GetLevel() >= _tier1unlock)
         {
             _trait2.UnlockTrait();

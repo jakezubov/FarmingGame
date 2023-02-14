@@ -15,6 +15,7 @@ public class InitialSetup : MonoBehaviour
 
     void Awake()
     { 
+        // sets all stats to initial values and saves them to SaveData
         if (!SaveData.ranInitalSetup)
         {
             if (SaveData.maxHealth == 0) { SaveData.maxHealth = 100; }
@@ -28,6 +29,7 @@ public class InitialSetup : MonoBehaviour
             SaveData.ranInitalSetup = true;
         }
 
+        // loads all of the stats values, reputation values, skill levels and trait levels
         _stats.LoadAllStats();
         _reputation.LoadAllReputation();
         _skills.LoadAllSkills();

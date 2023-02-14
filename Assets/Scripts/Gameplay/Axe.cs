@@ -19,6 +19,7 @@ public class Axe : MonoBehaviour
 
     public void Chop(Vector3Int currentCell, RuleTileWithData ruleTile)
     {
+        // checks what tile is being interacted with and acts accordingly
         if (ruleTile == _logTile)
         {
             _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
@@ -77,6 +78,7 @@ public class Axe : MonoBehaviour
 
     private void TryGetExtraWood(Vector3Int currentCell, RuleTileWithData ruleTile)
     {
+        // random chance to get extra wood (determined by lumberjack trait)
         bool result = _forestry.RollForExtraWood();
         if (result)
         {

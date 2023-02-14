@@ -22,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
         _tilemap = GameObject.Find("Ground").GetComponent<Tilemap>();   
         _walkSpeed = GetComponentInParent<SetupEnemy>()._enemy.walkSpeed;
 
+        // creates desination object, sets the spawner as the parent and gives it to the EnemyDeath script so it can be deleted on death
         _destination = new GameObject("Destination");
         _destination.transform.SetParent(transform.parent.parent.parent);
         _death._destination = _destination;
@@ -31,13 +32,15 @@ public class EnemyMovement : MonoBehaviour
     {
         while (!_hasDestination)
         {
-            // picks a random destination
+            // picks a random destination in a sphere
             Vector3 randPos = Random.insideUnitSphere * 20;
             randPos.z = 0;
 
+            // gives destination to Astar pathfinder
             GraphNode node = AstarPath.active.GetNearest(randPos).node;
             _destination.transform.position = (Vector3)node.position;
 
+            // transitions towards desination
             if (node.Walkable)
             {
                 _aiDest.target = _destination.transform;
@@ -50,6 +53,7 @@ public class EnemyMovement : MonoBehaviour
             _hasDestination = false;
         }
 
+        // once the player is a certain distance away the enemy will resume wandering
         if (_isChasing && Vector3.Distance(transform.position, _aiDest.target.position) > 10.0f )
         {    
             _anim.SetBool("Walk", true);
@@ -64,6 +68,7 @@ public class EnemyMovement : MonoBehaviour
     {
         _currentCell = _tilemap.WorldToCell(transform.position);
 
+        // controls all the animations for the enemy
         if (_aiPath.desiredVelocity.x >= 0.01f && _aiPath.desiredVelocity.x > _aiPath.desiredVelocity.y)
         {
             _currentCell.x += 1;
@@ -94,6 +99,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // if the player comes in range the enemy will start chasing 
         if (collision.CompareTag("Player"))
         {
             _anim.SetBool("Run", true);
@@ -104,6 +110,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    // default state for animations
     private void SetAllAnimationsFalse()
     {
         _anim.SetBool("MoveSide", false);

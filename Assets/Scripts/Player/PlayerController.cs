@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             currentPosition.y += movementInputVertical * SaveData.moveSpeed * Time.deltaTime;
             _rb.MovePosition(currentPosition);
 
-            // Animations
+            // controls all the movement animations
             if (movementInputHoriztonal == -1 && movementInputVertical == 0) // start horizontal checks
             {
                 _currentCell.x -= _reach; 
@@ -171,6 +171,7 @@ public class PlayerController : MonoBehaviour
         {
             if (_isItemSelected)
             {
+                // checks which type of slot the item is placed in
                 if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<BinSlot>() != null)
                 {
                     BinSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<BinSlot>();
@@ -300,6 +301,7 @@ public class PlayerController : MonoBehaviour
         _spellbook._toolbarObject.SetActive(false);
         _optionsMenu.SetActive(true);
         _isOptionsOpen = true;
+
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_optionsMenuFirstButton);
         TooltipSystem.MoveMouse();
@@ -313,6 +315,7 @@ public class PlayerController : MonoBehaviour
         //AnimatorClipInfo[] clip = _animator.GetCurrentAnimatorClipInfo(_animator.GetLayerIndex("Base Layer"));
         //float timer = clip[0].clip.length;
 
+        // base yield time on animation length
         yield return new WaitForSeconds(0.35f);
  
         bool used = _use.UseItemInSlot();
@@ -331,6 +334,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetAllAnimationsFalse()
     {
+        // default state for animations
         _animator.SetBool("MoveSide", false);
         _animator.SetBool("MoveUp", false);
         _animator.SetBool("MoveDown", false);
@@ -338,16 +342,18 @@ public class PlayerController : MonoBehaviour
 
     public void CheckForTools()
     {
-        if(InventoryManager._instance.GetSelectedToolbarItem(false) != null &&
+        // changes the animation for what tool is held based on the currently selected toolbar item
+        if (InventoryManager._instance.GetSelectedToolbarItem(false) != null &&
            InventoryManager._instance.GetSelectedToolbarItem(false).type == Type.Tool)
         {
-            Item item = InventoryManager._instance.GetSelectedToolbarItem(false);
-            if (item.subType == SubType.Axe)
+            Tool tool = (Tool)InventoryManager._instance.GetSelectedToolbarItem(false);
+
+            if (tool.toolType == ToolType.Axe)
             {
                 _animator.SetBool("HasAxe", true);
                 _animator.SetBool("HasPickaxe", false);
             }
-            else if (item.subType == SubType.Pickaxe)
+            else if (tool.toolType == ToolType.Pickaxe)
             {
                 _animator.SetBool("HasPickaxe", true);
                 _animator.SetBool("HasAxe", false);
@@ -359,10 +365,10 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    // ends dragging any objects when the menu is closed
+    
     public void EndDrag()
     {
+        // ends dragging any objects when the menu is closed
         if (_isItemSelected) { _selectedItem.OnEndNav(); _isItemSelected = false; }
         else if (_isSpellSelected) { _selectedSpell.OnEndNav(); _isSpellSelected = false; }
     }

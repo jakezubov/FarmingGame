@@ -11,6 +11,7 @@ public class DropItem : MonoBehaviour
     {
         if (InventoryManager._instance.GetSelectedToolbarItem(false) != null)
         {
+            // will drop an item on the ground if assigned key is pressed
             Item item = InventoryManager._instance.GetSelectedToolbarItem(true);
             position.y -= 0.5f;
             GameObject loot = Instantiate(_lootPrefab, position, Quaternion.identity);

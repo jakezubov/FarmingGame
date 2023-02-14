@@ -11,6 +11,7 @@ TagManager:
   - Necklace
   - Arrows
   - Enemy
+  - SectionTabs
   layers:
   - Default
   - TransparentFX
@@ -56,6 +57,9 @@ TagManager:
     locked: 0
   - name: Buildings
     uniqueID: 371999851
+    locked: 0
+  - name: Building Extras
+    uniqueID: 3642402145
     locked: 0
   - name: Resources
     uniqueID: 1399536027

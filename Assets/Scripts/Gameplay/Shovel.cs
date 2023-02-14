@@ -22,15 +22,19 @@ public class Shovel : MonoBehaviour
     {
         _stamina.LowerStatAmount(_use._baseStamina);
 
+        // checks what tile is being interacted with and acts accordingly
         if (ruleTile == _grassTile)
         {
+            // random chance to get bait (determined by bait finder trait)
             if (_fishing.RollForBait())
             {
                 _use.Gather(currentCell, _bait, _use._groundTilemap);
             }       
             
+            // random chance to get artefact (determined by archaeologist trait)
             if (_mining.RollForArtifact())
             {
+                // if successful chooses random artefact
                 int i = Random.Range(0, _artefacts.Length);
                 _use.Gather(currentCell, _artefacts[i], _use._groundTilemap);
             }

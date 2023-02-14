@@ -26,11 +26,13 @@ public class Spellbook : MonoBehaviour
 
     public void Select(Image image)
     {
+        // selected colour for the bookmark tabs
         image.color = _selectedColour;
     }
 
     public void Deselect(Image image)
     {
+        // deselected colour for the bookmark tabs
         image.color = _notSelectedColour;
     }
 
@@ -41,6 +43,7 @@ public class Spellbook : MonoBehaviour
 
     public void OpenSpellbook()
     {
+        // opens spellbook when the player presses the assigned key
         gameObject.SetActive(true);
         UpdateSpellBookSection();
         _spellbookActive = true;
@@ -48,6 +51,7 @@ public class Spellbook : MonoBehaviour
 
     public void CloseSpellbook()
     {
+        // closes spellbook when the player presses the assigned key/s
         HideAllSections();
         gameObject.SetActive(false);    
         _spellbookActive = false;
@@ -57,6 +61,7 @@ public class Spellbook : MonoBehaviour
    
     public void ChangeSectionLeft()
     {
+        // changes current spellbook section to the left (or up if looking at bookmark tabs) 
         _sections--;
         if ((int)_sections == 0) { _sections = (Sections)_maxSectionNumber; }
         UpdateSpellBookSection();
@@ -64,6 +69,7 @@ public class Spellbook : MonoBehaviour
 
     public void ChangeSectionRight()
     {
+        // changes current spellbook section to the right (or down if looking at bookmark tabs) 
         _sections++;
         if ((int)_sections == _maxSectionNumber + 1) { _sections = (Sections)1; }
         UpdateSpellBookSection();      
@@ -71,6 +77,7 @@ public class Spellbook : MonoBehaviour
 
     private void UpdateSpellBookSection()
     {
+        // sets spellbook to default state then selects new section to open
         FindCurrentObjects();
         HideAllSections();
         UnhideSection(_currentSection, _currentButton);   
@@ -85,6 +92,7 @@ public class Spellbook : MonoBehaviour
 
     public void HideAllSections()
     {
+        // default state of spellbook before selecting a new section
         TooltipSystem.Hide();
         _inventoryObject.SetActive(false);
         _skillsObject.SetActive(false);
@@ -102,6 +110,7 @@ public class Spellbook : MonoBehaviour
 
     private void UnhideSection(GameObject section, GameObject firstButton)
     {
+        // used to make a new spellbook section show on the screen
         section.SetActive(true);
         Select(firstButton.GetComponent<Image>());
         EventSystem.current.SetSelectedGameObject(null);
@@ -110,6 +119,7 @@ public class Spellbook : MonoBehaviour
 
     private void FindCurrentObjects()
     {
+        // checks which section is active to assign _currentSection and _currentButton (move cursor here) to relevant values
         switch(_sections)
         {
             case Sections.inventory: _currentSection = _inventoryObject; _currentButton = _inventoryFirstButton; break;
@@ -122,9 +132,10 @@ public class Spellbook : MonoBehaviour
         }
     }
 
-    // used by unity buttons
+    
     public void ChangeSelectionFromTabs()
     {
+        // used by the bookmark tabs (when clicked) to change the current section
         if (_inventoryObject.activeSelf) { _sections = Sections.inventory; }   
         else if (_skillsObject.activeSelf) { _sections = Sections.skills; }
         else if (_mapObject.activeSelf) { _sections = Sections.map; }
@@ -135,9 +146,9 @@ public class Spellbook : MonoBehaviour
         UpdateSpellBookSection();
     }
 
-    // used by unity buttons
     public void SetToolbarActive(bool b)
     {
+        // used to show or hide toolbar based on which section is open
         _toolbarObject.SetActive(b);
     }
 }

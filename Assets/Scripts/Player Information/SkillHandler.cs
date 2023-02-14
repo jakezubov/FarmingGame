@@ -6,6 +6,7 @@ public class SkillHandler : MonoBehaviour
 
     public void GainExperience(Skills skill, int amount)
     {
+        // gain experience in the supplied skill
         switch (skill)
         {           
             case Skills.combat: _combat.AddToCurrentExp(amount); break;
@@ -43,6 +44,7 @@ public class SkillHandler : MonoBehaviour
 
     public void FreeExp()
     {
+        // used for debugging purposed to quickly gain exp
         int _requiredExpBase = 100;
         GainExperience(Skills.combat, _requiredExpBase * SaveData.combatLevel); 
         GainExperience(Skills.magic, _requiredExpBase * SaveData.magicLevel);

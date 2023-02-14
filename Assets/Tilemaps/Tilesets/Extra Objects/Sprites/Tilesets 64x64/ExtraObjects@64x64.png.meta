@@ -765,7 +765,7 @@ TextureImporter:
       213: 21300506
     second: ExtraObjects@64x648_253
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -786,6 +786,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -824,6 +825,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -839,6 +841,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -6196,6 +6210,261 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      ExtraObjects@64x648_27: 21300054
+      ExtraObjects@64x648_80: 21300160
+      ExtraObjects@64x648_14: 21300028
+      ExtraObjects@64x648_188: 21300376
+      ExtraObjects@64x648_223: 21300446
+      ExtraObjects@64x648_109: 21300218
+      ExtraObjects@64x648_179: 21300358
+      ExtraObjects@64x648_26: 21300052
+      ExtraObjects@64x648_90: 21300180
+      ExtraObjects@64x648_145: 21300290
+      ExtraObjects@64x648_48: 21300096
+      ExtraObjects@64x648_63: 21300126
+      ExtraObjects@64x648_12: 21300024
+      ExtraObjects@64x648_108: 21300216
+      ExtraObjects@64x648_161: 21300322
+      ExtraObjects@64x648_183: 21300366
+      ExtraObjects@64x648_141: 21300282
+      ExtraObjects@64x648_164: 21300328
+      ExtraObjects@64x648_194: 21300388
+      ExtraObjects@64x648_103: 21300206
+      ExtraObjects@64x648_44: 21300088
+      ExtraObjects@64x648_139: 21300278
+      ExtraObjects@64x648_157: 21300314
+      ExtraObjects@64x648_190: 21300380
+      ExtraObjects@64x648_206: 21300412
+      ExtraObjects@64x648_10: 21300020
+      ExtraObjects@64x648_221: 21300442
+      ExtraObjects@64x648_81: 21300162
+      ExtraObjects@64x648_169: 21300338
+      ExtraObjects@64x648_189: 21300378
+      ExtraObjects@64x648_227: 21300454
+      ExtraObjects@64x648_113: 21300226
+      ExtraObjects@64x648_119: 21300238
+      ExtraObjects@64x648_49: 21300098
+      ExtraObjects@64x648_154: 21300308
+      ExtraObjects@64x648_85: 21300170
+      ExtraObjects@64x648_28: 21300056
+      ExtraObjects@64x648_233: 21300466
+      ExtraObjects@64x648_240: 21300480
+      ExtraObjects@64x648_100: 21300200
+      ExtraObjects@64x648_210: 21300420
+      ExtraObjects@64x648_178: 21300356
+      ExtraObjects@64x648_11: 21300022
+      ExtraObjects@64x648_71: 21300142
+      ExtraObjects@64x648_52: 21300104
+      ExtraObjects@64x648_32: 21300064
+      ExtraObjects@64x648_232: 21300464
+      ExtraObjects@64x648_126: 21300252
+      ExtraObjects@64x648_99: 21300198
+      ExtraObjects@64x648_150: 21300300
+      ExtraObjects@64x648_25: 21300050
+      ExtraObjects@64x648_87: 21300174
+      ExtraObjects@64x648_1: 21300002
+      ExtraObjects@64x648_72: 21300144
+      ExtraObjects@64x648_123: 21300246
+      ExtraObjects@64x648_193: 21300386
+      ExtraObjects@64x648_115: 21300230
+      ExtraObjects@64x648_202: 21300404
+      ExtraObjects@64x648_75: 21300150
+      ExtraObjects@64x648_120: 21300240
+      ExtraObjects@64x648_118: 21300236
+      ExtraObjects@64x648_59: 21300118
+      ExtraObjects@64x648_78: 21300156
+      ExtraObjects@64x648_151: 21300302
+      ExtraObjects@64x648_41: 21300082
+      ExtraObjects@64x648_216: 21300432
+      ExtraObjects@64x648_82: 21300164
+      ExtraObjects@64x648_95: 21300190
+      ExtraObjects@64x648_234: 21300468
+      ExtraObjects@64x648_60: 21300120
+      ExtraObjects@64x648_2: 21300004
+      ExtraObjects@64x648_114: 21300228
+      ExtraObjects@64x648_185: 21300370
+      ExtraObjects@64x648_205: 21300410
+      ExtraObjects@64x648_22: 21300044
+      ExtraObjects@64x648_191: 21300382
+      ExtraObjects@64x648_147: 21300294
+      ExtraObjects@64x648_245: 21300490
+      ExtraObjects@64x648_203: 21300406
+      ExtraObjects@64x648_35: 21300070
+      ExtraObjects@64x648_105: 21300210
+      ExtraObjects@64x648_76: 21300152
+      ExtraObjects@64x648_199: 21300398
+      ExtraObjects@64x648_149: 21300298
+      ExtraObjects@64x648_224: 21300448
+      ExtraObjects@64x648_181: 21300362
+      ExtraObjects@64x648_15: 21300030
+      ExtraObjects@64x648_74: 21300148
+      ExtraObjects@64x648_231: 21300462
+      ExtraObjects@64x648_153: 21300306
+      ExtraObjects@64x648_243: 21300486
+      ExtraObjects@64x648_130: 21300260
+      ExtraObjects@64x648_89: 21300178
+      ExtraObjects@64x648_226: 21300452
+      ExtraObjects@64x648_93: 21300186
+      ExtraObjects@64x648_160: 21300320
+      ExtraObjects@64x648_3: 21300006
+      ExtraObjects@64x648_140: 21300280
+      ExtraObjects@64x648_168: 21300336
+      ExtraObjects@64x648_37: 21300074
+      ExtraObjects@64x648_117: 21300234
+      ExtraObjects@64x648_214: 21300428
+      ExtraObjects@64x648_19: 21300038
+      ExtraObjects@64x648_67: 21300134
+      ExtraObjects@64x648_42: 21300084
+      ExtraObjects@64x648_30: 21300060
+      ExtraObjects@64x648_98: 21300196
+      ExtraObjects@64x648_134: 21300268
+      ExtraObjects@64x648_91: 21300182
+      ExtraObjects@64x648_64: 21300128
+      ExtraObjects@64x648_53: 21300106
+      ExtraObjects@64x648_107: 21300214
+      ExtraObjects@64x648_250: 21300500
+      ExtraObjects@64x648_251: 21300502
+      ExtraObjects@64x648_57: 21300114
+      ExtraObjects@64x648_229: 21300458
+      ExtraObjects@64x648_143: 21300286
+      ExtraObjects@64x648_236: 21300472
+      ExtraObjects@64x648_142: 21300284
+      ExtraObjects@64x648_165: 21300330
+      ExtraObjects@64x648_124: 21300248
+      ExtraObjects@64x648_158: 21300316
+      ExtraObjects@64x648_122: 21300244
+      ExtraObjects@64x648_40: 21300080
+      ExtraObjects@64x648_86: 21300172
+      ExtraObjects@64x648_129: 21300258
+      ExtraObjects@64x648_5: 21300010
+      ExtraObjects@64x648_102: 21300204
+      ExtraObjects@64x648_253: 21300506
+      ExtraObjects@64x648_170: 21300340
+      ExtraObjects@64x648_209: 21300418
+      ExtraObjects@64x648_237: 21300474
+      ExtraObjects@64x648_144: 21300288
+      ExtraObjects@64x648_31: 21300062
+      ExtraObjects@64x648_238: 21300476
+      ExtraObjects@64x648_112: 21300224
+      ExtraObjects@64x648_34: 21300068
+      ExtraObjects@64x648_248: 21300496
+      ExtraObjects@64x648_77: 21300154
+      ExtraObjects@64x648_13: 21300026
+      ExtraObjects@64x648_180: 21300360
+      ExtraObjects@64x648_187: 21300374
+      ExtraObjects@64x648_94: 21300188
+      ExtraObjects@64x648_84: 21300168
+      ExtraObjects@64x648_24: 21300048
+      ExtraObjects@64x648_97: 21300194
+      ExtraObjects@64x648_106: 21300212
+      ExtraObjects@64x648_136: 21300272
+      ExtraObjects@64x648_173: 21300346
+      ExtraObjects@64x648_101: 21300202
+      ExtraObjects@64x648_167: 21300334
+      ExtraObjects@64x648_43: 21300086
+      ExtraObjects@64x648_92: 21300184
+      ExtraObjects@64x648_132: 21300264
+      ExtraObjects@64x648_54: 21300108
+      ExtraObjects@64x648_127: 21300254
+      ExtraObjects@64x648_176: 21300352
+      ExtraObjects@64x648_219: 21300438
+      ExtraObjects@64x648_96: 21300192
+      ExtraObjects@64x648_70: 21300140
+      ExtraObjects@64x648_51: 21300102
+      ExtraObjects@64x648_16: 21300032
+      ExtraObjects@64x648_172: 21300344
+      ExtraObjects@64x648_156: 21300312
+      ExtraObjects@64x648_47: 21300094
+      ExtraObjects@64x648_23: 21300046
+      ExtraObjects@64x648_192: 21300384
+      ExtraObjects@64x648_66: 21300132
+      ExtraObjects@64x648_137: 21300274
+      ExtraObjects@64x648_195: 21300390
+      ExtraObjects@64x648_198: 21300396
+      ExtraObjects@64x648_222: 21300444
+      ExtraObjects@64x648_184: 21300368
+      ExtraObjects@64x648_175: 21300350
+      ExtraObjects@64x648_166: 21300332
+      ExtraObjects@64x648_68: 21300136
+      ExtraObjects@64x648_128: 21300256
+      ExtraObjects@64x648_65: 21300130
+      ExtraObjects@64x648_9: 21300018
+      ExtraObjects@64x648_249: 21300498
+      ExtraObjects@64x648_196: 21300392
+      ExtraObjects@64x648_207: 21300414
+      ExtraObjects@64x648_241: 21300482
+      ExtraObjects@64x648_0: 21300000
+      ExtraObjects@64x648_36: 21300072
+      ExtraObjects@64x648_246: 21300492
+      ExtraObjects@64x648_186: 21300372
+      ExtraObjects@64x648_125: 21300250
+      ExtraObjects@64x648_110: 21300220
+      ExtraObjects@64x648_29: 21300058
+      ExtraObjects@64x648_218: 21300436
+      ExtraObjects@64x648_4: 21300008
+      ExtraObjects@64x648_244: 21300488
+      ExtraObjects@64x648_159: 21300318
+      ExtraObjects@64x648_121: 21300242
+      ExtraObjects@64x648_211: 21300422
+      ExtraObjects@64x648_131: 21300262
+      ExtraObjects@64x648_50: 21300100
+      ExtraObjects@64x648_18: 21300036
+      ExtraObjects@64x648_58: 21300116
+      ExtraObjects@64x648_228: 21300456
+      ExtraObjects@64x648_21: 21300042
+      ExtraObjects@64x648_200: 21300400
+      ExtraObjects@64x648_135: 21300270
+      ExtraObjects@64x648_239: 21300478
+      ExtraObjects@64x648_33: 21300066
+      ExtraObjects@64x648_146: 21300292
+      ExtraObjects@64x648_111: 21300222
+      ExtraObjects@64x648_252: 21300504
+      ExtraObjects@64x648_138: 21300276
+      ExtraObjects@64x648_79: 21300158
+      ExtraObjects@64x648_247: 21300494
+      ExtraObjects@64x648_7: 21300014
+      ExtraObjects@64x648_215: 21300430
+      ExtraObjects@64x648_133: 21300266
+      ExtraObjects@64x648_230: 21300460
+      ExtraObjects@64x648_235: 21300470
+      ExtraObjects@64x648_83: 21300166
+      ExtraObjects@64x648_197: 21300394
+      ExtraObjects@64x648_177: 21300354
+      ExtraObjects@64x648_116: 21300232
+      ExtraObjects@64x648_17: 21300034
+      ExtraObjects@64x648_163: 21300326
+      ExtraObjects@64x648_201: 21300402
+      ExtraObjects@64x648_212: 21300424
+      ExtraObjects@64x648_56: 21300112
+      ExtraObjects@64x648_20: 21300040
+      ExtraObjects@64x648_242: 21300484
+      ExtraObjects@64x648_171: 21300342
+      ExtraObjects@64x648_88: 21300176
+      ExtraObjects@64x648_61: 21300122
+      ExtraObjects@64x648_208: 21300416
+      ExtraObjects@64x648_38: 21300076
+      ExtraObjects@64x648_162: 21300324
+      ExtraObjects@64x648_46: 21300092
+      ExtraObjects@64x648_152: 21300304
+      ExtraObjects@64x648_55: 21300110
+      ExtraObjects@64x648_174: 21300348
+      ExtraObjects@64x648_104: 21300208
+      ExtraObjects@64x648_8: 21300016
+      ExtraObjects@64x648_45: 21300090
+      ExtraObjects@64x648_62: 21300124
+      ExtraObjects@64x648_217: 21300434
+      ExtraObjects@64x648_204: 21300408
+      ExtraObjects@64x648_69: 21300138
+      ExtraObjects@64x648_182: 21300364
+      ExtraObjects@64x648_148: 21300296
+      ExtraObjects@64x648_39: 21300078
+      ExtraObjects@64x648_73: 21300146
+      ExtraObjects@64x648_155: 21300310
+      ExtraObjects@64x648_220: 21300440
+      ExtraObjects@64x648_213: 21300426
+      ExtraObjects@64x648_6: 21300012
+      ExtraObjects@64x648_225: 21300450
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

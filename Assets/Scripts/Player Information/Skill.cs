@@ -11,6 +11,7 @@ public class Skill : MonoBehaviour
 
     public void LoadSkill(int level, int sp, int exp)
     {
+        // used for when loading game
         _level = level;
         _levelText.SetText(level.ToString());
         SetSkillPoints(sp);

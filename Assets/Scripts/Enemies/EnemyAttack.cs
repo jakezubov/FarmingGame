@@ -15,14 +15,16 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // attacks when player is in range
         if (collision.CompareTag("Player"))
         {
-            StartCoroutine(PlaySwingAnimation(collision));
+            StartCoroutine(PlayAttackAnimation());
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        // if the player stays in the enemies collider the cooldown starts for the enemy to attack again
         if (collision.CompareTag("Player"))
         {
             _cooldown -= Time.deltaTime;
@@ -30,7 +32,7 @@ public class EnemyAttack : MonoBehaviour
         if (_cooldown <= 0)
         {
             _cooldown = _resetCooldown;
-            StartCoroutine(PlaySwingAnimation(collision));
+            StartCoroutine(PlayAttackAnimation());
         }
     }
 
@@ -39,8 +41,9 @@ public class EnemyAttack : MonoBehaviour
         _cooldown = _resetCooldown;
     }
 
-    private IEnumerator PlaySwingAnimation(Collider2D collision)
+    private IEnumerator PlayAttackAnimation()
     {
+        // the attack animation controller
         _anim.SetBool("Swing", true);
         yield return new WaitForSeconds(0.65f);
         _anim.SetBool("Swing", false);

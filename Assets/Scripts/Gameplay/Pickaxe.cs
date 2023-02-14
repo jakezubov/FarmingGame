@@ -14,7 +14,6 @@ public class Pickaxe : MonoBehaviour
 
     private UseToolbar _use;
     
-
     private void Start()
     {
         _use = GetComponent<UseToolbar>();
@@ -24,9 +23,12 @@ public class Pickaxe : MonoBehaviour
     {
         _stamina.LowerStatAmount(_use._baseStamina - _mining.GetPickaxeEfficiencyModifier());
 
+        // checks what tile is being interacted with and acts accordingly
         if (ruleTile == _rockTile)
         {
             _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
+
+            // random chance to get gem (determined by gemmologist trait)
             if (_mining.RollForGem())
             {
                 _use.Gather(currentCell, ruleTile.GetSecondaryItem(), _use._resourcesTilemap);
@@ -56,6 +58,8 @@ public class Pickaxe : MonoBehaviour
     {
         _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);
         _use.Gather(currentCell, ruleTile.GetSecondaryItem(), _use._resourcesTilemap);
+
+        // random chance to get extra ore (determined by prospector trait)
         if (_mining.RollForExtraOre())
         {
             _use.Gather(currentCell, ruleTile.GetMainItem(), _use._resourcesTilemap);

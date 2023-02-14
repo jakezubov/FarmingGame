@@ -6,6 +6,7 @@ public class ReputationHandler : MonoBehaviour
 
     public void GainReputation(Rep rep, int amount)
     {
+        // gain reputation for the specified individual/faction
         switch(rep)
         {
             case Rep.queen: _queen.AddToCurrentRep(amount); break;
@@ -42,6 +43,7 @@ public class ReputationHandler : MonoBehaviour
 
     public void FreeReputation()
     {
+        // used for debugging purposes to quickly gain reputation
         int gainedRep = 1000;
         GainReputation(Rep.queen, gainedRep);
         GainReputation(Rep.wizard, gainedRep);

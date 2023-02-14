@@ -12,12 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34266c8ad99fa484cb4f97668aaef637, type: 3}
   m_Name: Gold Ore
   m_EditorClassIdentifier: 
-  tile: {fileID: 0}
-  damage: 0
   description: Smelt these down into ingots
+  type: 1
+  mapTile: {fileID: 0}
+  inventoryImage: {fileID: 21300000, guid: ebd34d16285814d49b0155fe7d37074d, type: 3}
   maxStack: 10
   value: 0
-  image: {fileID: 21300000, guid: ebd34d16285814d49b0155fe7d37074d, type: 3}
-  durability: 0
-  type: 1
-  subType: 0

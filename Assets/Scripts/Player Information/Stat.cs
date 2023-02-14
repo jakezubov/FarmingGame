@@ -40,9 +40,15 @@ public class Stat : MonoBehaviour
 
     public void UpdateStat()
     {
+        // makes any changes to stat appear in the spellbook and sliders
         _textCS.SetText($"{gameObject.name}: {Mathf.RoundToInt(_currentValue)} / {Mathf.RoundToInt(_maxValue)}");
         _slider.SetMaxValue(Mathf.RoundToInt(_maxValue));
         _slider.SetValue(Mathf.RoundToInt(_currentValue));
+    }
+
+    public float GetCurrentValue()
+    {
+        return _currentValue;
     }
 }
 

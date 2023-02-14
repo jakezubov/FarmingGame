@@ -10,17 +10,29 @@ public class PlayerAttackHitbox : MonoBehaviour
         {
             if (InventoryManager._instance.GetSelectedToolbarItem(false) != null)
             {
-                float damage = InventoryManager._instance.GetSelectedToolbarItem(false).damage;
-                if (InventoryManager._instance.GetSelectedToolbarItem(false).subType == SubType.Bow ||
-                    InventoryManager._instance.GetSelectedToolbarItem(false).subType == SubType.Crossbow)
-                {
-                    damage *= (1f + _combat.GetRangedAffinityExtraDamagePercentage() / 100f);
+                if (InventoryManager._instance.GetSelectedToolbarItem(false).type == Type.Tool) 
+                { 
+                    Tool tool = (Tool)InventoryManager._instance.GetSelectedToolbarItem(false);
+
+                    // if hitbox hits an enemy do damage based on the tools damage and the melee affinity modifier
+                    tool.damage *= (1f + _combat.GetMeleeAffinityExtraDamagePercentage() / 100f);
+                    collision.GetComponentInChildren<ChangeSlider>().LowerValue(Mathf.RoundToInt(tool.damage));
                 }
-                else
+                else if (InventoryManager._instance.GetSelectedToolbarItem(false).type == Type.Weapon) 
                 {
-                    damage *= (1f + _combat.GetMeleeAffinityExtraDamagePercentage() / 100f);
+                    Weapon weapon = (Weapon)InventoryManager._instance.GetSelectedToolbarItem(false);        
+                    if (weapon.weaponType == WeaponType.Bow || weapon.weaponType == WeaponType.Crossbow)
+                    {
+                        // if hitbox hits an enemy do damage based on the weapons damage and the ranged affinity modifier
+                        weapon.damage *= (1f + _combat.GetRangedAffinityExtraDamagePercentage() / 100f);
+                    } 
+                    else 
+                    {
+                        // if hitbox hits an enemy do damage based on the weapons damage and the melee affinity modifier
+                        weapon.damage *= (1f + _combat.GetMeleeAffinityExtraDamagePercentage() / 100f); 
+                    }
+                    collision.GetComponentInChildren<ChangeSlider>().LowerValue(Mathf.RoundToInt(weapon.damage));
                 }
-                collision.GetComponentInChildren<ChangeSlider>().LowerValue(Mathf.RoundToInt(damage));
             }            
         }
     }

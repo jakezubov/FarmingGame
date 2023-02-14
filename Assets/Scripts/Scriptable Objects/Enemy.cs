@@ -22,17 +22,5 @@ public class Enemy : ScriptableObject
     public Item[] droppedItems;
 }
 
-public enum DamageType
-{
-    NA,
-    Piercing,
-    Slashing,
-    Bludgeoning,
-    Arcane,
-    Fire,
-    Lightning,
-    Ice
-}
-
 
 

@@ -14,6 +14,7 @@ public class Reputation : MonoBehaviour
 
     public Reputation()
     {
+        // sets the reputation tier levels
         _acquaintanceRepAmount = Mathf.RoundToInt(_totalRep * 1 / 4);
         _friendsRepAmount = Mathf.RoundToInt(_totalRep * 1 / 2);
         _closeFriendsRepAmount = Mathf.RoundToInt(_totalRep * 3 / 4);
@@ -47,9 +48,10 @@ public class Reputation : MonoBehaviour
         }
     }
 
-    // used for when loading game
+    
     public void LoadRep(int amount)
     {
+        // used for when loading game
         _currentRep = amount;
         _slider.SetValue(amount);
 

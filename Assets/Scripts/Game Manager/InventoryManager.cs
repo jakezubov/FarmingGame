@@ -20,7 +20,10 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
+        // the defualt toolbar selected item 
         ChangeToolbarSelectedSlot(0);
+
+        // adds in any items the player needs to start with (change later to add based on saved data)
         foreach (var item in _startItems)
         {
             AddItem(item);
@@ -29,8 +32,10 @@ public class InventoryManager : MonoBehaviour
 
     public void ChangeToolbarSelectedSlot(int newSlot)
     {
+        // changes the toolbars selected slot
         if (_selectedSlot >= 0) { _inventorySlots[_selectedSlot].Deselect(); }
 
+        // default slot is -1 
         if (newSlot == -1) { _inventorySlots[_selectedSlot].Deselect(); }
         else
         {
@@ -41,7 +46,7 @@ public class InventoryManager : MonoBehaviour
 
     public bool AddItem(Item item)
     {    
-        // if component check if item can fit in component pouch
+        // if spell component this will check if item can fit in component pouch and if not will add it
         if (item.type == Type.SpellComponent)
         {
             foreach (ComponentSlot slot in _componentSlots)
@@ -68,7 +73,7 @@ public class InventoryManager : MonoBehaviour
                     {
                         if (itemInSlot == null)
                         {
-                            SpawnNewItemComp(item, slot);
+                            SpawnNewItem(item, slot);
                             return true;
                         }
                     }
@@ -77,6 +82,7 @@ public class InventoryManager : MonoBehaviour
             _componentsFull = true;
         }   
         
+        // if not componet will check for clear inventory slot instead
         foreach (InventorySlot slot in _inventorySlots)
         {
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
@@ -94,24 +100,16 @@ public class InventoryManager : MonoBehaviour
 
             if (itemInSlot == null)
             {
-                SpawnNewItemInv(item, slot);
+                SpawnNewItem(item, slot);
                 return true;
             }
         }      
         return false;
     }
 
-    private void SpawnNewItemInv(Item item, InventorySlot slot)
+    private void SpawnNewItem(Item item, Slot slot)
     {
-        GameObject newItemObj = Instantiate(_inventoryItemPrefab, slot.transform);
-        InventoryItem inventoryItem = newItemObj.GetComponent<InventoryItem>();
-
-        inventoryItem.InitialiseItem(item);
-        slot.SetCurrentItem(inventoryItem);
-    }
-
-    private void SpawnNewItemComp(Item item, ComponentSlot slot)
-    {
+        // spawns a new item in the desired slot in the players inventory
         GameObject newItemObj = Instantiate(_inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItemObj.GetComponent<InventoryItem>();
 
@@ -124,6 +122,8 @@ public class InventoryManager : MonoBehaviour
         InventorySlot slot = _inventorySlots[_selectedSlot];
         InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
 
+        // will return whichever item is in the currently selected toolbar slot
+        // used to either consume the current item or just check what the item is 
         if (itemInSlot != null)
         {
             Item item = itemInSlot.GetItem();
