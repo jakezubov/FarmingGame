@@ -51,9 +51,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Options",
+                    "name": "Map",
                     "type": "Button",
-                    "id": "bbd96ad6-6544-4801-835a-8e179fe767e9",
+                    "id": "30571d4b-e976-478f-87c4-a66db9aed5e5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "1367abcd-23b3-4a47-806d-a349423f01f3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -408,12 +417,23 @@
                 },
                 {
                     "name": "",
-                    "id": "44a13b3b-adcd-4b95-af33-72d65376f6cb",
-                    "path": "<Keyboard>/escape",
+                    "id": "25bdff31-30c9-4f5f-a678-916c5937034d",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Options",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b67a3217-f825-4321-9b09-8e9544acb1f4",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -505,9 +525,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Options",
+                    "name": "Map",
                     "type": "Button",
-                    "id": "985148ce-970b-4202-a8b4-7adbf484f507",
+                    "id": "a3dd498e-1ffc-4786-8712-32849599fc99",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -711,12 +731,12 @@
                 },
                 {
                     "name": "",
-                    "id": "fa1e6f95-a3b4-4970-bd77-8b95698998e8",
-                    "path": "<Keyboard>/escape",
+                    "id": "407580c5-fffc-400d-b224-ab5754cce667",
+                    "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Options",
+                    "action": "Map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

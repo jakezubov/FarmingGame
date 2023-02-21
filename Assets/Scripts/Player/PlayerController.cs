@@ -9,9 +9,10 @@ public class PlayerController : MonoBehaviour
     public Spellbook _spellbook;    
     public UseToolbar _use;
     public DropItem _dropItem;
-    public GameObject _optionsMenu;
-    public GameObject _optionsMenuFirstButton;
+    public GameObject _mapMenu;
+    public GameObject _mapMenuFirstButton;
     public Tilemap _groundTilemap;
+    public Tilemap _buildingsTilemap;
 
     public SkillHandler _skills; // for debugging
     public ReputationHandler _reputation; // for debugging
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private readonly int _reach = 1;
     private int _activeSlot = 0;
-    private bool _isOptionsOpen = false;
+    private bool _isMapOpen = false;
     private bool _isInteracting = false;
     private bool _isItemSelected = false;
     private bool _isSpellSelected = false;
@@ -57,12 +58,18 @@ public class PlayerController : MonoBehaviour
         if (_playerActionControls.General.enabled)
         {
             GeneralControls();
-        }      
+        }    
+        
+        if (_buildingsTilemap.GetTile<RuleTileWithData>(_currentCell) != null && 
+            _buildingsTilemap.GetTile<RuleTileWithData>(_currentCell).ruleTiletag == RuleTileTags.Workbench)
+        {
+            // show 'E' above workbench to interact
+        }
     } 
 
     private void FixedUpdate()
     {   
-        if (!_spellbook.CheckSpellbookActive() && !_isInteracting && !_isOptionsOpen)
+        if (!_spellbook.CheckSpellbookActive() && !_isInteracting && !_isMapOpen)
         {
             (float movementInputHoriztonal, float movementInputVertical) = GetPlayerMovements();
             _currentCell = _groundTilemap.WorldToCell(transform.position);
@@ -130,11 +137,11 @@ public class PlayerController : MonoBehaviour
         if (_playerActionControls.SpellBook.CloseSpellBook.triggered) { _spellbook.CloseSpellbook(); EndDrag(); }
 
         // trigger when opening the options menu
-        if (_playerActionControls.SpellBook.Options.triggered) 
+        if (_playerActionControls.SpellBook.Map.triggered) 
         {  
-            _spellbook.CloseSpellbook();
+            _spellbook.CloseSpellbookFast();
             EndDrag();
-            OpenOptionsMenu();
+            OpenMapMenu();
         }
 
         // triggers for turning pages
@@ -236,18 +243,14 @@ public class PlayerController : MonoBehaviour
             _spellbook.OpenSpellbook();
             _activeSlot = -1;
             InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot);
+            if (_isMapOpen) { CloseMapMenu(); }
         }
 
-        // trigger for opening and closing options menu
-        if (_playerActionControls.General.Options.triggered && !_isOptionsOpen) { OpenOptionsMenu(); }
-        else if (_playerActionControls.General.Options.triggered && _isOptionsOpen)
-        {
-            _spellbook._toolbarObject.SetActive(true);
-            _optionsMenu.SetActive(false);
-            _isOptionsOpen = false;
-        }
+        // trigger for opening and closing map menu
+        if (_playerActionControls.General.Map.triggered && !_isMapOpen) { OpenMapMenu(); }
+        else if (_playerActionControls.General.Map.triggered && _isMapOpen) { CloseMapMenu(); }
 
-        if (!_isInteracting && !_isOptionsOpen)
+        if (!_isInteracting && !_isMapOpen)
         {
             // trigger for interacting with environment
             if (_playerActionControls.General.UseToolbar.triggered)
@@ -260,6 +263,13 @@ public class PlayerController : MonoBehaviour
             if (_playerActionControls.General.Drop.triggered)
             {
                 _dropItem.Drop(transform.position);
+            }
+
+            // trigger for interacting with world objects eg. doors, workbenches etc
+            if (_playerActionControls.General.Interact.triggered && _buildingsTilemap.GetTile<RuleTileWithData>(_currentCell) != null &&
+                _buildingsTilemap.GetTile<RuleTileWithData>(_currentCell).ruleTiletag == RuleTileTags.Workbench)
+            {
+
             }
 
             // triggers for changing toolbar slots
@@ -296,15 +306,24 @@ public class PlayerController : MonoBehaviour
         }    
     }
 
-    private void OpenOptionsMenu()
+    private void OpenMapMenu()
     {
         _spellbook._toolbarObject.SetActive(false);
-        _optionsMenu.SetActive(true);
-        _isOptionsOpen = true;
+        _mapMenu.SetActive(true);
+        _isMapOpen = true;
 
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(_optionsMenuFirstButton);
+        EventSystem.current.SetSelectedGameObject(_mapMenuFirstButton);
         TooltipSystem.MoveMouse();
+    }
+
+    private void CloseMapMenu()
+    {
+        _spellbook._toolbarObject.SetActive(true);
+        _mapMenu.SetActive(false);
+        _isMapOpen = false;
+
+        TooltipSystem.Hide();
     }
 
     private IEnumerator PlaySwingAnimation()
@@ -372,5 +391,4 @@ public class PlayerController : MonoBehaviour
         if (_isItemSelected) { _selectedItem.OnEndNav(); _isItemSelected = false; }
         else if (_isSpellSelected) { _selectedSpell.OnEndNav(); _isSpellSelected = false; }
     }
-
 }

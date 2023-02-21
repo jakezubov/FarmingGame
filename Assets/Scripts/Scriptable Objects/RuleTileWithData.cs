@@ -3,7 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Object/Custom Rule Tile")]
 public class RuleTileWithData : RuleTile
 {
-    [SerializeField] private Item[] droppedItems;
+    public RuleTileTags ruleTiletag;
+    public Item[] droppedItems;
 
     public Item[] GetAllItems()
     {
@@ -33,3 +34,14 @@ public class RuleTileWithData : RuleTile
         return droppedItems[0];
     }
 }
+
+public enum RuleTileTags
+{
+    Foragable,
+    Forestry,
+    Mining,
+    Farming,
+    Workbench
+}
+
+

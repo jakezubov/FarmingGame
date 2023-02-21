@@ -73,9 +73,18 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Options"",
+                    ""name"": ""Map"",
                     ""type"": ""Button"",
-                    ""id"": ""bbd96ad6-6544-4801-835a-8e179fe767e9"",
+                    ""id"": ""30571d4b-e976-478f-87c4-a66db9aed5e5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""1367abcd-23b3-4a47-806d-a349423f01f3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -430,12 +439,23 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 },
                 {
                     ""name"": """",
-                    ""id"": ""44a13b3b-adcd-4b95-af33-72d65376f6cb"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""25bdff31-30c9-4f5f-a678-916c5937034d"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Options"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b67a3217-f825-4321-9b09-8e9544acb1f4"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -527,9 +547,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Options"",
+                    ""name"": ""Map"",
                     ""type"": ""Button"",
-                    ""id"": ""985148ce-970b-4202-a8b4-7adbf484f507"",
+                    ""id"": ""a3dd498e-1ffc-4786-8712-32849599fc99"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -733,12 +753,12 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fa1e6f95-a3b4-4970-bd77-8b95698998e8"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""407580c5-fffc-400d-b224-ab5754cce667"",
+                    ""path"": ""<Keyboard>/m"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Options"",
+                    ""action"": ""Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -754,7 +774,8 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         m_General_OpenSpellBook = m_General.FindAction("OpenSpellBook", throwIfNotFound: true);
         m_General_UseToolbar = m_General.FindAction("UseToolbar", throwIfNotFound: true);
         m_General_Drop = m_General.FindAction("Drop", throwIfNotFound: true);
-        m_General_Options = m_General.FindAction("Options", throwIfNotFound: true);
+        m_General_Map = m_General.FindAction("Map", throwIfNotFound: true);
+        m_General_Interact = m_General.FindAction("Interact", throwIfNotFound: true);
         m_General_ChangeSlots = m_General.FindAction("ChangeSlots", throwIfNotFound: true);
         m_General_Slot0 = m_General.FindAction("Slot0", throwIfNotFound: true);
         m_General_Slot1 = m_General.FindAction("Slot1", throwIfNotFound: true);
@@ -775,7 +796,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         m_SpellBook_NavigateDown = m_SpellBook.FindAction("NavigateDown", throwIfNotFound: true);
         m_SpellBook_Select = m_SpellBook.FindAction("Select", throwIfNotFound: true);
         m_SpellBook_Drop = m_SpellBook.FindAction("Drop", throwIfNotFound: true);
-        m_SpellBook_Options = m_SpellBook.FindAction("Options", throwIfNotFound: true);
+        m_SpellBook_Map = m_SpellBook.FindAction("Map", throwIfNotFound: true);
         m_SpellBook_FreeExp = m_SpellBook.FindAction("FreeExp", throwIfNotFound: true);
         m_SpellBook_FreeReputation = m_SpellBook.FindAction("FreeReputation", throwIfNotFound: true);
     }
@@ -842,7 +863,8 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
     private readonly InputAction m_General_OpenSpellBook;
     private readonly InputAction m_General_UseToolbar;
     private readonly InputAction m_General_Drop;
-    private readonly InputAction m_General_Options;
+    private readonly InputAction m_General_Map;
+    private readonly InputAction m_General_Interact;
     private readonly InputAction m_General_ChangeSlots;
     private readonly InputAction m_General_Slot0;
     private readonly InputAction m_General_Slot1;
@@ -861,7 +883,8 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         public InputAction @OpenSpellBook => m_Wrapper.m_General_OpenSpellBook;
         public InputAction @UseToolbar => m_Wrapper.m_General_UseToolbar;
         public InputAction @Drop => m_Wrapper.m_General_Drop;
-        public InputAction @Options => m_Wrapper.m_General_Options;
+        public InputAction @Map => m_Wrapper.m_General_Map;
+        public InputAction @Interact => m_Wrapper.m_General_Interact;
         public InputAction @ChangeSlots => m_Wrapper.m_General_ChangeSlots;
         public InputAction @Slot0 => m_Wrapper.m_General_Slot0;
         public InputAction @Slot1 => m_Wrapper.m_General_Slot1;
@@ -895,9 +918,12 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Drop.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDrop;
                 @Drop.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDrop;
                 @Drop.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDrop;
-                @Options.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnOptions;
-                @Options.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnOptions;
-                @Options.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnOptions;
+                @Map.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnMap;
+                @Map.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnMap;
+                @Map.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnMap;
+                @Interact.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnInteract;
                 @ChangeSlots.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
                 @ChangeSlots.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
                 @ChangeSlots.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
@@ -944,9 +970,12 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Drop.started += instance.OnDrop;
                 @Drop.performed += instance.OnDrop;
                 @Drop.canceled += instance.OnDrop;
-                @Options.started += instance.OnOptions;
-                @Options.performed += instance.OnOptions;
-                @Options.canceled += instance.OnOptions;
+                @Map.started += instance.OnMap;
+                @Map.performed += instance.OnMap;
+                @Map.canceled += instance.OnMap;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
                 @ChangeSlots.started += instance.OnChangeSlots;
                 @ChangeSlots.performed += instance.OnChangeSlots;
                 @ChangeSlots.canceled += instance.OnChangeSlots;
@@ -991,7 +1020,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
     private readonly InputAction m_SpellBook_NavigateDown;
     private readonly InputAction m_SpellBook_Select;
     private readonly InputAction m_SpellBook_Drop;
-    private readonly InputAction m_SpellBook_Options;
+    private readonly InputAction m_SpellBook_Map;
     private readonly InputAction m_SpellBook_FreeExp;
     private readonly InputAction m_SpellBook_FreeReputation;
     public struct SpellBookActions
@@ -1007,7 +1036,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         public InputAction @NavigateDown => m_Wrapper.m_SpellBook_NavigateDown;
         public InputAction @Select => m_Wrapper.m_SpellBook_Select;
         public InputAction @Drop => m_Wrapper.m_SpellBook_Drop;
-        public InputAction @Options => m_Wrapper.m_SpellBook_Options;
+        public InputAction @Map => m_Wrapper.m_SpellBook_Map;
         public InputAction @FreeExp => m_Wrapper.m_SpellBook_FreeExp;
         public InputAction @FreeReputation => m_Wrapper.m_SpellBook_FreeReputation;
         public InputActionMap Get() { return m_Wrapper.m_SpellBook; }
@@ -1046,9 +1075,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Drop.started -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnDrop;
                 @Drop.performed -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnDrop;
                 @Drop.canceled -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnDrop;
-                @Options.started -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnOptions;
-                @Options.performed -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnOptions;
-                @Options.canceled -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnOptions;
+                @Map.started -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnMap;
+                @Map.performed -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnMap;
+                @Map.canceled -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnMap;
                 @FreeExp.started -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnFreeExp;
                 @FreeExp.performed -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnFreeExp;
                 @FreeExp.canceled -= m_Wrapper.m_SpellBookActionsCallbackInterface.OnFreeExp;
@@ -1086,9 +1115,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Drop.started += instance.OnDrop;
                 @Drop.performed += instance.OnDrop;
                 @Drop.canceled += instance.OnDrop;
-                @Options.started += instance.OnOptions;
-                @Options.performed += instance.OnOptions;
-                @Options.canceled += instance.OnOptions;
+                @Map.started += instance.OnMap;
+                @Map.performed += instance.OnMap;
+                @Map.canceled += instance.OnMap;
                 @FreeExp.started += instance.OnFreeExp;
                 @FreeExp.performed += instance.OnFreeExp;
                 @FreeExp.canceled += instance.OnFreeExp;
@@ -1106,7 +1135,8 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         void OnOpenSpellBook(InputAction.CallbackContext context);
         void OnUseToolbar(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
-        void OnOptions(InputAction.CallbackContext context);
+        void OnMap(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         void OnChangeSlots(InputAction.CallbackContext context);
         void OnSlot0(InputAction.CallbackContext context);
         void OnSlot1(InputAction.CallbackContext context);
@@ -1128,7 +1158,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         void OnNavigateDown(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
-        void OnOptions(InputAction.CallbackContext context);
+        void OnMap(InputAction.CallbackContext context);
         void OnFreeExp(InputAction.CallbackContext context);
         void OnFreeReputation(InputAction.CallbackContext context);
     }

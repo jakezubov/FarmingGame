@@ -11,12 +11,6 @@ public class UseToolbar : MonoBehaviour
     public GameObject _parentAfterDrop;
     public Stat _stamina;
 
-    public RuleTileWithData _fernTile;
-    public RuleTileWithData _redMushroomTile;
-    public RuleTileWithData _pinkFlowerTile;
-    public RuleTileWithData _whiteFlowerTile;
-    public RuleTileWithData _candlenutTile;
-
     public readonly int _baseStamina = 10;
     public readonly int _baseExp = 10;
 
@@ -93,20 +87,19 @@ public class UseToolbar : MonoBehaviour
             }
             else if (_ruleTileWithData != null)
             {
-                if (_ruleTileWithData == _fernTile || _ruleTileWithData == _candlenutTile || _ruleTileWithData == _redMushroomTile ||
-                    _ruleTileWithData == _pinkFlowerTile || _ruleTileWithData == _whiteFlowerTile)
+                if (_ruleTileWithData.ruleTiletag == RuleTileTags.Foragable)
                 {
                     _forage.Foraging(_currentCell, _ruleTileWithData);
                     return true;
                 }  
                 else if (_toolbarTool != null && _toolbarTool.type == Type.Tool)
                 {
-                    if (_toolbarTool.toolType == ToolType.Axe)
+                    if (_toolbarTool.toolType == ToolType.Axe && _ruleTileWithData.ruleTiletag == RuleTileTags.Forestry)
                     {
                         _axe.Chop(_currentCell, _ruleTileWithData);
                         return true;
                     }
-                    else if (_toolbarTool.toolType == ToolType.Pickaxe)
+                    else if (_toolbarTool.toolType == ToolType.Pickaxe && _ruleTileWithData.ruleTiletag == RuleTileTags.Mining)
                     {
                         _pickaxe.Mine(_currentCell, _ruleTileWithData);
                         return true;
