@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6152619079996876394}
   - component: {fileID: 6152619079996876395}
   - component: {fileID: 3036013726225372830}
+  - component: {fileID: 1372284803994458736}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -29,6 +30,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6152619081433339901}
   m_RootOrder: 0
@@ -120,6 +122,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1372284803994458736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6152619079996876389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c2de392a83a444384ade884ffb19de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6152619080118260135
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +146,7 @@ GameObject:
   - component: {fileID: 6152619080118260132}
   - component: {fileID: 6152619080118260133}
   - component: {fileID: 7627331564180310849}
+  - component: {fileID: 3217249443276640059}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -149,6 +164,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6152619080313374360}
   m_RootOrder: 2
@@ -213,6 +229,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 6152619080118260133}
+--- !u!114 &3217249443276640059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6152619080118260135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf7c9812f917594da12b44a172b2474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6152619080313374361
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +270,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6152619081433339901}
   - {fileID: 6152619081768737210}
@@ -311,6 +340,7 @@ GameObject:
   - component: {fileID: 6152619081433339901}
   - component: {fileID: 6152619081433339875}
   - component: {fileID: 6152619081433339900}
+  - component: {fileID: 296146182622779465}
   m_Layer: 5
   m_Name: Spell Image
   m_TagString: Untagged
@@ -328,6 +358,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0001377, y: 1.0001377, z: 1.0001377}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6152619079996876388}
   m_Father: {fileID: 6152619080313374360}
@@ -376,6 +407,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &296146182622779465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6152619081433339902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c2de392a83a444384ade884ffb19de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6152619081768737211
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +431,7 @@ GameObject:
   - component: {fileID: 6152619081768737208}
   - component: {fileID: 6152619081768737209}
   - component: {fileID: 2091050067134706735}
+  - component: {fileID: 6571470743032488611}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -405,6 +449,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6152619080313374360}
   m_RootOrder: 1
@@ -469,3 +514,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 6152619081768737209}
+--- !u!114 &6571470743032488611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6152619081768737211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf7c9812f917594da12b44a172b2474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

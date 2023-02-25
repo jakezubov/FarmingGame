@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MiningTraits : TraitHandler
 {
+    public Item[] _artefacts;
+
     private float _pickAxeEfficiencyModifier;
     private int _gemologistModifier;
     private int _prospectorModifier;
@@ -17,39 +19,29 @@ public class MiningTraits : TraitHandler
         else if (trait == _trait6) { _archaeologistModifier += 2; }
     }
 
+    public Item[] GetArtefactList()
+    {
+        return _artefacts;
+    }
+
     public float GetPickaxeEfficiencyModifier()
     {
         return _pickAxeEfficiencyModifier;
     }
 
-    public bool RollForGem()
+    public int GetGemologistModifier()
     {
-        int randChance = Random.Range(1, 30 - _gemologistModifier);
-        if (randChance == 1)
-        {
-            return true;
-        }
-        else { return false; }
+        return _gemologistModifier;
     }
 
-    public bool RollForExtraOre()
+    public int GetProspectorModifier()
     {
-        int randChance = Random.Range(1, 15 - _prospectorModifier);
-        if (randChance == 1)
-        {
-            return true;
-        }
-        else { return false; }
+        return _prospectorModifier;
     }
-    
-    public bool RollForArtifact()
+
+    public int GetArchaeologistModifier()
     {
-        int randChance = Random.Range(1, 100 - _archaeologistModifier);
-        if (randChance == 1)
-        {
-            return true;
-        }
-        else { return false; }
+        return _archaeologistModifier;
     }
 
     public override void LoadTraitLevels()

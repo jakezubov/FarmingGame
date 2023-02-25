@@ -21,12 +21,11 @@ public class Forage : MonoBehaviour
         _skills.GainExperience(Skills.forestry, _use._baseExp * 1 / 2);
 
         // random chance to get extra foragable item (determined by fierce forager trait)
-        if (_forestry.RollForExtraForagable())
+        if (_forestry.RollForExtras(20 - _forestry.GetFierceForagerModifier()))
         {
             currentCell.x += 1;
             _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
             _skills.GainExperience(Skills.forestry, _use._baseExp * 1 / 2);
         }
-        
     }
 }

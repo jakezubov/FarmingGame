@@ -6,13 +6,13 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Properties
+
     public Spellbook _spellbook;    
     public UseToolbar _use;
     public DropItem _dropItem;
-    public GameObject _mapMenu;
-    public GameObject _mapMenuFirstButton;
-    public Tilemap _groundTilemap;
-    public Tilemap _buildingsTilemap;
+    public GameObject _mapMenu, _mapMenuFirstButton;
+    public Tilemap _groundTilemap, _buildingsTilemap;
 
     public SkillHandler _skills; // for debugging
     public ReputationHandler _reputation; // for debugging
@@ -21,15 +21,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
 
-    private readonly int _reach = 1;
-    private int _activeSlot = 0;
-    private bool _isMapOpen = false;
-    private bool _isInteracting = false;
-    private bool _isItemSelected = false;
-    private bool _isSpellSelected = false;
+    private int _reach = 1, _activeSlot = 0;
+    private bool _isMapOpen = false, _isInteracting = false;
+    private bool _isItemSelected = false, _isSpellSelected = false;
     private InventoryItem _selectedItem = null;
     private DraggableSpell _selectedSpell = null;
     private Vector3Int _previousCell, _currentCell;
+
+    #endregion
 
     private void Awake()
     {
@@ -69,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {   
-        if (!_spellbook.CheckSpellbookActive() && !_isInteracting && !_isMapOpen)
+        if (!_spellbook.CheckSpellbookActive() && !_isInteracting && !_isMapOpen && !_spellbook.GetAnimationState())
         {
             (float movementInputHoriztonal, float movementInputVertical) = GetPlayerMovements();
             _currentCell = _groundTilemap.WorldToCell(transform.position);
@@ -133,106 +132,109 @@ public class PlayerController : MonoBehaviour
 
     private void SpellbookControls()
     {
-        // trigger to close spellbook
-        if (_playerActionControls.SpellBook.CloseSpellBook.triggered) { _spellbook.CloseSpellbook(); EndDrag(); }
-
-        // trigger when opening the options menu
-        if (_playerActionControls.SpellBook.Map.triggered) 
-        {  
-            _spellbook.CloseSpellbookFast();
-            EndDrag();
-            OpenMapMenu();
-        }
-
-        // triggers for turning pages
-        if (_playerActionControls.SpellBook.PageLeft.triggered) { _spellbook.ChangeSectionLeft(); }
-        if (_playerActionControls.SpellBook.PageRight.triggered) { _spellbook.ChangeSectionRight(); }
-
-        // move mouse with navigation buttons
-        if (_playerActionControls.SpellBook.NavigateDown.IsPressed() || _playerActionControls.SpellBook.NavigateUp.IsPressed() ||
-            _playerActionControls.SpellBook.NavigateLeft.IsPressed() || _playerActionControls.SpellBook.NavigateRight.IsPressed())
+        if (!_spellbook.GetAnimationState())
         {
-            if (EventSystem.current.currentSelectedGameObject != null)
-            {
-                TooltipSystem.MoveMouse();
-            }
-        }
+            // trigger to close spellbook
+            if (_playerActionControls.SpellBook.CloseSpellBook.triggered) { StartCoroutine(_spellbook.CloseSpellbook()); EndDrag(); }
 
-        // controls movement of items and spells while using keyboard
-        if (_playerActionControls.SpellBook.Select.triggered && !_isItemSelected && !_isSpellSelected)
-        {
-            if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventoryItem>() != null)
+            // trigger when opening the options menu
+            if (_playerActionControls.SpellBook.Map.triggered)
             {
-                _selectedItem = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventoryItem>();
-                _selectedItem.OnBeginNav();
-                _isItemSelected = true;
+                StartCoroutine(_spellbook.CloseSpellbookFast());
+                EndDrag();
+                OpenMapMenu();
             }
-            else if (EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetComponent<DraggableSpell>() != null)
+
+            // triggers for turning pages
+            if (_playerActionControls.SpellBook.PageLeft.triggered) { StartCoroutine(_spellbook.ChangeSectionLeft(true)); }
+            if (_playerActionControls.SpellBook.PageRight.triggered) { StartCoroutine(_spellbook.ChangeSectionRight(true)); }
+
+            // move mouse with navigation buttons
+            if (_playerActionControls.SpellBook.NavigateDown.IsPressed() || _playerActionControls.SpellBook.NavigateUp.IsPressed() ||
+                _playerActionControls.SpellBook.NavigateLeft.IsPressed() || _playerActionControls.SpellBook.NavigateRight.IsPressed())
             {
-                _selectedSpell = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetComponent<DraggableSpell>();
-                _selectedSpell.OnBeginNav();
-                _isSpellSelected = true;
+                if (EventSystem.current.currentSelectedGameObject != null)
+                {
+                    TooltipSystem.MoveMouse();
+                }
             }
-        }
-        else if (_playerActionControls.SpellBook.Select.triggered)
-        {
+
+            // controls movement of items and spells while using keyboard
+            if (_playerActionControls.SpellBook.Select.triggered && !_isItemSelected && !_isSpellSelected)
+            {
+                if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventoryItem>() != null)
+                {
+                    _selectedItem = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventoryItem>();
+                    _selectedItem.OnBeginNav();
+                    _isItemSelected = true;
+                }
+                else if (EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetComponent<DraggableSpell>() != null)
+                {
+                    _selectedSpell = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetComponent<DraggableSpell>();
+                    _selectedSpell.OnBeginNav();
+                    _isSpellSelected = true;
+                }
+            }
+            else if (_playerActionControls.SpellBook.Select.triggered)
+            {
+                if (_isItemSelected)
+                {
+                    // checks which type of slot the item is placed in
+                    if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<BinSlot>() != null)
+                    {
+                        BinSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<BinSlot>();
+                        slot.OnDrop(_selectedItem);
+                    }
+                    else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventorySlot>() != null)
+                    {
+                        InventorySlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventorySlot>();
+                        slot.OnDrop(_selectedItem);
+                    }
+                    else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<EquipmentSlot>() != null)
+                    {
+                        EquipmentSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<EquipmentSlot>();
+                        slot.OnDrop(_selectedItem);
+                    }
+                    else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<ComponentSlot>() != null)
+                    {
+                        ComponentSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<ComponentSlot>();
+                        slot.OnDrop(_selectedItem);
+                    }
+
+                    _selectedItem.OnEndNav();
+                    _isItemSelected = false;
+                }
+                else if (_isSpellSelected)
+                {
+                    if (EventSystem.current.currentSelectedGameObject.GetComponentInParent<SpellSlot>() != null)
+                    {
+                        SpellSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInParent<SpellSlot>();
+                        slot.OnDrop(_selectedSpell.GetSpell());
+                    }
+
+                    _selectedSpell.OnEndNav();
+                    _isSpellSelected = false;
+                }
+            }
+
+            // making the item or spell follow the cursor when selected
             if (_isItemSelected)
             {
-                // checks which type of slot the item is placed in
-                if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<BinSlot>() != null)
-                {
-                    BinSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<BinSlot>();
-                    slot.OnDrop(_selectedItem);
-                }
-                else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventorySlot>() != null)
-                {
-                    InventorySlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<InventorySlot>();
-                    slot.OnDrop(_selectedItem);
-                }
-                else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<EquipmentSlot>() != null)
-                {
-                    EquipmentSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<EquipmentSlot>();
-                    slot.OnDrop(_selectedItem);
-                }
-                else if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<ComponentSlot>() != null)
-                {
-                    ComponentSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<ComponentSlot>();
-                    slot.OnDrop(_selectedItem);
-                }
-
-                _selectedItem.OnEndNav();
-                _isItemSelected = false;
+                Vector3 position = Mouse.current.position.ReadValue();
+                position.z = Camera.main.nearClipPlane;
+                _selectedItem.transform.position = Camera.main.ScreenToWorldPoint(position);
             }
             else if (_isSpellSelected)
             {
-                if (EventSystem.current.currentSelectedGameObject.GetComponentInParent<SpellSlot>() != null)
-                {
-                    SpellSlot slot = EventSystem.current.currentSelectedGameObject.GetComponentInParent<SpellSlot>();
-                    slot.OnDrop(_selectedSpell.GetSpell());
-                }
-                
-                _selectedSpell.OnEndNav();
-                _isSpellSelected = false;                    
+                Vector3 position = Mouse.current.position.ReadValue();
+                position.z = Camera.main.nearClipPlane;
+                _selectedSpell._image.gameObject.transform.position = Camera.main.ScreenToWorldPoint(position);
             }
-        }
 
-        // making the item or spell follow the cursor when selected
-        if (_isItemSelected)
-        {
-            Vector3 position = Mouse.current.position.ReadValue();
-            position.z = Camera.main.nearClipPlane;
-            _selectedItem.transform.position = Camera.main.ScreenToWorldPoint(position);
+            // for debug
+            if (_playerActionControls.SpellBook.FreeExp.triggered) { _skills.FreeExp(); }
+            if (_playerActionControls.SpellBook.FreeReputation.triggered) { _reputation.FreeReputation(); }
         }
-        else if (_isSpellSelected)
-        {
-            Vector3 position = Mouse.current.position.ReadValue();
-            position.z = Camera.main.nearClipPlane;
-            _selectedSpell._image.gameObject.transform.position = Camera.main.ScreenToWorldPoint(position);
-        }
-
-        // for debug
-        if (_playerActionControls.SpellBook.FreeExp.triggered) { _skills.FreeExp(); }
-        if (_playerActionControls.SpellBook.FreeReputation.triggered) { _reputation.FreeReputation(); }
     }
 
     private void GeneralControls()
@@ -240,14 +242,14 @@ public class PlayerController : MonoBehaviour
         // trigger to open spellbook
         if (_playerActionControls.General.OpenSpellBook.triggered)
         {
-            _spellbook.OpenSpellbook();
+            StartCoroutine(_spellbook.OpenSpellbook());
             _activeSlot = -1;
             InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot);
             if (_isMapOpen) { CloseMapMenu(); }
         }
 
         // trigger for opening and closing map menu
-        if (_playerActionControls.General.Map.triggered && !_isMapOpen) { OpenMapMenu(); }
+        if (_playerActionControls.General.Map.triggered && !_isMapOpen && !_spellbook.GetAnimationState()) { OpenMapMenu(); }
         else if (_playerActionControls.General.Map.triggered && _isMapOpen) { CloseMapMenu(); }
 
         if (!_isInteracting && !_isMapOpen)

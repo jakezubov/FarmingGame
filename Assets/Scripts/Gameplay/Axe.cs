@@ -19,10 +19,12 @@ public class Axe : MonoBehaviour
 
     public void Chop(Vector3Int currentCell, RuleTileWithData ruleTile)
     {
+        // needs to be completely remade
+
         // checks what tile is being interacted with and acts accordingly
         if (ruleTile == _birchTile || ruleTile == _chestnutTile || ruleTile == _mapleTile)
         {
-            int treeHeight = 4;
+            int treeHeight = 5;
 
             _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);
             for (int i = 0; i < treeHeight; i++) { currentCell.y += 1; _use.Gather(currentCell, null, _use._objectsNoCollideTilemap); }
@@ -47,8 +49,7 @@ public class Axe : MonoBehaviour
     private void TryGetExtraWood(Vector3Int currentCell, RuleTileWithData ruleTile)
     {
         // random chance to get extra wood (determined by lumberjack trait)
-        bool result = _forestry.RollForExtraWood();
-        if (result)
+        if (_forestry.RollForExtras(11 - _forestry.GetLumberjackModifier()))
         {
             currentCell.y += 1;
             _use.Gather(currentCell, ruleTile.GetRandomItem(), _use._resourcesTilemap);

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -83,5 +84,15 @@ public class TraitHandler : MonoBehaviour
             _trait6.UnlockTrait();
             _isTier1Unlocked = true;
         }    
+    }
+
+    public bool RollForExtras(int range)
+    {
+        int randChance = Random.Range(1, range + 1);
+        if (randChance == 1)
+        {
+            return true;
+        }
+        else { return false; }
     }
 }

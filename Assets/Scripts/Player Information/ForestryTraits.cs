@@ -21,24 +21,14 @@ public class ForestryTraits : TraitHandler
         return _axeEfficiencyModifier;
     }
 
-    public bool RollForExtraForagable()
+    public int GetFierceForagerModifier()
     {
-        int randChance = Random.Range(1, 20 - _fierceForagerModifier);
-        if (randChance == 1 && _fierceForagerModifier > 0)
-        {
-            return true;
-        }
-        else { return false; }
+        return _fierceForagerModifier;
     }
 
-    public bool RollForExtraWood()
+    public int GetLumberjackModifier()
     {
-        int randChance = Random.Range(1, 11 - _lumberjackModifier);
-        if (randChance == 1 && _lumberjackModifier > 0)
-        {
-            return true;
-        }
-        else { return false; }
+        return _lumberjackModifier;
     }
 
     public override void LoadTraitLevels()

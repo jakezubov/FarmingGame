@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Scriptable Objects\Items\CraftableItem.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemList.cs" />
     <Compile Include="Assets\Extra Packages\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\Items\Tool.cs" />
     <Compile Include="Assets\Extra Packages\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Assets\Scripts\Player Information\FarmingTraits.cs" />
     <Compile Include="Assets\Scripts\Player Information\MagicTraits.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyDeath.cs" />
+    <Compile Include="Assets\Scripts\UI Editors\FadeText.cs" />
     <Compile Include="Assets\Scripts\Spells\SpellInfo.cs" />
     <Compile Include="Assets\Scripts\UI Editors\ChangeText.cs" />
     <Compile Include="Assets\Extra Packages\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Assets\Scripts\Gameplay\Pickaxe.cs" />
     <Compile Include="Assets\Scripts\Items\LootItem.cs" />
     <Compile Include="Assets\Extra Packages\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
+    <Compile Include="Assets\Scripts\UI Editors\FadeImage.cs" />
     <Compile Include="Assets\Extra Packages\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\Extra Packages\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />

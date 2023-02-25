@@ -20,14 +20,9 @@ public class FishingTraits : TraitHandler
         return _fishingEfficiencyModifier;
     }
 
-    public bool RollForBait()
+    public int GetBaitFinderModifier()
     {
-        int randChance = Random.Range(1, 15 - _baitFinderModifier);
-        if (randChance == 1)
-        {
-            return true;
-        }
-        else { return false; }
+        return _baitFinderModifier;
     }
 
     public override void LoadTraitLevels()
