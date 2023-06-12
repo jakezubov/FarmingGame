@@ -5,11 +5,7 @@ public class RuleTileWithData : RuleTile
 {
     public RuleTileTags ruleTiletag;
     public Item[] droppedItems;
-
-    public Item[] GetAllItems()
-    {
-        return droppedItems;
-    }
+    public int health;
 
     public Item GetRandomItem()
     {
@@ -32,6 +28,11 @@ public class RuleTileWithData : RuleTile
             return droppedItems[Random.Range(1, droppedItems.Length)];
         }
         return droppedItems[0];
+    }
+
+    public void LowerHealth(int amount)
+    {
+        health -= amount;
     }
 }
 

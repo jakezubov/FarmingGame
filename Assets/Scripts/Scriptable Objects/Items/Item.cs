@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[CreateAssetMenu(menuName = "Scriptable Object/Item")]
+[CreateAssetMenu(menuName = "Scriptable Object/Items/Item")]
 public class Item : ScriptableObject
 {
     [Header("General")]

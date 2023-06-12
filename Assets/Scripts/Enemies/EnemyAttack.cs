@@ -44,8 +44,8 @@ public class EnemyAttack : MonoBehaviour
     private IEnumerator PlayAttackAnimation()
     {
         // the attack animation controller
-        _anim.SetBool("Swing", true);
+        _anim.SetBool("Attack", true);
         yield return new WaitForSeconds(0.65f);
-        _anim.SetBool("Swing", false);
+        _anim.SetBool("Attack", false);
     }
 }

@@ -3,23 +3,25 @@ using UnityEngine.Tilemaps;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     #region Properties
 
     public Spellbook _spellbook;    
-    public UseToolbar _use;
+    public Tools _tools;
     public DropItem _dropItem;
-    public GameObject _mapMenu, _mapMenuFirstButton;
-    public Tilemap _groundTilemap, _buildingsTilemap;
+    public Map _map;
+    private Tilemap _groundTilemap, _buildingsTilemap;
+    public Animator _baseAnimator, _toolAnimator;
 
     public SkillHandler _skills; // for debugging
     public ReputationHandler _reputation; // for debugging
 
     private static PlayerActionControls _playerActionControls;
     private Rigidbody2D _rb;
-    private Animator _animator;
+    private Scene _scene;
 
     private int _reach = 1, _activeSlot = 0;
     private bool _isMapOpen = false, _isInteracting = false;
@@ -34,8 +36,18 @@ public class PlayerController : MonoBehaviour
     {
         _playerActionControls = new PlayerActionControls();
         _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-        _spellbook.gameObject.SetActive(false);  
+        _spellbook.gameObject.SetActive(false);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        _scene = scene;
+        if (scene.name != "Startup")
+        {
+            _groundTilemap = GameObject.Find("Ground NC").GetComponent<Tilemap>();
+            _buildingsTilemap = GameObject.Find("Building Bottoms C").GetComponent<Tilemap>();
+        }
     }
 
     private void OnEnable() { _playerActionControls.Enable(); }
@@ -43,81 +55,89 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // switch between action maps
-        if (_spellbook.CheckSpellbookActive()) { _playerActionControls.SpellBook.Enable(); _playerActionControls.General.Disable(); }
-        else { _playerActionControls.SpellBook.Disable(); _playerActionControls.General.Enable(); }
+        if (_scene.name != "Startup")
+        {
+            // switch between action maps
+            if (_spellbook.CheckSpellbookActive()) { _playerActionControls.SpellBook.Enable(); _playerActionControls.General.Disable(); }
+            else { _playerActionControls.SpellBook.Disable(); _playerActionControls.General.Enable(); }
 
-        // if spellbook action map is enabled
-        if (_playerActionControls.SpellBook.enabled)
-        {
-            SpellbookControls();
-        }
+            // if spellbook action map is enabled
+            if (_playerActionControls.SpellBook.enabled)
+            {
+                SpellbookControls();
+            }
 
-        // if general action map is enabled
-        if (_playerActionControls.General.enabled)
-        {
-            GeneralControls();
-        }    
-        
-        if (_buildingsTilemap.GetTile<RuleTileWithData>(_currentCell) != null && 
-            _buildingsTilemap.GetTile<RuleTileWithData>(_currentCell).ruleTiletag == RuleTileTags.Workbench)
-        {
-            // show 'E' above workbench to interact
+            // if general action map is enabled
+            if (_playerActionControls.General.enabled)
+            {
+                GeneralControls();
+            }
+
+            if (_buildingsTilemap.GetTile<RuleTileWithData>(_currentCell) != null &&
+                _buildingsTilemap.GetTile<RuleTileWithData>(_currentCell).ruleTiletag == RuleTileTags.Workbench)
+            {
+                // show 'E' above workbench to interact
+            }
         }
     } 
 
     private void FixedUpdate()
-    {   
-        if (!_spellbook.CheckSpellbookActive() && !_isInteracting && !_isMapOpen && !_spellbook.GetAnimationState())
+    {
+        if (_scene.name != "Startup")
         {
-            (float movementInputHoriztonal, float movementInputVertical) = GetPlayerMovements();
-            _currentCell = _groundTilemap.WorldToCell(transform.position);
-
-            // Move the player
-            Vector3 currentPosition = transform.position;
-            currentPosition.x += movementInputHoriztonal * SaveData.moveSpeed * Time.deltaTime;
-            currentPosition.y += movementInputVertical * SaveData.moveSpeed * Time.deltaTime;
-            _rb.MovePosition(currentPosition);
-
-            // controls all the movement animations
-            if (movementInputHoriztonal == -1 && movementInputVertical == 0) // start horizontal checks
+            if (!_spellbook.CheckSpellbookActive() && !_isInteracting && !_isMapOpen && !_spellbook.GetAnimationState())
             {
-                _currentCell.x -= _reach; 
-                _previousCell = _currentCell;
+                (float movementInputHoriztonal, float movementInputVertical) = GetPlayerMovements();
+                _currentCell = _groundTilemap.WorldToCell(transform.position);
 
-                SetAllAnimationsFalse();
-                _animator.SetBool("MoveSide", true);
-                GetComponentInParent<Transform>().localScale = new Vector3(-1f, 1f, 1f);
-            }
-            else if (movementInputHoriztonal == 1 && movementInputVertical == 0)
-            {
-                _currentCell.x += _reach; 
-                _previousCell = _currentCell;
+                // Move the player
+                Vector3 currentPosition = transform.position;
+                currentPosition.x += movementInputHoriztonal * SaveData.moveSpeed * Time.deltaTime;
+                currentPosition.y += movementInputVertical * SaveData.moveSpeed * Time.deltaTime;
+                _rb.MovePosition(currentPosition);
 
-                SetAllAnimationsFalse();
-                _animator.SetBool("MoveSide", true);
-                GetComponentInParent<Transform>().localScale = new Vector3(1f, 1f, 1f);
-            }
-            else if (movementInputVertical == -1 && movementInputHoriztonal == 0) // start vertical checks
-            {
-                _currentCell.y -= _reach; 
-                _previousCell = _currentCell;
+                // controls all the movement animations
+                if (movementInputHoriztonal == -1 && movementInputVertical == 0) // start horizontal checks
+                {
+                    _currentCell.x -= _reach;
+                    _previousCell = _currentCell;
 
-                SetAllAnimationsFalse();
-                _animator.SetBool("MoveDown", true);
-            }
-            else if (movementInputVertical == 1 && movementInputHoriztonal == 0)
-            {
-                _currentCell.y += _reach; 
-                _previousCell = _currentCell;
+                    SetAllMoveAnimationsFalse();
+                    _baseAnimator.SetBool("MoveLeft", true);
+                    _toolAnimator.SetBool("MoveLeft", true);
+                }
+                else if (movementInputHoriztonal == 1 && movementInputVertical == 0)
+                {
+                    _currentCell.x += _reach;
+                    _previousCell = _currentCell;
 
-                SetAllAnimationsFalse();
-                _animator.SetBool("MoveUp", true);
-            }
-            else if (movementInputHoriztonal == 0 && movementInputVertical == 0) // check if no movement
-            {
-                _currentCell = _previousCell;
-                SetAllAnimationsFalse();
+                    SetAllMoveAnimationsFalse();
+                    _baseAnimator.SetBool("MoveRight", true);
+                    _toolAnimator.SetBool("MoveRight", true);
+                }
+                else if (movementInputVertical == -1 && movementInputHoriztonal == 0) // start vertical checks
+                {
+                    _currentCell.y -= _reach;
+                    _previousCell = _currentCell;
+
+                    SetAllMoveAnimationsFalse();
+                    _baseAnimator.SetBool("MoveDown", true);
+                    _toolAnimator.SetBool("MoveDown", true);
+                }
+                else if (movementInputVertical == 1 && movementInputHoriztonal == 0)
+                {
+                    _currentCell.y += _reach;
+                    _previousCell = _currentCell;
+
+                    SetAllMoveAnimationsFalse();
+                    _baseAnimator.SetBool("MoveUp", true);
+                    _toolAnimator.SetBool("MoveUp", true);
+                }
+                else if (movementInputHoriztonal == 0 && movementInputVertical == 0) // check if no movement
+                {
+                    _currentCell = _previousCell;
+                    SetAllMoveAnimationsFalse();
+                }
             }
         }        
     }   
@@ -142,7 +162,8 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(_spellbook.CloseSpellbookFast());
                 EndDrag();
-                OpenMapMenu();
+                _map.OpenMapMenu();
+                _isMapOpen = true;
             }
 
             // triggers for turning pages
@@ -245,20 +266,20 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(_spellbook.OpenSpellbook());
             _activeSlot = -1;
             InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot);
-            if (_isMapOpen) { CloseMapMenu(); }
+            if (_isMapOpen) { _map.CloseMapMenu(); _isMapOpen = false; }
         }
 
         // trigger for opening and closing map menu
-        if (_playerActionControls.General.Map.triggered && !_isMapOpen && !_spellbook.GetAnimationState()) { OpenMapMenu(); }
-        else if (_playerActionControls.General.Map.triggered && _isMapOpen) { CloseMapMenu(); }
+        if (_playerActionControls.General.Map.triggered && !_isMapOpen && !_spellbook.GetAnimationState()) { _map.OpenMapMenu(); _isMapOpen = true; }
+        else if (_playerActionControls.General.Map.triggered && _isMapOpen) { _map.CloseMapMenu(); _isMapOpen = false; }
 
         if (!_isInteracting && !_isMapOpen)
         {
             // trigger for interacting with environment
             if (_playerActionControls.General.UseToolbar.triggered)
             {
-                _use.GetData(_currentCell);
-                StartCoroutine(PlaySwingAnimation());
+                _tools.GetData(_currentCell);
+                StartCoroutine(PlayToolAnimation());
             }
 
             // trigger for dropping items from toolbar
@@ -275,93 +296,52 @@ public class PlayerController : MonoBehaviour
             }
 
             // triggers for changing toolbar slots
-            if (_playerActionControls.General.Slot0.triggered || _playerActionControls.General.Slot1.triggered || _playerActionControls.General.Slot2.triggered ||
-                _playerActionControls.General.Slot3.triggered || _playerActionControls.General.Slot4.triggered || _playerActionControls.General.Slot5.triggered ||
-                _playerActionControls.General.Slot6.triggered || _playerActionControls.General.Slot7.triggered || _playerActionControls.General.ChangeSlots.triggered)
+            if (_playerActionControls.General.ChangeSlots.triggered)
             {
-                if (_playerActionControls.General.ChangeSlots.triggered)
+                Vector2 value = _playerActionControls.General.ChangeSlots.ReadValue<Vector2>();
+                if (value.y < 0)
                 {
-                    Vector2 value = _playerActionControls.General.ChangeSlots.ReadValue<Vector2>();
-                    if (value.y < 0)
-                    {
-                        _activeSlot++;
-                        if (_activeSlot == 8) { _activeSlot = 0; };
-                    }
-                    else if (value.y > 0)
-                    {
-                        _activeSlot--;
-                        if (_activeSlot == -1) { _activeSlot = 7; };
-                    }
+                    _activeSlot++;
+                    if (_activeSlot == 10) { _activeSlot = 0; };
                 }
-                else if (_playerActionControls.General.Slot0.triggered) { _activeSlot = 0; }
-                else if (_playerActionControls.General.Slot1.triggered) { _activeSlot = 1; }
-                else if (_playerActionControls.General.Slot2.triggered) { _activeSlot = 2; }
-                else if (_playerActionControls.General.Slot3.triggered) { _activeSlot = 3; }
-                else if (_playerActionControls.General.Slot4.triggered) { _activeSlot = 4; }
-                else if (_playerActionControls.General.Slot5.triggered) { _activeSlot = 5; }
-                else if (_playerActionControls.General.Slot6.triggered) { _activeSlot = 6; }
-                else if (_playerActionControls.General.Slot7.triggered) { _activeSlot = 7; }
-
+                else if (value.y > 0)
+                {
+                    _activeSlot--;
+                    if (_activeSlot == -1) { _activeSlot = 9; };
+                }
                 InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot);
-                CheckForTools();
-            }
+            } 
+            else if (_playerActionControls.General.Slot1.triggered) { _activeSlot = 0; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
+            else if (_playerActionControls.General.Slot2.triggered) { _activeSlot = 1; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
+            else if (_playerActionControls.General.Slot3.triggered) { _activeSlot = 2; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
+            else if (_playerActionControls.General.Slot4.triggered) { _activeSlot = 3; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
+            else if (_playerActionControls.General.Slot5.triggered) { _activeSlot = 4; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
+            else if (_playerActionControls.General.Slot6.triggered) { _activeSlot = 5; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
+            else if (_playerActionControls.General.Slot7.triggered) { _activeSlot = 6; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
+            else if (_playerActionControls.General.Slot8.triggered) { _activeSlot = 7; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
+            else if (_playerActionControls.General.Slot9.triggered) { _activeSlot = 8; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
+            else if (_playerActionControls.General.Slot10.triggered) { _activeSlot = 9; InventoryManager._instance.ChangeToolbarSelectedSlot(_activeSlot); }
         }    
     }
 
-    private void OpenMapMenu()
+    private IEnumerator PlayToolAnimation()
     {
-        _spellbook._toolbarObject.SetActive(false);
-        _mapMenu.SetActive(true);
-        _isMapOpen = true;
-
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(_mapMenuFirstButton);
-        TooltipSystem.MoveMouse();
-    }
-
-    private void CloseMapMenu()
-    {
-        _spellbook._toolbarObject.SetActive(true);
-        _mapMenu.SetActive(false);
-        _isMapOpen = false;
-
-        TooltipSystem.Hide();
-    }
-
-    private IEnumerator PlaySwingAnimation()
-    {
-        _animator.SetBool("Swing", true);
+        _baseAnimator.SetBool("UseTool", true);
+        _toolAnimator.SetBool("UseTool", true);
         _isInteracting = true;
-
-        //AnimatorClipInfo[] clip = _animator.GetCurrentAnimatorClipInfo(_animator.GetLayerIndex("Base Layer"));
-        //float timer = clip[0].clip.length;
+        CheckForTools();
 
         // base yield time on animation length
         yield return new WaitForSeconds(0.35f);
- 
-        bool used = _use.UseItemInSlot();
-        if (used)
-        {
-            _isInteracting = false;
-            _animator.SetBool("Swing", false);
-        }
-        else
-        {
-            yield return new WaitForSeconds(0.3f);
-            _isInteracting = false;
-            _animator.SetBool("Swing", false);
-        }
+        _tools.UseItemInSlot();
+        yield return new WaitForSeconds(0.3f);
+
+        _isInteracting = false;
+        _baseAnimator.SetBool("UseTool", false);
+        _toolAnimator.SetBool("UseTool", false);
     }
 
-    private void SetAllAnimationsFalse()
-    {
-        // default state for animations
-        _animator.SetBool("MoveSide", false);
-        _animator.SetBool("MoveUp", false);
-        _animator.SetBool("MoveDown", false);
-    }
-
-    public void CheckForTools()
+    private void CheckForTools()
     {
         // changes the animation for what tool is held based on the currently selected toolbar item
         if (InventoryManager._instance.GetSelectedToolbarItem(false) != null &&
@@ -369,25 +349,30 @@ public class PlayerController : MonoBehaviour
         {
             Tool tool = (Tool)InventoryManager._instance.GetSelectedToolbarItem(false);
 
-            if (tool.toolType == ToolType.Axe)
-            {
-                _animator.SetBool("HasAxe", true);
-                _animator.SetBool("HasPickaxe", false);
-            }
-            else if (tool.toolType == ToolType.Pickaxe)
-            {
-                _animator.SetBool("HasPickaxe", true);
-                _animator.SetBool("HasAxe", false);
-            }
-            else
-            {
-                _animator.SetBool("HasAxe", false);
-                _animator.SetBool("HasPickaxe", false);
-            }
+            _toolAnimator.SetBool("HasPick", false);
+            _toolAnimator.SetBool("HasAxe", false);
+            _toolAnimator.SetBool("HasHoe", false);
+
+            if (tool.toolType == ToolType.Axe) { _toolAnimator.SetBool("HasAxe", true); }
+            else if (tool.toolType == ToolType.Pickaxe) { _toolAnimator.SetBool("HasPick", true); }
+            else if (tool.toolType == ToolType.Hoe) { _toolAnimator.SetBool("HasHoe", true); }
         }
     }
+
+    private void SetAllMoveAnimationsFalse()
+    {
+        // default state for animations
+        _baseAnimator.SetBool("MoveLeft", false);
+        _baseAnimator.SetBool("MoveRight", false);
+        _baseAnimator.SetBool("MoveUp", false);
+        _baseAnimator.SetBool("MoveDown", false);
+        _toolAnimator.SetBool("MoveLeft", false);
+        _toolAnimator.SetBool("MoveRight", false);
+        _toolAnimator.SetBool("MoveUp", false);
+        _toolAnimator.SetBool("MoveDown", false);
+    }
     
-    public void EndDrag()
+    private void EndDrag()
     {
         // ends dragging any objects when the menu is closed
         if (_isItemSelected) { _selectedItem.OnEndNav(); _isItemSelected = false; }

@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     public InventorySlot[] _inventorySlots;
     public ComponentSlot[] _componentSlots; 
 
-    private int _selectedSlot = -1;
+    private int _selectedSlot = 0;
     private bool _componentsFull = false;
 
     private void Awake()
@@ -33,15 +33,12 @@ public class InventoryManager : MonoBehaviour
     public void ChangeToolbarSelectedSlot(int newSlot)
     {
         // changes the toolbars selected slot
-        if (_selectedSlot >= 0) { _inventorySlots[_selectedSlot].Deselect(); }
-
-        // default slot is -1 
-        if (newSlot == -1) { _inventorySlots[_selectedSlot].Deselect(); }
-        else
+        _inventorySlots[_selectedSlot].Deselect();
+        if (newSlot > -1 && newSlot < 10)
         {
             _inventorySlots[newSlot].Select();
             _selectedSlot = newSlot;
-        }    
+        } 
     }
 
     public bool AddItem(Item item)

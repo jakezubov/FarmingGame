@@ -1,0 +1,43 @@
+This asset includes 3 sprite sheets: 
+
+	weather effects 1.png
+	weather effects 2.png
+	weather effects 3.png
+
+Page 1 contains the cloud shadows, lightning bolts, rain drops, snow drops, and snow cover.
+
+	The cloud shadows are an auto-tile you'll want to paint on with a terrain brush. It will look best if it moves slowly across your map.
+	It should be on top of everything except maybe some other weather stuff, like the lightning bolts, the light rain, or light snow.
+
+	The top 5 tiles of both lightning bolts are repeatable and interchangeable, so you can make your bolt as high/long as it needs to be.
+	I would just flash one or the other on-screen very breifly while it's raining. Maybe with a full screen white flash for one frame, then a slow fade out.
+	You can alternate both bolts rapidly on top of one another to simulate a continuous flow of lightning.
+
+	The rain and snow drops are one-tile 8-frame animations. These are best sprinkled about in places where the drops would visibly impact.
+	That means not on tree tops or under any overhangs/bridges. And I wouldn't put snow drops on a snow-covered floor.
+	The rain and snow drops should run at different speeds. I like 75ms for rain drops, and 150ms for snow.
+
+	The snow cover is an autotile you can use with a terrain brush to cover the ground on your map.
+	It should be under the tree tops, character sprites, and other weather effects.
+
+Page 2 contains the two rainfall animations.
+
+	These are 8-frame animations, and the sprite is 32x128 pixels (2 tiles wide, 8 tiles high).
+	There's one row of "light rain" across the top half of the sheet. And then a row of "heavy rain" across the bottom half.
+	You can overlap them to make a pouring rain animation, but make sure you put the heavy rain animation on the lower layer.
+	The two rain animations should be run at different speeds. I use 50ms for the light rain, and 100ms for the heavy rain.
+
+Page 3 contains the two snowfall animations.
+
+	The snowfall animations are the exact same size and frame count as the rain animations.
+	Like the rainfall, you'll find light snow on the top half, heavy snow on the bottom half.
+	And again like the rainfall, you can overlap these, but put the heavy one behind the light one.
+	And yet again, the light and heavy snow should run at different speeds. I like 175ms for light snow, and 100ms for heavy snow.
+
+In all cases, you should feel free to experiment with the animation timing and find something that works for you.
+
+Hopefully that should answer any questions you have, but you can always hit me up elsewhere if you need some help:
+
+https://seliel-the-shaper.itch.io/
+https://www.patreon.com/selieltheshaper
+https://twitter.com/SelieltheShaper

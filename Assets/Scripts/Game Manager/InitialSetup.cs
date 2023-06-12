@@ -22,7 +22,7 @@ public class InitialSetup : MonoBehaviour
             if (SaveData.currentHealth == 0) { SaveData.currentHealth = SaveData.maxHealth; }
             if (SaveData.maxMana == 0) { SaveData.maxMana = 100; }
             if (SaveData.currentMana == 0) { SaveData.currentMana = SaveData.maxMana; }
-            if (SaveData.maxStamina == 0) { SaveData.maxStamina = 100; }
+            if (SaveData.maxStamina == 0) { SaveData.maxStamina = 1000; }
             if (SaveData.currentStamina == 0) { SaveData.currentStamina = SaveData.maxStamina; }
             if (SaveData.moveSpeed < 5) { SaveData.moveSpeed = 5; }
 
@@ -33,12 +33,5 @@ public class InitialSetup : MonoBehaviour
         _stats.LoadAllStats();
         _reputation.LoadAllReputation();
         _skills.LoadAllSkills();
-        _combat.LoadTraitLevels();
-        _magic.LoadTraitLevels();
-        _farming.LoadTraitLevels();
-        _mining.LoadTraitLevels();
-        _forestry.LoadTraitLevels();
-        _fishing.LoadTraitLevels();
-        _crafting.LoadTraitLevels();
     }
 }

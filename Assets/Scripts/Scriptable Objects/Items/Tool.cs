@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Object/Item/Tool")]
+[CreateAssetMenu(menuName = "Scriptable Object/Items/Tool")]
 public class Tool : Item
 {
     [Header("Gameplay")]

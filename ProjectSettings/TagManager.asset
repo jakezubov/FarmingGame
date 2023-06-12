@@ -12,6 +12,7 @@ TagManager:
   - Arrows
   - Enemy
   - SectionTabs
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX
@@ -49,33 +50,48 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ground
+  - name: Ground NC
     uniqueID: 773643511
     locked: 0
-  - name: Environmental Colliders
+  - name: Shallow Water NC
+    uniqueID: 109966543
+    locked: 0
+  - name: Environment C
     uniqueID: 920723773
     locked: 0
-  - name: Buildings
+  - name: Building Bottoms C
     uniqueID: 371999851
     locked: 0
-  - name: Building Extras
+  - name: Building Extras NC
     uniqueID: 3642402145
     locked: 0
-  - name: Resources
+  - name: Resources C
     uniqueID: 1399536027
     locked: 0
-  - name: Dropped Objects
+  - name: Environment Bottoms NC
+    uniqueID: 1834158487
+    locked: 0
+  - name: Dropped Objects NC
     uniqueID: 493738153
     locked: 0
-  - name: Highlight Tile
+  - name: Highlight Tile NC
     uniqueID: 3319646829
     locked: 0
-  - name: Player
+  - name: Player C
     uniqueID: 281482437
     locked: 0
-  - name: Objects No Collider
+  - name: Buildings C
+    uniqueID: 926798539
+    locked: 0
+  - name: Building Tops NC
     uniqueID: 4001750517
     locked: 0
-  - name: UI
+  - name: Tree Wall C
+    uniqueID: 2113266843
+    locked: 0
+  - name: Environment Tops NC
+    uniqueID: 228868595
+    locked: 0
+  - name: UI NC
     uniqueID: 762150449
     locked: 0

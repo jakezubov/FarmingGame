@@ -15,11 +15,12 @@ public class EnemyMovement : MonoBehaviour
     private bool _hasDestination = false;
     private bool _isChasing = false;
     private float _walkSpeed;
+    private int _travelDistance = 10;
     
 
     private void Start()
     {
-        _tilemap = GameObject.Find("Ground").GetComponent<Tilemap>();   
+        _tilemap = GameObject.Find("Ground NC").GetComponent<Tilemap>();   
         _walkSpeed = GetComponentInParent<SetupEnemy>()._enemy.walkSpeed;
 
         // creates desination object, sets the spawner as the parent and gives it to the EnemyDeath script so it can be deleted on death
@@ -33,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
         while (!_hasDestination)
         {
             // picks a random destination in a sphere
-            Vector3 randPos = Random.insideUnitSphere * 20;
+            Vector3 randPos = transform.position + Random.insideUnitSphere * _travelDistance;
             randPos.z = 0;
 
             // gives destination to Astar pathfinder
@@ -56,8 +57,6 @@ public class EnemyMovement : MonoBehaviour
         // once the player is a certain distance away the enemy will resume wandering
         if (_isChasing && Vector3.Distance(transform.position, _aiDest.target.position) > 10.0f )
         {    
-            _anim.SetBool("Walk", true);
-            _anim.SetBool("Run", false);
             _aiPath.maxSpeed = _walkSpeed;
             _isChasing = false;
             _hasDestination = false;
@@ -73,15 +72,13 @@ public class EnemyMovement : MonoBehaviour
         {
             _currentCell.x += 1;
             SetAllAnimationsFalse();
-            _anim.SetBool("MoveSide", true);
-            transform.parent.GetComponentInParent<Transform>().localScale = new Vector3(1f, 1f, 1f);
+            _anim.SetBool("MoveRight", true);
         }
         else if (_aiPath.desiredVelocity.x <= -0.01f && _aiPath.desiredVelocity.x < _aiPath.desiredVelocity.y)
         {
             _currentCell.x -= 1;
             SetAllAnimationsFalse();
-            _anim.SetBool("MoveSide", true);
-            transform.parent.GetComponentInParent<Transform>().localScale = new Vector3(-1f, 1f, 1f);
+            _anim.SetBool("MoveLeft", true);
         }
         else if (_aiPath.desiredVelocity.y >= 0.01f && _aiPath.desiredVelocity.y > _aiPath.desiredVelocity.x)
         {
@@ -102,8 +99,6 @@ public class EnemyMovement : MonoBehaviour
         // if the player comes in range the enemy will start chasing 
         if (collision.CompareTag("Player"))
         {
-            _anim.SetBool("Run", true);
-            _anim.SetBool("Walk", false);
             _aiPath.maxSpeed = _walkSpeed*2;
             _aiDest.target = collision.gameObject.transform;
             _isChasing = true;
@@ -113,7 +108,8 @@ public class EnemyMovement : MonoBehaviour
     // default state for animations
     private void SetAllAnimationsFalse()
     {
-        _anim.SetBool("MoveSide", false);
+        _anim.SetBool("MoveLeft", false);
+        _anim.SetBool("MoveRight", false);
         _anim.SetBool("MoveUp", false);
         _anim.SetBool("MoveDown", false);
     }

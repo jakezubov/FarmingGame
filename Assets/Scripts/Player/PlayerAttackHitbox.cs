@@ -15,7 +15,7 @@ public class PlayerAttackHitbox : MonoBehaviour
                     Tool tool = (Tool)InventoryManager._instance.GetSelectedToolbarItem(false);
 
                     // if hitbox hits an enemy do damage based on the tools damage and the melee affinity modifier
-                    tool.damage *= (1f + _combat.GetMeleeAffinityExtraDamagePercentage() / 100f);
+                    tool.damage *= (1f + (SaveData.meleeAffinityLevel * 2) / 100f);
                     collision.GetComponentInChildren<ChangeSlider>().LowerValue(Mathf.RoundToInt(tool.damage));
                 }
                 else if (InventoryManager._instance.GetSelectedToolbarItem(false).type == Type.Weapon) 
@@ -24,12 +24,12 @@ public class PlayerAttackHitbox : MonoBehaviour
                     if (weapon.weaponType == WeaponType.Bow || weapon.weaponType == WeaponType.Crossbow)
                     {
                         // if hitbox hits an enemy do damage based on the weapons damage and the ranged affinity modifier
-                        weapon.damage *= (1f + _combat.GetRangedAffinityExtraDamagePercentage() / 100f);
+                        weapon.damage *= (1f + (SaveData.rangedAffinityLevel * 2) / 100f);
                     } 
                     else 
                     {
                         // if hitbox hits an enemy do damage based on the weapons damage and the melee affinity modifier
-                        weapon.damage *= (1f + _combat.GetMeleeAffinityExtraDamagePercentage() / 100f); 
+                        weapon.damage *= (1f + (SaveData.meleeAffinityLevel * 2) / 100f); 
                     }
                     collision.GetComponentInChildren<ChangeSlider>().LowerValue(Mathf.RoundToInt(weapon.damage));
                 }

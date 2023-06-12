@@ -100,15 +100,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Slot0"",
-                    ""type"": ""Button"",
-                    ""id"": ""ec7f9830-a854-4136-8235-281b7dce03f1"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Slot1"",
                     ""type"": ""Button"",
                     ""id"": ""8729c05b-3a5d-45f1-831e-f8c171fb7ff8"",
@@ -166,6 +157,33 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""name"": ""Slot7"",
                     ""type"": ""Button"",
                     ""id"": ""e5201627-a9de-45e9-b172-0554a8f38666"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot8"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b7e1ba5-ad6c-4337-8f91-675c8e56eb21"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot9"",
+                    ""type"": ""Button"",
+                    ""id"": ""ec7f9830-a854-4136-8235-281b7dce03f1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot10"",
+                    ""type"": ""Button"",
+                    ""id"": ""38952650-9d07-4923-8428-7ed7f743702a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -264,7 +282,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 {
                     ""name"": """",
                     ""id"": ""82011270-4a93-4687-852e-1d646c5e1f80"",
-                    ""path"": ""<Keyboard>/8"",
+                    ""path"": ""<Keyboard>/7"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -274,19 +292,8 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6a5ad0e4-d977-46c7-938d-bf68e872f22d"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Slot0"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""2bcdb4c5-5d0c-44fb-8daa-e9e441f81ef8"",
-                    ""path"": ""<Keyboard>/2"",
+                    ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -297,7 +304,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 {
                     ""name"": """",
                     ""id"": ""07fda538-c7ff-4f13-8411-a6e131b903cb"",
-                    ""path"": ""<Keyboard>/3"",
+                    ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -308,7 +315,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 {
                     ""name"": """",
                     ""id"": ""e8532d3f-74f9-4b09-a424-82473aa01fe0"",
-                    ""path"": ""<Keyboard>/4"",
+                    ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -319,7 +326,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 {
                     ""name"": """",
                     ""id"": ""8cc239c2-e11e-4b7e-8bae-1253084bc36e"",
-                    ""path"": ""<Keyboard>/5"",
+                    ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -330,7 +337,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 {
                     ""name"": """",
                     ""id"": ""05aff15d-fae5-4ecb-9993-9bbb7a9be16f"",
-                    ""path"": ""<Keyboard>/6"",
+                    ""path"": ""<Keyboard>/5"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -341,7 +348,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 {
                     ""name"": """",
                     ""id"": ""def25abc-1060-46e8-ba93-db5ed6a0ac88"",
-                    ""path"": ""<Keyboard>/7"",
+                    ""path"": ""<Keyboard>/6"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -456,6 +463,39 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4999410a-f1a3-4403-ade7-0ce442232f2b"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cce6bd22-4900-482d-9c18-e2c4d21861a0"",
+                    ""path"": ""<Keyboard>/0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot10"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6a5ad0e4-d977-46c7-938d-bf68e872f22d"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot9"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -777,7 +817,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         m_General_Map = m_General.FindAction("Map", throwIfNotFound: true);
         m_General_Interact = m_General.FindAction("Interact", throwIfNotFound: true);
         m_General_ChangeSlots = m_General.FindAction("ChangeSlots", throwIfNotFound: true);
-        m_General_Slot0 = m_General.FindAction("Slot0", throwIfNotFound: true);
         m_General_Slot1 = m_General.FindAction("Slot1", throwIfNotFound: true);
         m_General_Slot2 = m_General.FindAction("Slot2", throwIfNotFound: true);
         m_General_Slot3 = m_General.FindAction("Slot3", throwIfNotFound: true);
@@ -785,6 +824,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         m_General_Slot5 = m_General.FindAction("Slot5", throwIfNotFound: true);
         m_General_Slot6 = m_General.FindAction("Slot6", throwIfNotFound: true);
         m_General_Slot7 = m_General.FindAction("Slot7", throwIfNotFound: true);
+        m_General_Slot8 = m_General.FindAction("Slot8", throwIfNotFound: true);
+        m_General_Slot9 = m_General.FindAction("Slot9", throwIfNotFound: true);
+        m_General_Slot10 = m_General.FindAction("Slot10", throwIfNotFound: true);
         // SpellBook
         m_SpellBook = asset.FindActionMap("SpellBook", throwIfNotFound: true);
         m_SpellBook_CloseSpellBook = m_SpellBook.FindAction("CloseSpellBook", throwIfNotFound: true);
@@ -866,7 +908,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
     private readonly InputAction m_General_Map;
     private readonly InputAction m_General_Interact;
     private readonly InputAction m_General_ChangeSlots;
-    private readonly InputAction m_General_Slot0;
     private readonly InputAction m_General_Slot1;
     private readonly InputAction m_General_Slot2;
     private readonly InputAction m_General_Slot3;
@@ -874,6 +915,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
     private readonly InputAction m_General_Slot5;
     private readonly InputAction m_General_Slot6;
     private readonly InputAction m_General_Slot7;
+    private readonly InputAction m_General_Slot8;
+    private readonly InputAction m_General_Slot9;
+    private readonly InputAction m_General_Slot10;
     public struct GeneralActions
     {
         private @PlayerActionControls m_Wrapper;
@@ -886,7 +930,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         public InputAction @Map => m_Wrapper.m_General_Map;
         public InputAction @Interact => m_Wrapper.m_General_Interact;
         public InputAction @ChangeSlots => m_Wrapper.m_General_ChangeSlots;
-        public InputAction @Slot0 => m_Wrapper.m_General_Slot0;
         public InputAction @Slot1 => m_Wrapper.m_General_Slot1;
         public InputAction @Slot2 => m_Wrapper.m_General_Slot2;
         public InputAction @Slot3 => m_Wrapper.m_General_Slot3;
@@ -894,6 +937,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         public InputAction @Slot5 => m_Wrapper.m_General_Slot5;
         public InputAction @Slot6 => m_Wrapper.m_General_Slot6;
         public InputAction @Slot7 => m_Wrapper.m_General_Slot7;
+        public InputAction @Slot8 => m_Wrapper.m_General_Slot8;
+        public InputAction @Slot9 => m_Wrapper.m_General_Slot9;
+        public InputAction @Slot10 => m_Wrapper.m_General_Slot10;
         public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -927,9 +973,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @ChangeSlots.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
                 @ChangeSlots.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
                 @ChangeSlots.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnChangeSlots;
-                @Slot0.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot0;
-                @Slot0.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot0;
-                @Slot0.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot0;
                 @Slot1.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot1;
                 @Slot1.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot1;
                 @Slot1.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot1;
@@ -951,6 +994,15 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Slot7.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot7;
                 @Slot7.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot7;
                 @Slot7.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot7;
+                @Slot8.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot8;
+                @Slot8.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot8;
+                @Slot8.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot8;
+                @Slot9.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot9;
+                @Slot9.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot9;
+                @Slot9.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot9;
+                @Slot10.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot10;
+                @Slot10.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot10;
+                @Slot10.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSlot10;
             }
             m_Wrapper.m_GeneralActionsCallbackInterface = instance;
             if (instance != null)
@@ -979,9 +1031,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @ChangeSlots.started += instance.OnChangeSlots;
                 @ChangeSlots.performed += instance.OnChangeSlots;
                 @ChangeSlots.canceled += instance.OnChangeSlots;
-                @Slot0.started += instance.OnSlot0;
-                @Slot0.performed += instance.OnSlot0;
-                @Slot0.canceled += instance.OnSlot0;
                 @Slot1.started += instance.OnSlot1;
                 @Slot1.performed += instance.OnSlot1;
                 @Slot1.canceled += instance.OnSlot1;
@@ -1003,6 +1052,15 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 @Slot7.started += instance.OnSlot7;
                 @Slot7.performed += instance.OnSlot7;
                 @Slot7.canceled += instance.OnSlot7;
+                @Slot8.started += instance.OnSlot8;
+                @Slot8.performed += instance.OnSlot8;
+                @Slot8.canceled += instance.OnSlot8;
+                @Slot9.started += instance.OnSlot9;
+                @Slot9.performed += instance.OnSlot9;
+                @Slot9.canceled += instance.OnSlot9;
+                @Slot10.started += instance.OnSlot10;
+                @Slot10.performed += instance.OnSlot10;
+                @Slot10.canceled += instance.OnSlot10;
             }
         }
     }
@@ -1138,7 +1196,6 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         void OnMap(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnChangeSlots(InputAction.CallbackContext context);
-        void OnSlot0(InputAction.CallbackContext context);
         void OnSlot1(InputAction.CallbackContext context);
         void OnSlot2(InputAction.CallbackContext context);
         void OnSlot3(InputAction.CallbackContext context);
@@ -1146,6 +1203,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         void OnSlot5(InputAction.CallbackContext context);
         void OnSlot6(InputAction.CallbackContext context);
         void OnSlot7(InputAction.CallbackContext context);
+        void OnSlot8(InputAction.CallbackContext context);
+        void OnSlot9(InputAction.CallbackContext context);
+        void OnSlot10(InputAction.CallbackContext context);
     }
     public interface ISpellBookActions
     {

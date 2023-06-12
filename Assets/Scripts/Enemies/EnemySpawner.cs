@@ -3,34 +3,36 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public Enemy[] _enemies;
-    public int _resetCooldown;
-    public int _maxEnemies;
     public GameObject _prefab;
+    public int _cooldown;
+    public int _maxEnemies;
 
-    private float _cooldown;
+    private float _currentCooldown;
     private bool _playerInRange;
 
     void Start()
     {
-        _cooldown = _resetCooldown;    
+        _currentCooldown = 1;    
     }
 
     void Update()
     {
-        // spawns enemy if player isnt in range and the max amount of enimies isnt currently spawned by the spawner
-        if (!_playerInRange && transform.childCount < _maxEnemies)
+        // spawns enemy if player isnt in range and the max amount of enimies isnt spawned by the spawner
+        if (!_playerInRange && _maxEnemies > 0)
         {
-            _cooldown -= Time.deltaTime;
+            _currentCooldown -= Time.deltaTime;
 
-            if (_cooldown <= 0)
+            if (_currentCooldown <= 0)
             {
-                _cooldown = _resetCooldown;
+                _currentCooldown = _cooldown;
 
                 GameObject newEnemy = Instantiate(_prefab, transform.position, Quaternion.identity);
                 newEnemy.transform.SetParent(transform);
 
                 Enemy randEnemy = _enemies[Random.Range(0, _enemies.Length)];
                 newEnemy.GetComponentInChildren<SetupEnemy>()._enemy = randEnemy;
+
+                _maxEnemies--;
             }
         }
     }
