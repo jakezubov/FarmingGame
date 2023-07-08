@@ -64,14 +64,12 @@
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Generators\Utilities\PointKDTree.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Modifiers\AlternativePath.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Generators\Utilities\NavmeshTile.cs" />
-    <Compile Include="Assets\Extra Packages\Astar Pathfinding\ExampleScenes\ExampleScripts\DoorController.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\Misc\GraphModifier.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\PackageTools\EnumFlagAttribute.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\AI\IAstarAI.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Legacy\LegacyAIPath.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Generators\NodeClasses\GridNodeBase.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\Serialization\JsonConverters.cs" />
-    <Compile Include="Assets\Extra Packages\Astar Pathfinding\ExampleScenes\ExampleScripts\ObjectPlacer.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Behaviors\AIDestinationSetter.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\Misc\WindowsStoreCompatibility.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Navmesh\RelevantGraphSurface.cs" />
@@ -119,7 +117,6 @@
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\Misc\AutoRepathPolicy.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Utilities\AstarChecksum.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Generators\Utilities\EuclideanEmbedding.cs" />
-    <Compile Include="Assets\Extra Packages\Astar Pathfinding\ExampleScenes\Example12_Procedural\ProceduralWorld.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Legacy\Editor\LegacyAIPathEditor.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\Misc\ThreadControlQueue.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Legacy\Editor\LegacyRVOControllerEditor.cs" />
@@ -133,9 +130,6 @@
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Utilities\RetainedGizmos.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\Serialization\SimpleJsonReplacement.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Modifiers\RaycastModifier.cs" />
-    <Compile Include="Assets\Extra Packages\Astar Pathfinding\ExampleScenes\ExampleScripts\MineBotAnimation.cs" />
-    <Compile Include="Assets\Extra Packages\Astar Pathfinding\ExampleScenes\ExampleScripts\AstarSmoothFollow2.cs" />
-    <Compile Include="Assets\Extra Packages\Astar Pathfinding\ExampleScenes\ExampleScripts\SnapToNode.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Legacy\MiscLegacy.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\Misc\NodeLink.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\AstarData.cs" />
@@ -143,7 +137,6 @@
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Utilities\AstarMemory.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Utilities\DotNetReplacements.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\AI\NavmeshController.cs" />
-    <Compile Include="Assets\Extra Packages\Astar Pathfinding\ExampleScenes\ExampleScripts\TargetMover.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\Misc\GraphEditorBase.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\Misc\ArrayPool.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Legacy\Editor\LegacyEditorHelper.cs" />
@@ -152,7 +145,6 @@
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\AstarMath.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Utilities\ProfileHelper.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Utilities\GraphUpdateUtilities.cs" />
-    <Compile Include="Assets\Extra Packages\Astar Pathfinding\ExampleScenes\ExampleScripts\MineBotAI.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Utilities\ProceduralGridMover.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Generators\Utilities\GraphTransform.cs" />
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Modifiers\StartEndModifier.cs" />
@@ -168,13 +160,10 @@
     <Compile Include="Assets\Extra Packages\Astar Pathfinding\Core\astarclasses.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Extra Packages\Astar Pathfinding\ExampleScenes\_Example Scenes.txt" />
     <None Include="Assets\Extra Packages\Astar Pathfinding\Readme.txt" />
     <None Include="Assets\Extra Packages\Astar Pathfinding\Plugins\DotNetZip\DotNetZipLicense.txt" />
     <None Include="Assets\Extra Packages\Astar Pathfinding\Readme_upgrading.txt" />
-    <None Include="Assets\Extra Packages\Astar Pathfinding\ExampleScenes\Materials\Projector Light.shader" />
     <None Include="Assets\Extra Packages\Astar Pathfinding\link.xml" />
-    <None Include="Assets\Extra Packages\Astar Pathfinding\ExampleScenes\Materials\DiffuseAlwaysVisible.shader" />
     <None Include="Assets\Extra Packages\Astar Pathfinding\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll" />
     <None Include="Assets\Extra Packages\Astar Pathfinding\Plugins\dependencies.txt" />
     <None Include="Assets\Extra Packages\Astar Pathfinding\AstarPathfindingProject.asmdef" />
