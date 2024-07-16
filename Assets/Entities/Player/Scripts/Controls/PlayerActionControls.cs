@@ -281,6 +281,17 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 },
                 {
                     ""name"": """",
+                    ""id"": ""bd8aced0-7662-4c32-a24c-cdc190391674"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenSpellBook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""82011270-4a93-4687-852e-1d646c5e1f80"",
                     ""path"": ""<Keyboard>/7"",
                     ""interactions"": """",

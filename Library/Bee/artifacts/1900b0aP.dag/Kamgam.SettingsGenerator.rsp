@@ -1,0 +1,492 @@
+-target:library
+-out:"Library/Bee/artifacts/1900b0aP.dag/Kamgam.SettingsGenerator.dll"
+-refout:"Library/Bee/artifacts/1900b0aP.dag/Kamgam.SettingsGenerator.ref.dll"
+-define:UNITY_2021_3_18
+-define:UNITY_2021_3
+-define:UNITY_2021
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_4_OR_NEWER
+-define:UNITY_5_5_OR_NEWER
+-define:UNITY_5_6_OR_NEWER
+-define:UNITY_2017_1_OR_NEWER
+-define:UNITY_2017_2_OR_NEWER
+-define:UNITY_2017_3_OR_NEWER
+-define:UNITY_2017_4_OR_NEWER
+-define:UNITY_2018_1_OR_NEWER
+-define:UNITY_2018_2_OR_NEWER
+-define:UNITY_2018_3_OR_NEWER
+-define:UNITY_2018_4_OR_NEWER
+-define:UNITY_2019_1_OR_NEWER
+-define:UNITY_2019_2_OR_NEWER
+-define:UNITY_2019_3_OR_NEWER
+-define:UNITY_2019_4_OR_NEWER
+-define:UNITY_2020_1_OR_NEWER
+-define:UNITY_2020_2_OR_NEWER
+-define:UNITY_2020_3_OR_NEWER
+-define:UNITY_2021_1_OR_NEWER
+-define:UNITY_2021_2_OR_NEWER
+-define:UNITY_2021_3_OR_NEWER
+-define:PLATFORM_ARCH_64
+-define:UNITY_64
+-define:ENABLE_AR
+-define:ENABLE_AUDIO
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_EVENT_QUEUE
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_TEXTURE_STREAMING
+-define:ENABLE_VIRTUALTEXTURING
+-define:ENABLE_UNET
+-define:ENABLE_LZMA
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_VR
+-define:ENABLE_WEBCAM
+-define:ENABLE_UNITYWEBREQUEST
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_COLLAB
+-define:ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS
+-define:ENABLE_CLOUD_SERVICES_ADS
+-define:ENABLE_CLOUD_SERVICES_USE_WEBREQUEST
+-define:ENABLE_CLOUD_SERVICES_CRASH_REPORTING
+-define:ENABLE_CLOUD_SERVICES_PURCHASING
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_SERVICES_BUILD
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_EDITOR_HUB_LICENSE
+-define:ENABLE_WEBSOCKET_CLIENT
+-define:ENABLE_DIRECTOR_AUDIO
+-define:ENABLE_DIRECTOR_TEXTURE
+-define:ENABLE_MANAGED_JOBS
+-define:ENABLE_MANAGED_TRANSFORM_JOBS
+-define:ENABLE_MANAGED_ANIMATION_JOBS
+-define:ENABLE_MANAGED_AUDIO_JOBS
+-define:ENABLE_MANAGED_UNITYTLS
+-define:INCLUDE_DYNAMIC_GI
+-define:ENABLE_SCRIPTING_GC_WBARRIERS
+-define:PLATFORM_SUPPORTS_MONO
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_VIDEO
+-define:ENABLE_ACCELERATOR_CLIENT_DEBUGGING
+-define:PLATFORM_STANDALONE
+-define:TEXTCORE_1_0_OR_NEWER
+-define:PLATFORM_STANDALONE_WIN
+-define:UNITY_STANDALONE_WIN
+-define:UNITY_STANDALONE
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_MOVIES
+-define:ENABLE_NETWORK
+-define:ENABLE_NVIDIA
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT
+-define:ENABLE_OUT_OF_PROCESS_CRASH_HANDLER
+-define:ENABLE_CLUSTER_SYNC
+-define:ENABLE_CLUSTERINPUT
+-define:PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP
+-define:GFXDEVICE_WAITFOREVENT_MESSAGEPUMP
+-define:ENABLE_WEBSOCKET_HOST
+-define:ENABLE_MONO
+-define:NET_STANDARD_2_0
+-define:NET_STANDARD
+-define:NET_STANDARD_2_1
+-define:NETSTANDARD
+-define:NETSTANDARD2_1
+-define:ENABLE_CUSTOM_RENDER_TEXTURE
+-define:ENABLE_DIRECTOR
+-define:ENABLE_LOCALIZATION
+-define:ENABLE_SPRITES
+-define:ENABLE_TERRAIN
+-define:ENABLE_TILEMAP
+-define:ENABLE_TIMELINE
+-define:ENABLE_INPUT_SYSTEM
+-define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:UNITY_POST_PROCESSING_STACK_V2
+-define:KAMGAM_POST_PRO_BUILTIN
+-define:CSHARP_7_OR_LATER
+-define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Extra Packages/Astar Pathfinding/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.ComponentModel.Composition.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Core.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Data.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Drawing.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.IO.Compression.FileSystem.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Net.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Numerics.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Runtime.Serialization.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.ServiceModel.Web.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Transactions.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Web.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Windows.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Xml.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Linq.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Serialization.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/Microsoft.Win32.Primitives.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.AppContext.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Buffers.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Concurrent.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.NonGeneric.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Specialized.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.EventBasedAsync.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.Primitives.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.TypeConverter.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Console.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Data.Common.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Contracts.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Debug.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.FileVersionInfo.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Process.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.StackTrace.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TextWriterTraceListener.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tools.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TraceSource.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tracing.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Drawing.Primitives.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Dynamic.Runtime.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Calendars.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Extensions.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.ZipFile.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.DriveInfo.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Primitives.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Watcher.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.IsolatedStorage.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.MemoryMappedFiles.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Pipes.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.UnmanagedMemoryStream.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Expressions.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Parallel.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Queryable.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Memory.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Http.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NameResolution.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NetworkInformation.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Ping.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Primitives.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Requests.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Security.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Sockets.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebHeaderCollection.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.Client.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Numerics.Vectors.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ObjectModel.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.DispatchProxy.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.ILGeneration.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.Lightweight.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Extensions.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Primitives.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Reader.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.ResourceManager.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Writer.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.CompilerServices.VisualC.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Extensions.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Handles.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.RuntimeInformation.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Numerics.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Formatters.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Json.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Primitives.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Xml.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Claims.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Algorithms.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Csp.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Encoding.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Primitives.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.X509Certificates.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Principal.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.SecureString.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.Extensions.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Text.RegularExpressions.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Overlapped.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Extensions.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Parallel.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Thread.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.ThreadPool.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Timer.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ValueTuple.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.ReaderWriter.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XDocument.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlDocument.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlSerializer.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.XDocument.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.AccessibilityModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.AIModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.AndroidJNIModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.AnimationModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.ARModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.AssetBundleModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.AudioModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.ClothModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.ClusterInputModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.ClusterRendererModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.CoreModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.CrashReportingModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.DirectorModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.DSPGraphModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.GameCenterModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.GIModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.GridModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.HotReloadModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.ImageConversionModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.IMGUIModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.InputLegacyModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.InputModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.JSONSerializeModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.LocalizationModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.ParticleSystemModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.PerformanceReportingModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.Physics2DModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.PhysicsModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.ProfilerModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.ScreenCaptureModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.SharedInternalsModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.SpriteMaskModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.SpriteShapeModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.StreamingModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.SubstanceModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.SubsystemsModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.TerrainModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.TerrainPhysicsModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.TextCoreFontEngineModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.TextCoreTextEngineModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.TextRenderingModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.TilemapModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.TLSModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UIElementsModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UIElementsNativeModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UIModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UmbraModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UNETModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UnityAnalyticsCommonModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UnityAnalyticsModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UnityConnectModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UnityCurlModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UnityTestProtocolModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UnityWebRequestAudioModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UnityWebRequestModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UnityWebRequestTextureModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.UnityWebRequestWWWModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.VehiclesModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.VFXModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.VideoModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.VirtualTexturingModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.VRModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.WindModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.XRModule.dll"
+-r:"C:/Users/jake_/ProjectAlpha/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll"
+-r:"C:/Users/jake_/ProjectAlpha/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll"
+-r:"C:/Users/jake_/ProjectAlpha/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll"
+-r:"C:/Users/jake_/ProjectAlpha/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll"
+-r:"C:/Users/jake_/ProjectAlpha/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/Kamgam.UGUIComponentsForSettings.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/LocalizationsForSettings.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/Unity.InputSystem.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Postprocessing.Runtime.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/Unity.TextMeshPro.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/UnityEngine.UI.ref.dll"
+"Assets/Extra Packages/Settings Generator/Runtime/EditorScripts/CrossCompileCallbacks.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/EditorScripts/Logger.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/EditorScripts/PackageImporter.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/EditorScripts/SettingsGeneratorSettings.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/CollectionExtensions.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Connection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/ConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/ConnectionWithOptions.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/CameraDetector.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/ExposedList.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/FindComponentUtils.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/HDRenderPipelineUtils.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/LayerUtils.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/LightDetector.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/LightDetectorComponent.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/MathUtils.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/Quality/QualityPreset.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/Quality/QualityPreset.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/Quality/QualityPreset.URP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/Quality/QualityPresets.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/Quality/QualitySettingUtils.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/RenderPipelineRestoreEditorUtils.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/RenderUtils.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/ScreenOrchestrator.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/UniversalRenderPipelineUtils.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/Volume/ISettingsVolumeControl.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/Volume/SettingsVolume.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/Volume/SettingsVolumeAmbientLightControlHDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Helpers/Volume/SettingsVolumeShadowControlHDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/IConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/IConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/IConnectionWithOptions.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AmbientLightConnection.BuiltInAndURP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AmbientLightConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AmbientLightConnection.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AmbientLightConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AmbientOcclusionConnection.BuiltIn.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AmbientOcclusionConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AmbientOcclusionConnection.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AmbientOcclusionConnection.URP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AmbientOcclusionConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AntiAliasingConnection.BuiltIn.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AntiAliasingConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AntiAliasingConnection.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AntiAliasingConnection.URP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AntiAliasingConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AudioPausedConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AudioPausedConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AudioSourceVolumeConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AudioSourceVolumeConnectionComponent.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AudioVolumeConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/AudioVolumeConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/BloomConnection.BuiltIn.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/BloomConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/BloomConnection.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/BloomConnection.URP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/BloomConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/DepthOfFieldConnection.BuiltIn.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/DepthOfFieldConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/DepthOfFieldConnection.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/DepthOfFieldConnection.URP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/DepthOfFieldConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/FrameRateConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/FrameRateConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/FullScreenConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/FullScreenConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/GammaConnection.BuiltIn.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/GammaConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/GammaConnection.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/GammaConnection.URP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/GammaConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/GetSetConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/GetSetConnectionWithOptions.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/InputActionRebindingExtensionsExtensions.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/InputBindingConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/InputBindingConnectionCreator.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/InputBindingConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/InputBindingConnectionSOEditor.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/MonitorConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/MonitorConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/MotionBlurConnection.BuiltIn.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/MotionBlurConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/MotionBlurConnection.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/MotionBlurConnection.URP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/MotionBlurConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/MultiColorConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/MultiColorConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/PostProcessingEffectEnabledConnectionBuiltIn.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/QualityConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/QualityConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/RefreshRateConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/RefreshRateConnection.RefreshRatio.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/RefreshRateConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ResolutionConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ResolutionConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowConnection.BuiltIn.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowConnection.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowConnection.URP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowDistanceConnection.BuiltIn.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowDistanceConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowDistanceConnection.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowDistanceConnection.URP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowDistanceConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowResolutionConnection.BuiltIn.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowResolutionConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowResolutionConnection.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowResolutionConnection.URP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/ShadowResolutionConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/TextureResolutionConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/TextureResolutionConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/VignetteConnection.BuiltIn.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/VignetteConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/VignetteConnection.HDRP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/VignetteConnection.URP.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/VignetteConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/VSyncConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/VSyncConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/WindowModeConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/Implementations/WindowModeConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/TypedConnectionSOs/BoolConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/TypedConnectionSOs/ColorConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/TypedConnectionSOs/ColorOptionConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/TypedConnectionSOs/FloatConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/TypedConnectionSOs/IntConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/TypedConnectionSOs/KeyCombinationConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/TypedConnectionSOs/OptionConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Connections/TypedConnectionSOs/StringConnectionSO.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/IQualityChangeReceiver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/ISettingResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/SettingResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/UGUI/ColorPickerUGUIResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/UGUI/DropDownUGUIResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/UGUI/InputBindingUGUIResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/UGUI/InputKeyUGUIResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/UGUI/OptionsButtonUGUIResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/UGUI/RandomColorUGUIResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/UGUI/SliderUGUIResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/UGUI/StepperUGUIResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/UGUI/TextfieldUGUIResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Resolvers/UGUI/ToggleUGUIResolver.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/ScriptableObjectDomainReloadUtils.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Serialization/SettingData.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Serialization/SettingFieldsData.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Serialization/SettingsSerializer.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/DisableIfAttribute.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/Implementations/KeyCombination.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/Implementations/SettingBool.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/Implementations/SettingColor.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/Implementations/SettingColorOption.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/Implementations/SettingFloat.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/Implementations/SettingInt.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/Implementations/SettingKeyCombination.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/Implementations/SettingOption.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/Implementations/SettingString.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/ISetting.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/ISettingWithConnection.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/ISettingWithOptions.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/ISettingWithValue.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Setting/SettingWithValue.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/SettingPathAttribute.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Settings.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/Settings.Reset.cs"
+"Assets/Extra Packages/Settings Generator/Runtime/Scripts/SettingsProvider.cs"
+-langversion:9.0
+
+/deterministic
+/optimize+
+/debug:portable
+/nologo
+/RuntimeMetadataVersion:v4.0.30319
+
+/nowarn:0169
+/nowarn:0649
+/nowarn:1701
+/nowarn:1702
+/utf8output
+/preferreduilang:en-US
+
+
+/additionalfile:"Library/Bee/artifacts/1900b0aP.dag/Kamgam.SettingsGenerator.AdditionalFile.txt"

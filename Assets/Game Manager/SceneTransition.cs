@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class SceneTransition : MonoBehaviour
 {
-    public SceneAsset _scene;
+    public string sceneName;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            GameObject.Find("Black Fade").GetComponent<SceneFade>().FadeOut(_scene.name);
+            GameObject.Find("Black Fade").GetComponent<SceneFade>().FadeOut(sceneName);
         }
     }
 }
